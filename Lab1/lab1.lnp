@@ -1,0 +1,5 @@
+--cpu Cortex-M3 "glcd_spi_lpc1700.o" "system_lpc17xx.o" "main.o" "startup_lpc17xx.o" 
+--strict --scatter "lab1.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\lab1.map" -o lab1.axf
