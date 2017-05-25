@@ -1,9 +1,14 @@
-#include <lpc17xx.h> // definition for registers on LPC1786
-#include "glcd.h" // definition for display routeins that put text and graphics on the LCD
+#include <lpc17xx.h> 
+#include "glcd.h"
+#include "fsm.h"
+
+/* Thermostat */
+
 
 // Global variable
 const led_pos[8] = { 28, 29, 31, 2, 3, 4, 5, 6 };
 int led = 7;
+
 
 void input_init(void) 
 {
@@ -41,49 +46,104 @@ unsigned char read_joystick(void)
     return kbd_val;
 }
 
+unsigned char debounce(void) 
+{
+    // debounce: read the value 3 times in a row
+    char debounce_frame[3] = {0};
+    char kbd_val; 
+    debounce_frame[0] = read_joystick();
+    debounce_frame[1] = read_joystick();
+    debounce_frame[2] = read_joystick();
+    
+    if ((debounce_frame[0] == 0x08 && debounce_frame[1] == 0x08 && debounce_frame[2] == 0x08)
+        || (debounce_frame[0] == 0x20 && debounce_frame[1] == 0x20 && debounce_frame[2] == 0x20))
+    {
+        kbd_val = debounce_frame[2];
+    }
+   
+    return kbd_val;    
+}
+
 void led_init(void) 
 {
     // configure LEDs 
-    LPC_GPIO1->FIODIR |= 0xB0000000;  // LEDs on PORT1 P1.28..29, P1.31 is output  // 1011 0000 0000 0000 0000 0000 0000 0000
-    LPC_GPIO2->FIODIR |= 0X0000007C;  // LEDs on PORT2 P2.2..6 is output           // 0000 0000 0000 0000 0000 0000 0111 1100
+    LPC_GPIO1->FIODIR |= 0xB0000000; // LEDs on PORT1 P1.28..29, P1.31 is output  // 1011 0000 0000 0000 0000 0000 0000 0000
+    LPC_GPIO2->FIODIR |= 0X0000007C; // LEDs on PORT2 P2.2..6 is output           // 0000 0000 0000 0000 0000 0000 0111 1100
 }
 
 void potentiometer_init(void)
 {
-    LPC_PINCON->PINSEL1 &= ~(3<<18);
-    LPC_PINCON->PINSEL1 |= (1<<18); // P0.25 is AD0.2
+    LPC_SC->PCONP |= (1 << 12);      // enable power to ADC
+    
+    LPC_PINCON->PINSEL1 &= ~(3<<18); // clear bits
+    LPC_PINCON->PINSEL1 |= (1<<18);  // set bits P0.25 is AD0.2
+    
+    LPC_ADC->ADCR =  ( 1 <<  2 ) |   // select the second channel
+                     ( 4 <<  8 ) |   // ADC clock = 25 MHz / 5
+                     ( 1 << 21 );    // enable ADC
+    
+    LPC_ADC->ADINTEN = ( 1 << 8 );   // enable interrupt for all ADC channels
+    
+    //NVIC_EnableIRQ(ADC_IRQn);      // register interrupt
 }
 
-
-
-
 // Turns LED on and off to simulate the furnace
-void check_furnace(int temp, int led) 
+void check_furnace(int desired_temp, int current_temp, int led) 
 {
     int mask = 1 << led_pos[led];
 
     if (led < 3) {
-        if (temp < 0x20) {
+        if (desired_temp > current_temp) {
             LPC_GPIO1->FIOSET = mask;
         } else {
             LPC_GPIO1->FIOCLR = mask;
         }
     } else {
-        if (temp < 20) {
+        if (desired_temp > current_temp) {
             LPC_GPIO2->FIOSET = mask;
         } else {
-            LPC_GPIO1->FIOCLR = mask;
+            LPC_GPIO2->FIOCLR = mask;
         }
     } 
 }
+
+
+// timer to wake up from sleep
+void timer_init(void)
+{
+    LPC_TIM0->TCR = 0x02; // reset time
+    LPC_TIM0->TCR = 0x01; // enable timer
+    LPC_TIM0->MR0 = 4000000; // match value (can be anything)
+    LPC_TIM0->MCR |= 0x03; // on match, generate interrupt and reset
+    NVIC_EnableIRQ(TIMER0_IRQn); // allow interrupts from the timer
+}
+
+void TIMER0_IRQHandler(void)
+{
+    if((LPC_TIM0->IR & 0x01) == 0x01) // if MR0 interrupt
+    {
+        LPC_TIM0->IR |= 1 << 0; 
+    }
+}
+
+
+// make a generic state machine
+// For state: make a table (one axis is previous state, the other axis is the input) and the cell would tell you which state to go to (it could stay in the same state) and only thne
+// you would use some sort of an swich case to define an action
+// this is so that the user can define what the states are going to be and what actions are going to be 
 
 
 int main(void)
 {
     int joystick_val = 0;
     int int_temperature = 25;
-    char str_temperature[10];
-    sprintf(str_temperature, "temp: %d", int_temperature);
+    int ADC_Value = 0;
+    unsigned int aDCStat;
+    char str_temperature[10];    
+    char str_potentiometer[10];
+    int i; // for sleep counter
+    sprintf(str_temperature, "desired temp: %d", int_temperature);
+
 
     SystemInit();   
     GLCD_Init();    
@@ -96,57 +156,55 @@ int main(void)
     // furnace indicator (P2.6)
     led_init();
     
+    // change temperature
+    potentiometer_init();
+    
+    // setup timer
+    timer_init();
+    
     // start program
     for(;;)
     {
-        joystick_val = read_joystick();
+        //joystick_val = read_joystick();
+        joystick_val = debounce();
+        
         if (joystick_val == 0x08) {
-            //GLCD_DisplayString(1,6,1, "   up");
             int_temperature += 1;
-            sprintf(str_temperature, "temp: %d", int_temperature);
+            sprintf(str_temperature, "desired temp: %d", int_temperature);
             GLCD_DisplayString(0, 0, 1, str_temperature);
-            check_furnace(int_temperature, led);
+            
+            /* polling */
+            // Read the converted value
+            LPC_ADC->ADCR |= ( 1 << 24 );
+            // start Conversion
+            while (LPC_ADC->ADGDR & 0x8000 == 0);
+            ADC_Value = (LPC_ADC->ADGDR>>4) & 0xFFF / 10;
+            sprintf(str_potentiometer, "measured temp: %4d", ADC_Value);
+            GLCD_DisplayString(1, 0, 1, str_potentiometer);
+            
+            check_furnace(int_temperature, ADC_Value, led);
+            
         } else if (joystick_val == 0x20) {
-            //GLCD_DisplayString(1,6,1, " down");
             int_temperature -= 1;
-            sprintf(str_temperature, "temp: %d", int_temperature);
+            sprintf(str_temperature, "desired temp: %d", int_temperature);
             GLCD_DisplayString(0, 0, 1, str_temperature);
-            check_furnace(int_temperature, led);
+            
+            /* polling */
+            // Read the converted value
+            LPC_ADC->ADCR |= ( 1 << 24 );
+            // start Conversion
+            while (LPC_ADC->ADGDR & 0x8000 == 0);
+            ADC_Value = (LPC_ADC->ADGDR>>4) & 0xFFF / 10;
+            sprintf(str_potentiometer, "measured temp: %4d", ADC_Value);
+            GLCD_DisplayString(1, 0, 1, str_potentiometer);
+            
+            check_furnace(int_temperature, ADC_Value, led);
         } 
+        
+        // counter that acts like sleep()
+        //for (i=0; i < 1000000; i++) {}
+    
+        __WFI();    // low power mode until interrupt occurs
     }
-
     return 0;
 }
-
-
-/*
-void sampleInterrupts(void)
-{
-    void NVIC_EnableIRQ(IRQn_Type IRQn);
-    void NVIC_DisableIRQ(IRQn_Type IRQn);
-  
-    void NVIC_SetPriority(IRQn_Type IRQn, int32_t priority);
-    uint32_t NVIC_GetPrioritY(IRQn_Type IRQn);
-  
-    void NVIC_SetPendingIRQ(IRQn_Type IRQn);
-    void NVIC_ClearPendingIRQ(IRQn_Type IRQn);
-    IRQn_Type NVIC_GetPendingIRQ(IRqn_Type IRQn);
-} 
-
-void interrupt_test(void) 
-{
-    LPC_GPIOINT->IO2IntEnF |= 1 << 10; // falling edge of P2.10
-    LPC_GPIOINT->IO2IntEnR |= 1 << 10; // risign edg of P2.10
-    NVIC_EnableIRQ(EINT3_IRQn);
-}
-
-void timerInit(void)
-{
-    LPC_TIM0->TCR = 0x02; // reset time
-    LPC_TIM0->TCR = 0x01; // enable timer
-    LPC_TIM0->MR0 = 2048; // match value (can be anything)
-    LPC_TIM0->MCR |= 0x03; // on match, generate interrupt and reset
-    NVIC_EnableIRQ(TIMER0_IRQn); // allow interrupts from the timer
-}
-
-*/
