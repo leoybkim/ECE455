@@ -8,8 +8,10 @@ typedef int bool;
 // Global variable
 const led_pos[8] = { 28, 29, 31, 2, 3, 4, 5, 6 };
 int led = 7;
-bool init = TRUE;
-bool off = TRUE;
+bool init;
+bool wait;
+bool to;
+int mask;
 
 // thermo inputs
 const int measured_temp;
@@ -18,39 +20,39 @@ int timer;
 
 /* STATE MACHINE */
 enum states { STATE_OFF, STATE_INTER, STATE_ON, STATE_ERR, MAX_STATES } current_state;
-enum events { HEAT_REQUEST, HEAT, COOL, TIME_OUT, REPEAT, MAX_EVENTS } new_events;
+enum events { HEAT_REQUEST, HEAT, COOL, TIME_OUT, REPEAT, ERR, MAX_EVENTS } new_events;
 
 void action_s1_e1 (void);
 void action_s1_e2 (void);
 void action_s1_e3 (void);
 void action_s1_e4 (void);
 void action_s1_e5 (void);
-
+void action_s1_e6 (void);
 void action_s2_e1 (void);
 void action_s2_e2 (void);
 void action_s2_e3 (void);
 void action_s2_e4 (void);
 void action_s2_e5 (void);
-
+void action_s2_e6 (void);
 void action_s3_e1 (void);
 void action_s3_e2 (void);
 void action_s3_e3 (void);
 void action_s3_e4 (void);
 void action_s3_e5 (void);
-
+void action_s3_e6 (void);
 void action_s4_e1 (void);
 void action_s4_e2 (void);
 void action_s4_e3 (void);
 void action_s4_e4 (void);
 void action_s4_e5 (void);
-
+void action_s4_e6 (void);
 enum events get_new_events (int desired_temp, int measured_temp);
 
 void (*const state_transitions [MAX_STATES][MAX_EVENTS]) (void) = {
-    { action_s1_e1, action_s1_e2, action_s1_e3, action_s1_e4, action_s1_e5 },
-    { action_s2_e1, action_s2_e2, action_s2_e3, action_s2_e4, action_s2_e5 },
-    { action_s3_e1, action_s3_e2, action_s3_e3, action_s3_e4, action_s3_e5 },
-    { action_s4_e1, action_s4_e2, action_s4_e3, action_s4_e4, action_s4_e5 }
+    { action_s1_e1, action_s1_e2, action_s1_e3, action_s1_e4, action_s1_e5, action_s1_e6 },
+    { action_s2_e1, action_s2_e2, action_s2_e3, action_s2_e4, action_s2_e5, action_s2_e6 },
+    { action_s3_e1, action_s3_e2, action_s3_e3, action_s3_e4, action_s3_e5, action_s3_e6 },
+    { action_s4_e1, action_s4_e2, action_s4_e3, action_s4_e4, action_s4_e5, action_s4_e6 }
 };
 
 void input_init(void) 
@@ -133,35 +135,13 @@ void timer1_init(void)
 {
     LPC_TIM1->TCR = 0x02;         // reset time
     LPC_TIM1->TCR = 0x01;         // enable timer
-    LPC_TIM1->MR0 = 100000000;     // match value (can be anything)
+    LPC_TIM1->MR0 = 40000000;     // match value (can be anything)
     LPC_TIM1->MCR |= 0x03;        // on match, generate interrupt and reset
     NVIC_EnableIRQ(TIMER1_IRQn);  // allow interrupts from the timer
+    timer = 0;
+    wait = FALSE;
+    to = FALSE;
 }
-
-
-// Turns LED on and off to simulate the furnace
-void check_furnace(int desired_temp, int current_temp, int led) 
-{
-    int mask = 1 << led_pos[led];
-
-    // hysteresis range +/- 2 degrees
-    if (led < 3) {
-        if (desired_temp > current_temp + 2) {
-            LPC_GPIO1->FIOSET = mask;
-            //timer1_init();
-        } else if (desired_temp < current_temp - 2) {
-            LPC_GPIO1->FIOCLR = mask;
-        }
-    } else {
-        if (desired_temp > current_temp + 2) {
-            LPC_GPIO2->FIOSET = mask;
-            //timer1_init();
-        } else if (desired_temp < current_temp - 2) {
-            LPC_GPIO2->FIOCLR = mask;
-        }
-    } 
-}
-
 
 void TIMER0_IRQHandler(void)
 {
@@ -172,22 +152,40 @@ void TIMER0_IRQHandler(void)
 }
 
 void TIMER1_IRQHandler(void)
-{
-    int mask = 1 << led_pos[led];
+{    
     if((LPC_TIM1->IR & 0x01) == 0x01) // if MR0 interrupt
     {
         LPC_TIM1->IR |= 1 << 0; 
-        
-        // Time out (max furnace time)
-        LPC_GPIO2->FIOCLR = mask;
+        timer += 1;
+    }
+    
+    if(!to && timer >= 10) {
+        to = TRUE;
+        wait = TRUE;
+        timer = 0;
+    }
+    
+    if(wait && timer >= 5) {
+        wait = FALSE;
+        timer = 0;
     }
 }
 
 enum events get_new_events(int desired_temp, int measured_temp) 
 {
-    if (desired_temp > measured_temp + 2) {
-        return HEAT;
+    if (desired_temp > (measured_temp + 2)) {
+        if (wait) {
+            return HEAT_REQUEST;
+        } else if (!wait && !to) {
+            return HEAT;
+        } else if (to) {
+            to = FALSE;
+            return TIME_OUT;
+        } else {
+            return ERR;
+        }
     } else if (desired_temp < measured_temp - 2) {
+        to = FALSE;
         return COOL;
     } else {
         return REPEAT;
@@ -196,37 +194,33 @@ enum events get_new_events(int desired_temp, int measured_temp)
 
 
 // ACTIONS
-void action_s1_e1 (void)
-{
-    /* PREV STATE: OFF
-       EVENT     : REQUEST HEAT */
+void action_s1_e1 (void) {current_state = STATE_INTER; LPC_GPIO2->FIOCLR = mask;    GLCD_DisplayString(6, 0, 1, "CALLED action_s1_e1");}
+void action_s1_e2 (void) {current_state = STATE_ON;    LPC_GPIO2->FIOCLR = mask;    GLCD_DisplayString(6, 0, 1, "CALLED action_s1_e2");}
+void action_s1_e3 (void) {/*DO NOTHING */              LPC_GPIO2->FIOCLR = mask;    GLCD_DisplayString(6, 0, 1, "CALLED action_s1_e3");}
+void action_s1_e4 (void) {current_state = STATE_ERR;   LPC_GPIO2->FIOCLR = mask;    GLCD_DisplayString(6, 0, 1, "CALLED action_s1_e4");}
+void action_s1_e5 (void) {/*DO NOTHING */              LPC_GPIO2->FIOCLR = mask;    GLCD_DisplayString(6, 0, 1, "CALLED action_s1_e5");}
+void action_s1_e6 (void) {current_state = STATE_ERR;   LPC_GPIO2->FIOCLR = mask;    GLCD_DisplayString(6, 0, 1, "CALLED action_s1_e6");}
 
-    int mask = 1 << led_pos[led];
-    current_state = STATE_ON; 
-    LPC_GPIO2->FIOSET = mask;
-    GLCD_DisplayString(6, 0, 1, "CALLED FUNCTION action_s1_e1");
-}
+void action_s2_e1 (void) {/*DO NOTHING */              LPC_GPIO2->FIOCLR = mask;                             GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e1");}
+void action_s2_e2 (void) {current_state = STATE_ON;    LPC_GPIO2->FIOCLR = mask;                             GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e2");}
+void action_s2_e3 (void) {current_state = STATE_OFF;   LPC_GPIO2->FIOCLR = mask;                             GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e3");}
+void action_s2_e4 (void) {current_state = STATE_ERR;   LPC_GPIO2->FIOCLR = mask;                             GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e4");}
+void action_s2_e5 (void) {/*DO NOTHING */              LPC_GPIO2->FIOCLR = mask;                             GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e5");}
+void action_s2_e6 (void) {current_state = STATE_ERR;   LPC_GPIO2->FIOCLR = mask;                             GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e6");}
 
-void action_s1_e2 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s1_e2");}
-void action_s1_e3 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s1_e3");}
-void action_s1_e4 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s1_e4");}
-void action_s1_e5 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s1_e5");}
-void action_s2_e1 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e1");}
-void action_s2_e2 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e2");}
-void action_s2_e3 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e3");}
-void action_s2_e4 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e4");}
-void action_s2_e5 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e5");}
-void action_s3_e1 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s3_e1");}
-void action_s3_e2 (void) {/* */}
-void action_s3_e3 (void) {/* */}
-void action_s3_e4 (void) {/* */}
-void action_s3_e5 (void) {/* */}
-void action_s4_e1 (void) {/* */}
-void action_s4_e2 (void) {/* */}
-void action_s4_e3 (void) {/* */}
-void action_s4_e4 (void) {/* */}
-void action_s4_e5 (void) {/* */}
+void action_s3_e1 (void) {current_state = STATE_ERR;   LPC_GPIO2->FIOSET = mask;    GLCD_DisplayString(6, 0, 1, "CALLED action_s3_e1"); }
+void action_s3_e2 (void) {/*DO NOTHING */              LPC_GPIO2->FIOSET = mask;    GLCD_DisplayString(6, 0, 1, "CALLED action_s3_e2"); }
+void action_s3_e3 (void) {current_state = STATE_OFF;   LPC_GPIO2->FIOSET = mask;    GLCD_DisplayString(6, 0, 1, "CALLED action_s3_e3"); }
+void action_s3_e4 (void) {current_state = STATE_OFF;   LPC_GPIO2->FIOSET = mask;    GLCD_DisplayString(6, 0, 1, "CALLED action_s3_e4"); }
+void action_s3_e5 (void) {/* */ LPC_GPIO2->FIOSET = mask; GLCD_DisplayString(6, 0, 1, "CALLED action_s3_e5");}
+void action_s3_e6 (void) {/* */ LPC_GPIO2->FIOSET = mask; GLCD_DisplayString(6, 0, 1, "CALLED action_s3_e6");}
 
+void action_s4_e1 (void) {current_state = STATE_OFF; /* */ LPC_GPIO2->FIOCLR = mask; GLCD_DisplayString(6, 0, 1, "CALLED action_s4_e1");}
+void action_s4_e2 (void) {current_state = STATE_OFF; /* */ LPC_GPIO2->FIOCLR = mask; GLCD_DisplayString(6, 0, 1, "CALLED action_s4_e2");}
+void action_s4_e3 (void) {current_state = STATE_OFF; /* */ LPC_GPIO2->FIOCLR = mask; GLCD_DisplayString(6, 0, 1, "CALLED action_s4_e3");}
+void action_s4_e4 (void) {current_state = STATE_OFF; /* */ LPC_GPIO2->FIOCLR = mask; GLCD_DisplayString(6, 0, 1, "CALLED action_s4_e4");}
+void action_s4_e5 (void) {current_state = STATE_OFF; /* */ LPC_GPIO2->FIOCLR = mask; GLCD_DisplayString(6, 0, 1, "CALLED action_s4_e5");}
+void action_s4_e6 (void) {current_state = STATE_OFF; /* */ LPC_GPIO2->FIOCLR = mask; GLCD_DisplayString(6, 0, 1, "CALLED action_s4_e6");}
 
 // make a generic state machine
 // For state: make a table (one axis is previous state, the other axis is the input) and the cell would tell you which state to go to (it could stay in the same state) and only thne
@@ -242,12 +236,18 @@ int main(void)
     char str_temperature[10];    
     char str_potentiometer[10];
     char str_debug[10];
+    char str_timer[10];
+    char str_status[10];
     int i; // for sleep counter
     int new_event;
-    int mask = 1 << led_pos[led];
+    mask = 1 << led_pos[led];
     
     current_state = 1;
-
+    init = TRUE;
+    wait = FALSE;
+    to = FALSE;
+    
+    
     sprintf(str_temperature, "desired temp: %d", int_temperature);
 
     SystemInit();   
@@ -259,13 +259,11 @@ int main(void)
     led_init();                                   // furnace indicator (P2.6)
     potentiometer_init();                         // measured temperature
     timer0_init();                                // setup timer
+    timer1_init();
     
     // start program
     for(;;)
     {
-        //joystick_val = read_joystick();
-        joystick_val = debounce();
-        
         /* polling potentiometer*/
         LPC_ADC->ADCR |= ( 1 << 24 );            // Read the converted value
         // start Conversion
@@ -275,6 +273,7 @@ int main(void)
         GLCD_DisplayString(1, 0, 1, str_potentiometer);
         
         // read joystick 
+        joystick_val = debounce();
         if (joystick_val == 0x08) {
             int_temperature += 1;
             sprintf(str_temperature, "desired temp: %d", int_temperature);
@@ -289,15 +288,19 @@ int main(void)
         new_event = get_new_events(int_temperature, ADC_Value);
         if (((new_event >= 0) && (new_event < MAX_EVENTS)) && ((current_state >= 0) && (current_state < MAX_STATES))) {
             /* call the action procedure */
-            state_transitions [current_state-1][new_event-1] (); 
-            sprintf(str_debug, "event:%2d state:%2d", new_event, current_state);
+            state_transitions [current_state][new_event] (); 
+            sprintf(str_debug, "state:%2d event:%2d", current_state+1, new_event+1);
+            sprintf(str_timer, "time: %2d", timer);
+            sprintf(str_status, "wait:%d to:%d", wait, to);
             GLCD_DisplayString(4, 0, 1, str_debug);
-            
+            GLCD_DisplayString(5, 0, 1, str_timer);
+            GLCD_DisplayString(8, 0, 1, str_status);
         } else {
             /* invalid event/state - handle appropriately */
+            GLCD_DisplayString(6, 0, 1, "Something went wrong");
         }
         
-        __WFI();                          // low power mode until interrupt occurs
+        __WFI();    // low power mode until interrupt occurs
     }
     return 0;
 }
