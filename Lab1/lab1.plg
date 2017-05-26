@@ -4,1478 +4,204 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 C:\Users\yb4kim\OneDrive - University of Waterloo\ECE455\Lab1\lab1.uvproj
-Project File Date:  05/25/2017
+Project File Date:  05/26/2017
 
 <h2>Output:</h2>
 Rebuild target 'LPC1768Flash'
 compiling GLCD_SPI_LPC1700.c...
 compiling system_LPC17xx.c...
 compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(144): warning:  #223-D: function "sprintf" declared implicitly
-main.c(149): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(168): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(173): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(179): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(186): warning:  #111-D: statement is unreachable
-main.c(187): warning:  #1-D: last line of file ends without a newline
-main.c(140): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(143): warning:  #177-D: variable "i" was declared but never referenced
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(48): error:  #65: expected a ";"
+main.c(245): warning:  #12-D: parsing restarts here after previous syntax error
+main.c(248): error:  #169: expected a declaration
+main.c(293): warning:  #12-D: parsing restarts here after previous syntax error
+main.c(294): error:  #169: expected a declaration
+main.c(296): warning:  #1-D: last line of file ends without a newline
+main.c(296): error:  #169: expected a declaration
 assembling startup_LPC17xx.s...
-compiling fsm.c...
-linking...
-Program Size: Code=4366 RO-data=6542 RW-data=16 ZI-data=608  
-"lab1.axf" - 0 Error(s), 10 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
+Target not created
 Rebuild target 'LPC1768Flash'
 compiling GLCD_SPI_LPC1700.c...
 compiling system_LPC17xx.c...
 compiling main.c...
-fsm.h(6): error:  #40: expected an identifier
-fsm.h(6): error:  #67: expected a "}"
-fsm.h(6): warning:  #375-D: declaration requires a typedef name
-fsm.h(9): error:  #169: expected a declaration
-fsm.h(28): error:  #92: identifier-list parameters may only be used in a function definition
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(13): error:  #40: expected an identifier
-main.c(13): error:  #67: expected a "}"
-main.c(13): warning:  #375-D: declaration requires a typedef name
-main.c(16): error:  #169: expected a declaration
-main.c(19): error:  #101: "STATE_ON" has already been declared in the current scope
-main.c(20): error:  #101: "STATE_OFF" has already been declared in the current scope
-main.c(21): error:  #101: "STATE_INTER" has already been declared in the current scope
-main.c(22): error:  #101: "STATE_ERR" has already been declared in the current scope
-main.c(23): error:  #256: invalid redeclaration of type name "thermo_state" (declared at line 16 of "fsm.h")
-main.c(26): error:  #101: "HEAT_REQUEST" has already been declared in the current scope
-main.c(27): error:  #101: "HEAT" has already been declared in the current scope
-main.c(28): error:  #101: "COOL" has already been declared in the current scope
-main.c(29): error:  #101: "TIME_OUT" has already been declared in the current scope
-main.c(30): error:  #256: invalid redeclaration of type name "thermo_event" (declared at line 23 of "fsm.h")
-main.c(34): error:  #40: expected an identifier
-main.c(34): error:  #70: incomplete type is not allowed
-main.c(206): warning:  #223-D: function "sprintf" declared implicitly
-main.c(211): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(230): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(235): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(241): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(248): warning:  #111-D: statement is unreachable
-main.c(249): warning:  #1-D: last line of file ends without a newline
-main.c(202): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(205): warning:  #177-D: variable "i" was declared but never referenced
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(48): error:  #65: expected a ";"
+main.c(245): warning:  #12-D: parsing restarts here after previous syntax error
+main.c(248): error:  #169: expected a declaration
+main.c(293): warning:  #12-D: parsing restarts here after previous syntax error
+main.c(294): error:  #169: expected a declaration
+main.c(296): warning:  #1-D: last line of file ends without a newline
+main.c(296): error:  #169: expected a declaration
 assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.h(6): error:  #40: expected an identifier
-fsm.h(6): error:  #67: expected a "}"
-fsm.h(6): warning:  #375-D: declaration requires a typedef name
-fsm.h(9): error:  #169: expected a declaration
-fsm.h(28): error:  #92: identifier-list parameters may only be used in a function definition
-fsm.c(3): error:  #40: expected an identifier
-fsm.c(3): error:  #70: incomplete type is not allowed
-fsm.c(24): warning:  #223-D: function "GLCD_DisplayString" declared implicitly
-fsm.c(36): warning:  #223-D: function "GLCD_DisplayString" declared implicitly
-fsm.c(44): warning:  #1-D: last line of file ends without a newline
 Target not created
 Rebuild target 'LPC1768Flash'
 compiling GLCD_SPI_LPC1700.c...
 compiling system_LPC17xx.c...
 compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(13): error:  #40: expected an identifier
-main.c(13): error:  #67: expected a "}"
-main.c(13): warning:  #375-D: declaration requires a typedef name
-main.c(16): error:  #169: expected a declaration
-main.c(34): error:  #40: expected an identifier
-main.c(34): error:  #70: incomplete type is not allowed
-main.c(206): warning:  #223-D: function "sprintf" declared implicitly
-main.c(211): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(230): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(235): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(241): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(248): warning:  #111-D: statement is unreachable
-main.c(249): warning:  #1-D: last line of file ends without a newline
-main.c(202): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(205): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-_____^
-*** error 56: cannot open file
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(13): error:  #40: expected an identifier
-main.c(13): error:  #67: expected a "}"
-main.c(13): warning:  #375-D: declaration requires a typedef name
-main.c(16): error:  #169: expected a declaration
-main.c(34): error:  #40: expected an identifier
-main.c(34): error:  #70: incomplete type is not allowed
-main.c(206): warning:  #223-D: function "sprintf" declared implicitly
-main.c(211): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(230): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(235): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(241): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(248): warning:  #111-D: statement is unreachable
-main.c(249): warning:  #1-D: last line of file ends without a newline
-main.c(202): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(205): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(13): error:  #40: expected an identifier
-main.c(13): error:  #67: expected a "}"
-main.c(13): warning:  #375-D: declaration requires a typedef name
-main.c(16): error:  #169: expected a declaration
-main.c(34): error:  #70: incomplete type is not allowed
-main.c(206): warning:  #223-D: function "sprintf" declared implicitly
-main.c(211): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(230): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(235): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(241): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(248): warning:  #111-D: statement is unreachable
-main.c(249): warning:  #1-D: last line of file ends without a newline
-main.c(202): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(205): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(30): error:  #70: incomplete type is not allowed
-main.c(32): error:  #28: expression must have a constant value
-main.c(32): error:  #28: expression must have a constant value
-main.c(32): error:  #28: expression must have a constant value
-main.c(33): error:  #28: expression must have a constant value
-main.c(33): error:  #28: expression must have a constant value
-main.c(33): error:  #28: expression must have a constant value
-main.c(34): error:  #28: expression must have a constant value
-main.c(34): error:  #28: expression must have a constant value
-main.c(34): error:  #28: expression must have a constant value
-main.c(35): error:  #28: expression must have a constant value
-main.c(35): error:  #28: expression must have a constant value
-main.c(35): error:  #28: expression must have a constant value
-main.c(36): error:  #28: expression must have a constant value
-main.c(36): error:  #28: expression must have a constant value
-main.c(36): error:  #28: expression must have a constant value
-main.c(37): error:  #28: expression must have a constant value
-main.c(37): error:  #28: expression must have a constant value
-main.c(37): error:  #28: expression must have a constant value
-main.c(38): error:  #28: expression must have a constant value
-main.c(38): error:  #28: expression must have a constant value
-main.c(38): error:  #28: expression must have a constant value
-main.c(39): error:  #28: expression must have a constant value
-main.c(39): error:  #28: expression must have a constant value
-main.c(39): error:  #28: expression must have a constant value
-main.c(40): error:  #28: expression must have a constant value
-main.c(40): error:  #28: expression must have a constant value
-main.c(40): error:  #28: expression must have a constant value
-main.c(41): error:  #28: expression must have a constant value
-main.c(41): error:  #28: expression must have a constant value
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(30): error:  #70: incomplete type is not allowed
-main.c(202): warning:  #223-D: function "sprintf" declared implicitly
-main.c(207): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(226): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(231): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(237): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(244): warning:  #111-D: statement is unreachable
-main.c(245): warning:  #1-D: last line of file ends without a newline
-main.c(198): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(201): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-_____^
-*** error 56: cannot open file
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(30): error:  #70: incomplete type is not allowed
-main.c(202): warning:  #223-D: function "sprintf" declared implicitly
-main.c(207): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(226): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(231): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(237): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(244): warning:  #111-D: statement is unreachable
-main.c(245): warning:  #1-D: last line of file ends without a newline
-main.c(198): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(201): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(32): error:  #70: incomplete type is not allowed
-main.c(203): warning:  #223-D: function "sprintf" declared implicitly
-main.c(208): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(232): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(238): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(245): warning:  #111-D: statement is unreachable
-main.c(246): warning:  #1-D: last line of file ends without a newline
-main.c(199): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(202): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(32): error:  #84: invalid combination of type specifiers
-main.c(32): error:  #40: expected an identifier
-main.c(203): warning:  #223-D: function "sprintf" declared implicitly
-main.c(208): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(232): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(238): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(245): warning:  #111-D: statement is unreachable
-main.c(246): warning:  #1-D: last line of file ends without a newline
-main.c(199): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(202): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(32): error:  #40: expected an identifier
-main.c(32): error:  #65: expected a ";"
-main.c(45): warning:  #12-D: parsing restarts here after previous syntax error
-main.c(203): warning:  #223-D: function "sprintf" declared implicitly
-main.c(208): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(232): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(238): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(245): warning:  #111-D: statement is unreachable
-main.c(246): warning:  #1-D: last line of file ends without a newline
-main.c(199): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(202): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(32): error:  #40: expected an identifier
-main.c(32): error:  #65: expected a ";"
-main.c(45): warning:  #12-D: parsing restarts here after previous syntax error
-main.c(203): warning:  #223-D: function "sprintf" declared implicitly
-main.c(208): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(232): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(238): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(245): warning:  #111-D: statement is unreachable
-main.c(246): warning:  #1-D: last line of file ends without a newline
-main.c(199): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(202): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(32): error:  #40: expected an identifier
-main.c(32): error:  #70: incomplete type is not allowed
-main.c(203): warning:  #223-D: function "sprintf" declared implicitly
-main.c(208): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(232): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(238): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(245): warning:  #111-D: statement is unreachable
-main.c(246): warning:  #1-D: last line of file ends without a newline
-main.c(199): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(202): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(32): error:  #65: expected a ";"
-main.c(45): warning:  #12-D: parsing restarts here after previous syntax error
-main.c(203): warning:  #223-D: function "sprintf" declared implicitly
-main.c(208): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(232): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(238): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(245): warning:  #111-D: statement is unreachable
-main.c(246): warning:  #1-D: last line of file ends without a newline
-main.c(199): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(202): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(33): error:  #67: expected a "}"
-main.c(34): error:  #67: expected a "}"
-main.c(35): error:  #67: expected a "}"
-main.c(36): error:  #67: expected a "}"
-main.c(37): error:  #67: expected a "}"
-main.c(38): error:  #67: expected a "}"
-main.c(39): error:  #67: expected a "}"
-main.c(40): error:  #67: expected a "}"
-main.c(41): error:  #67: expected a "}"
-main.c(42): error:  #67: expected a "}"
-main.c(43): error:  #67: expected a "}"
-main.c(44): error:  #67: expected a "}"
-main.c(203): warning:  #223-D: function "sprintf" declared implicitly
-main.c(208): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(232): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(238): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(245): warning:  #111-D: statement is unreachable
-main.c(246): warning:  #1-D: last line of file ends without a newline
-main.c(199): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(202): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(33): error:  #29: expected an expression
-main.c(34): error:  #29: expected an expression
-main.c(35): error:  #29: expected an expression
-main.c(36): error:  #29: expected an expression
-main.c(37): error:  #29: expected an expression
-main.c(38): error:  #29: expected an expression
-main.c(39): error:  #29: expected an expression
-main.c(40): error:  #29: expected an expression
-main.c(41): error:  #29: expected an expression
-main.c(42): error:  #29: expected an expression
-main.c(43): error:  #29: expected an expression
-main.c(44): error:  #29: expected an expression
-main.c(203): warning:  #223-D: function "sprintf" declared implicitly
-main.c(208): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(232): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(238): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(245): warning:  #111-D: statement is unreachable
-main.c(246): warning:  #1-D: last line of file ends without a newline
-main.c(199): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(202): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(32): error:  #98: an array may not have elements of this type
-main.c(33): error:  #29: expected an expression
-main.c(34): error:  #29: expected an expression
-main.c(35): error:  #29: expected an expression
-main.c(36): error:  #29: expected an expression
-main.c(37): error:  #29: expected an expression
-main.c(38): error:  #29: expected an expression
-main.c(39): error:  #29: expected an expression
-main.c(40): error:  #29: expected an expression
-main.c(41): error:  #29: expected an expression
-main.c(42): error:  #29: expected an expression
-main.c(43): error:  #29: expected an expression
-main.c(44): error:  #29: expected an expression
-main.c(203): warning:  #223-D: function "sprintf" declared implicitly
-main.c(208): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(232): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(238): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(245): warning:  #111-D: statement is unreachable
-main.c(246): warning:  #1-D: last line of file ends without a newline
-main.c(199): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(202): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(33): error:  #67: expected a "}"
-main.c(34): error:  #67: expected a "}"
-main.c(35): error:  #67: expected a "}"
-main.c(36): error:  #67: expected a "}"
-main.c(37): error:  #67: expected a "}"
-main.c(38): error:  #67: expected a "}"
-main.c(39): error:  #67: expected a "}"
-main.c(40): error:  #67: expected a "}"
-main.c(41): error:  #67: expected a "}"
-main.c(42): error:  #67: expected a "}"
-main.c(43): error:  #67: expected a "}"
-main.c(44): error:  #67: expected a "}"
-main.c(203): warning:  #223-D: function "sprintf" declared implicitly
-main.c(208): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(232): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(238): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(245): warning:  #111-D: statement is unreachable
-main.c(246): warning:  #1-D: last line of file ends without a newline
-main.c(199): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(202): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(32): error:  #98: an array may not have elements of this type
-main.c(203): warning:  #223-D: function "sprintf" declared implicitly
-main.c(208): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(232): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(238): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(245): warning:  #111-D: statement is unreachable
-main.c(246): warning:  #1-D: last line of file ends without a newline
-main.c(199): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(202): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(203): warning:  #223-D: function "sprintf" declared implicitly
-main.c(208): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(232): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(238): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(245): warning:  #111-D: statement is unreachable
-main.c(246): warning:  #1-D: last line of file ends without a newline
-main.c(199): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(202): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4618 RO-data=6586 RW-data=160 ZI-data=608  
-"lab1.axf" - 0 Error(s), 11 Warning(s).
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(33): error:  #146: too many initializer values
-main.c(34): error:  #146: too many initializer values
-main.c(35): error:  #146: too many initializer values
-main.c(36): error:  #146: too many initializer values
-main.c(37): error:  #146: too many initializer values
-main.c(38): error:  #146: too many initializer values
-main.c(39): error:  #146: too many initializer values
-main.c(40): error:  #146: too many initializer values
-main.c(41): error:  #146: too many initializer values
-main.c(42): error:  #146: too many initializer values
-main.c(43): error:  #146: too many initializer values
-main.c(44): error:  #146: too many initializer values
-main.c(203): warning:  #223-D: function "sprintf" declared implicitly
-main.c(208): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(232): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(238): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(245): warning:  #111-D: statement is unreachable
-main.c(246): warning:  #1-D: last line of file ends without a newline
-main.c(199): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(202): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(203): warning:  #223-D: function "sprintf" declared implicitly
-main.c(208): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(232): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(238): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(245): warning:  #111-D: statement is unreachable
-main.c(246): warning:  #1-D: last line of file ends without a newline
-main.c(199): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(202): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4618 RO-data=6586 RW-data=160 ZI-data=608  
-"lab1.axf" - 0 Error(s), 11 Warning(s).
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(222): warning:  #223-D: function "sprintf" declared implicitly
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(246): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(251): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(257): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(264): warning:  #111-D: statement is unreachable
-main.c(265): warning:  #1-D: last line of file ends without a newline
-main.c(218): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(221): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4690 RO-data=6586 RW-data=160 ZI-data=608  
-"lab1.axf" - 0 Error(s), 11 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'LPC1768Flash'
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(222): warning:  #223-D: function "sprintf" declared implicitly
-main.c(227): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(246): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(251): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(257): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(264): warning:  #111-D: statement is unreachable
-main.c(265): warning:  #1-D: last line of file ends without a newline
-main.c(218): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(221): warning:  #177-D: variable "i" was declared but never referenced
-linking...
-Program Size: Code=4690 RO-data=6586 RW-data=160 ZI-data=608  
-"lab1.axf" - 0 Error(s), 10 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(237): warning:  #223-D: function "sprintf" declared implicitly
-main.c(242): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(266): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(272): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(279): warning:  #111-D: statement is unreachable
-main.c(280): warning:  #1-D: last line of file ends without a newline
-main.c(233): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(236): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4754 RO-data=6586 RW-data=160 ZI-data=608  
-"lab1.axf" - 0 Error(s), 11 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(237): warning:  #223-D: function "sprintf" declared implicitly
-main.c(242): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(266): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(272): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(279): warning:  #111-D: statement is unreachable
-main.c(280): warning:  #1-D: last line of file ends without a newline
-main.c(233): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(236): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4754 RO-data=6586 RW-data=160 ZI-data=608  
-"lab1.axf" - 0 Error(s), 11 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(237): warning:  #223-D: function "sprintf" declared implicitly
-main.c(242): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(266): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(272): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(279): warning:  #111-D: statement is unreachable
-main.c(280): warning:  #1-D: last line of file ends without a newline
-main.c(233): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(236): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4754 RO-data=6586 RW-data=160 ZI-data=608  
-"lab1.axf" - 0 Error(s), 11 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(237): warning:  #223-D: function "sprintf" declared implicitly
-main.c(242): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(266): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(272): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(279): warning:  #111-D: statement is unreachable
-main.c(280): warning:  #1-D: last line of file ends without a newline
-main.c(233): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(236): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4754 RO-data=6586 RW-data=160 ZI-data=608  
-"lab1.axf" - 0 Error(s), 11 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(10): error:  #28: expression must have a constant value
-main.c(226): warning:  #223-D: function "sprintf" declared implicitly
-main.c(231): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(250): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(255): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(268): warning:  #111-D: statement is unreachable
-main.c(269): warning:  #1-D: last line of file ends without a newline
-main.c(222): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(225): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(10): error:  #28: expression must have a constant value
-main.c(226): warning:  #223-D: function "sprintf" declared implicitly
-main.c(231): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(250): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(255): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(268): warning:  #111-D: statement is unreachable
-main.c(269): warning:  #1-D: last line of file ends without a newline
-main.c(222): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(225): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(10): error:  #28: expression must have a constant value
-main.c(226): warning:  #223-D: function "sprintf" declared implicitly
-main.c(231): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(250): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(255): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(268): warning:  #111-D: statement is unreachable
-main.c(269): warning:  #1-D: last line of file ends without a newline
-main.c(222): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(225): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(10): error:  #28: expression must have a constant value
-main.c(226): warning:  #223-D: function "sprintf" declared implicitly
-main.c(231): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(250): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(255): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(268): warning:  #111-D: statement is unreachable
-main.c(269): warning:  #1-D: last line of file ends without a newline
-main.c(222): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(225): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(10): error:  #28: expression must have a constant value
-main.c(226): warning:  #223-D: function "sprintf" declared implicitly
-main.c(231): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(250): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(255): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(268): warning:  #111-D: statement is unreachable
-main.c(269): warning:  #1-D: last line of file ends without a newline
-main.c(222): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(225): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(159): warning:  #223-D: function "timer1_init" declared implicitly
-main.c(166): warning:  #223-D: function "timer1_init" declared implicitly
-main.c(183): error:  #159: declaration is incompatible with previous "timer1_init" (declared at line 159)
-main.c(209): error:  #268: declaration may not appear after executable statement in block
-main.c(229): warning:  #223-D: function "sprintf" declared implicitly
-main.c(234): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(253): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(258): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(264): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(271): warning:  #111-D: statement is unreachable
-main.c(272): warning:  #1-D: last line of file ends without a newline
-main.c(225): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(228): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(159): warning:  #223-D: function "timer1_init" declared implicitly
-main.c(166): warning:  #223-D: function "timer1_init" declared implicitly
-main.c(183): error:  #159: declaration is incompatible with previous "timer1_init" (declared at line 159)
-main.c(229): warning:  #223-D: function "sprintf" declared implicitly
-main.c(234): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(253): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(258): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(264): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(271): warning:  #111-D: statement is unreachable
-main.c(272): warning:  #1-D: last line of file ends without a newline
-main.c(225): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(228): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(231): warning:  #223-D: function "sprintf" declared implicitly
-main.c(236): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(255): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(260): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(266): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(273): warning:  #111-D: statement is unreachable
-main.c(274): warning:  #1-D: last line of file ends without a newline
-main.c(227): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(230): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4730 RO-data=6586 RW-data=160 ZI-data=608  
-"lab1.axf" - 0 Error(s), 11 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(231): warning:  #223-D: function "sprintf" declared implicitly
-main.c(236): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(255): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(260): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(266): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(273): warning:  #111-D: statement is unreachable
-main.c(274): warning:  #1-D: last line of file ends without a newline
-main.c(227): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(230): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4730 RO-data=6586 RW-data=160 ZI-data=608  
-"lab1.axf" - 0 Error(s), 11 Warning(s).
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(231): warning:  #223-D: function "sprintf" declared implicitly
-main.c(236): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(255): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(260): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(266): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(273): warning:  #111-D: statement is unreachable
-main.c(274): warning:  #1-D: last line of file ends without a newline
-main.c(227): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(230): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4730 RO-data=6586 RW-data=160 ZI-data=608  
-"lab1.axf" - 0 Error(s), 11 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(8): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(231): warning:  #223-D: function "sprintf" declared implicitly
-main.c(236): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(255): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(260): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(266): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(273): warning:  #111-D: statement is unreachable
-main.c(274): warning:  #1-D: last line of file ends without a newline
-main.c(227): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(230): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-compiling fsm.c...
-fsm.c(46): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4730 RO-data=6586 RW-data=160 ZI-data=608  
-"lab1.axf" - 0 Error(s), 11 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(3): error:  #5: cannot open source input file "fsm.h": No such file or directory
-assembling startup_LPC17xx.s...
-Target not created
-Build target 'LPC1768Flash'
-compiling main.c...
-main.c(7): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(230): warning:  #223-D: function "sprintf" declared implicitly
-main.c(235): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(254): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(64): error:  #268: declaration may not appear after executable statement in block
+main.c(64): error:  #20: identifier "sponding" is undefined
+main.c(64): error:  #65: expected a ";"
+main.c(179): error:  #147-D: declaration is incompatible with "enum events get_new_events(void)" (declared at line 39)
+main.c(182): error:  #20: identifier "event" is undefined
+main.c(184): error:  #20: identifier "event" is undefined
+main.c(187): error:  #20: identifier "event" is undefined
+main.c(235): warning:  #223-D: function "sprintf" declared implicitly
+main.c(240): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
 main.c(259): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(265): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(272): warning:  #111-D: statement is unreachable
-main.c(273): warning:  #1-D: last line of file ends without a newline
-main.c(226): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(229): warning:  #177-D: variable "i" was declared but never referenced
-linking...
-Program Size: Code=4730 RO-data=6586 RW-data=160 ZI-data=608  
-"lab1.axf" - 0 Error(s), 10 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(7): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(230): warning:  #223-D: function "sprintf" declared implicitly
-main.c(235): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(254): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(259): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(265): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(272): warning:  #111-D: statement is unreachable
-main.c(273): warning:  #1-D: last line of file ends without a newline
-main.c(226): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(229): warning:  #177-D: variable "i" was declared but never referenced
+main.c(269): error:  #268: declaration may not appear after executable statement in block
+main.c(269): error:  #20: identifier "new_" is undefined
+main.c(270): error:  #20: identifier "new_event" is undefined
+main.c(271): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(295): warning:  #111-D: statement is unreachable
+main.c(296): warning:  #1-D: last line of file ends without a newline
+main.c(228): warning:  #177-D: variable "aDCStat" was declared but never referenced
+main.c(231): warning:  #177-D: variable "i" was declared but never referenced
+main.c(233): warning:  #177-D: variable "mask" was declared but never referenced
 assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4730 RO-data=6586 RW-data=160 ZI-data=608  
-"lab1.axf" - 0 Error(s), 10 Warning(s).
+Target not created
 Rebuild target 'LPC1768Flash'
 compiling GLCD_SPI_LPC1700.c...
 compiling system_LPC17xx.c...
 compiling main.c...
-main.c(7): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(229): warning:  #223-D: function "sprintf" declared implicitly
-main.c(234): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(253): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(178): error:  #147-D: declaration is incompatible with "enum events get_new_events(void)" (declared at line 39)
+main.c(181): error:  #20: identifier "event" is undefined
+main.c(183): error:  #20: identifier "event" is undefined
+main.c(186): error:  #20: identifier "event" is undefined
+main.c(234): warning:  #223-D: function "sprintf" declared implicitly
+main.c(239): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
 main.c(258): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(264): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(271): warning:  #111-D: statement is unreachable
-main.c(272): warning:  #1-D: last line of file ends without a newline
-main.c(225): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(228): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4722 RO-data=6586 RW-data=160 ZI-data=608  
-"lab1.axf" - 0 Error(s), 10 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(7): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(9): error:  #20: identifier "bool" is undefined
-main.c(9): error:  #20: identifier "true" is undefined
-main.c(215): error:  #20: identifier "false" is undefined
-main.c(238): warning:  #223-D: function "sprintf" declared implicitly
-main.c(243): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(262): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(267): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(273): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(280): warning:  #111-D: statement is unreachable
-main.c(281): warning:  #1-D: last line of file ends without a newline
-main.c(234): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(237): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(7): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(9): error:  #20: identifier "bool" is undefined
-main.c(9): error:  #20: identifier "TRUE" is undefined
-main.c(215): error:  #20: identifier "FALSE" is undefined
-main.c(238): warning:  #223-D: function "sprintf" declared implicitly
-main.c(243): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(262): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(267): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(273): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(280): warning:  #111-D: statement is unreachable
-main.c(281): warning:  #1-D: last line of file ends without a newline
-main.c(234): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(237): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(241): warning:  #223-D: function "sprintf" declared implicitly
-main.c(246): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(265): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(270): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(276): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(283): warning:  #111-D: statement is unreachable
-main.c(284): warning:  #1-D: last line of file ends without a newline
-main.c(237): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(240): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4766 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 10 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(233): warning:  #223-D: function "sprintf" declared implicitly
-main.c(238): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(257): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(262): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(268): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(275): warning:  #111-D: statement is unreachable
-main.c(276): warning:  #1-D: last line of file ends without a newline
-main.c(229): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(232): warning:  #177-D: variable "i" was declared but never referenced
-assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4730 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 10 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(239): error:  #29: expected an expression
-main.c(302): warning:  #12-D: parsing restarts here after previous syntax error
-main.c(302): error:  #65: expected a ";"
-main.c(302): error:  #20: identifier "joystick_val" is undefined
-main.c(303): error:  #20: identifier "int_temperature" is undefined
-main.c(304): warning:  #223-D: function "sprintf" declared implicitly
-main.c(304): error:  #20: identifier "str_temperature" is undefined
-main.c(306): error:  #20: identifier "ADC_Value" is undefined
-main.c(311): warning:  #940-D: missing return statement at end of non-void function "define_event"
-main.c(312): error:  #169: expected a declaration
-main.c(313): warning:  #1-D: last line of file ends without a newline
-main.c(313): error:  #169: expected a declaration
-assembling startup_LPC17xx.s...
-Target not created
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(260): warning:  #223-D: function "sprintf" declared implicitly
-main.c(265): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(284): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(295): warning:  #127-D: expected a statement
-main.c(300): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(306): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(313): warning:  #111-D: statement is unreachable
-main.c(314): warning:  #1-D: last line of file ends without a newline
-main.c(254): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(257): warning:  #177-D: variable "i" was declared but never referenced
-main.c(259): warning:  #177-D: variable "current_state" was declared but never referenced
-assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4854 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'LPC1768Flash'
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(256): warning:  #223-D: function "sprintf" declared implicitly
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(291): warning:  #127-D: expected a statement
-main.c(296): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(302): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(309): warning:  #111-D: statement is unreachable
-main.c(310): warning:  #1-D: last line of file ends without a newline
-main.c(250): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(253): warning:  #177-D: variable "i" was declared but never referenced
-main.c(255): warning:  #177-D: variable "current_state" was declared but never referenced
-linking...
-Program Size: Code=4834 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(256): warning:  #223-D: function "sprintf" declared implicitly
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(291): warning:  #127-D: expected a statement
-main.c(296): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(302): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(309): warning:  #111-D: statement is unreachable
-main.c(310): warning:  #1-D: last line of file ends without a newline
-main.c(250): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(253): warning:  #177-D: variable "i" was declared but never referenced
-main.c(255): warning:  #177-D: variable "current_state" was declared but never referenced
-assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4834 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(256): warning:  #223-D: function "sprintf" declared implicitly
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(291): warning:  #127-D: expected a statement
-main.c(296): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(302): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(309): warning:  #111-D: statement is unreachable
-main.c(310): warning:  #1-D: last line of file ends without a newline
-main.c(250): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(253): warning:  #177-D: variable "i" was declared but never referenced
-main.c(255): warning:  #177-D: variable "current_state" was declared but never referenced
-assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4834 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(256): warning:  #223-D: function "sprintf" declared implicitly
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(291): warning:  #127-D: expected a statement
-main.c(296): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(302): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(309): warning:  #111-D: statement is unreachable
-main.c(310): warning:  #1-D: last line of file ends without a newline
-main.c(250): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(253): warning:  #177-D: variable "i" was declared but never referenced
-main.c(255): warning:  #177-D: variable "current_state" was declared but never referenced
-assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4838 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(256): warning:  #223-D: function "sprintf" declared implicitly
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(291): warning:  #127-D: expected a statement
-main.c(296): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(302): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(309): warning:  #111-D: statement is unreachable
-main.c(310): warning:  #1-D: last line of file ends without a newline
-main.c(250): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(253): warning:  #177-D: variable "i" was declared but never referenced
-main.c(255): warning:  #177-D: variable "current_state" was declared but never referenced
-assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4838 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(256): warning:  #223-D: function "sprintf" declared implicitly
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(291): warning:  #127-D: expected a statement
-main.c(296): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(302): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(309): warning:  #111-D: statement is unreachable
-main.c(310): warning:  #1-D: last line of file ends without a newline
-main.c(250): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(253): warning:  #177-D: variable "i" was declared but never referenced
-main.c(255): warning:  #177-D: variable "current_state" was declared but never referenced
-assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4834 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(256): warning:  #223-D: function "sprintf" declared implicitly
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(291): warning:  #127-D: expected a statement
-main.c(296): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(302): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(309): warning:  #111-D: statement is unreachable
-main.c(310): warning:  #1-D: last line of file ends without a newline
-main.c(250): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(253): warning:  #177-D: variable "i" was declared but never referenced
-main.c(255): warning:  #177-D: variable "current_state" was declared but never referenced
-assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4834 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(256): warning:  #223-D: function "sprintf" declared implicitly
-main.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(291): warning:  #127-D: expected a statement
-main.c(296): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(302): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(309): warning:  #111-D: statement is unreachable
-main.c(310): warning:  #1-D: last line of file ends without a newline
-main.c(250): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(253): warning:  #177-D: variable "i" was declared but never referenced
-main.c(255): warning:  #177-D: variable "current_state" was declared but never referenced
-assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4834 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(241): warning:  #223-D: function "sprintf" declared implicitly
-main.c(246): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(265): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(276): warning:  #127-D: expected a statement
-main.c(281): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(287): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(268): error:  #268: declaration may not appear after executable statement in block
+main.c(268): error:  #20: identifier "new_" is undefined
+main.c(269): error:  #20: identifier "new_event" is undefined
+main.c(270): warning:  #186-D: pointless comparison of unsigned integer with zero
 main.c(294): warning:  #111-D: statement is unreachable
 main.c(295): warning:  #1-D: last line of file ends without a newline
-main.c(235): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(238): warning:  #177-D: variable "i" was declared but never referenced
-main.c(240): warning:  #177-D: variable "current_state" was declared but never referenced
+main.c(227): warning:  #177-D: variable "aDCStat" was declared but never referenced
+main.c(230): warning:  #177-D: variable "i" was declared but never referenced
+main.c(232): warning:  #177-D: variable "mask" was declared but never referenced
 assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4770 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
+Target not created
 Rebuild target 'LPC1768Flash'
 compiling GLCD_SPI_LPC1700.c...
 compiling system_LPC17xx.c...
 compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(181): error:  #20: identifier "event" is undefined
+main.c(183): error:  #20: identifier "event" is undefined
+main.c(186): error:  #20: identifier "event" is undefined
+main.c(234): warning:  #223-D: function "sprintf" declared implicitly
+main.c(239): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(258): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(268): error:  #268: declaration may not appear after executable statement in block
+main.c(268): error:  #20: identifier "new_" is undefined
+main.c(269): error:  #20: identifier "new_event" is undefined
+main.c(270): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(294): warning:  #111-D: statement is unreachable
+main.c(295): warning:  #1-D: last line of file ends without a newline
+main.c(227): warning:  #177-D: variable "aDCStat" was declared but never referenced
+main.c(230): warning:  #177-D: variable "i" was declared but never referenced
+main.c(232): warning:  #177-D: variable "mask" was declared but never referenced
+assembling startup_LPC17xx.s...
+Target not created
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(189): error:  #29: expected an expression
+main.c(191): error:  #29: expected an expression
+main.c(195): warning:  #940-D: missing return statement at end of non-void function "get_new_events"
+main.c(241): warning:  #223-D: function "sprintf" declared implicitly
+main.c(246): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(265): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(275): error:  #268: declaration may not appear after executable statement in block
+main.c(275): error:  #20: identifier "new_" is undefined
+main.c(276): error:  #20: identifier "new_event" is undefined
+main.c(277): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(301): warning:  #111-D: statement is unreachable
+main.c(302): warning:  #1-D: last line of file ends without a newline
+main.c(234): warning:  #177-D: variable "aDCStat" was declared but never referenced
+main.c(237): warning:  #177-D: variable "i" was declared but never referenced
+main.c(239): warning:  #177-D: variable "mask" was declared but never referenced
+assembling startup_LPC17xx.s...
+Target not created
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(195): warning:  #940-D: missing return statement at end of non-void function "get_new_events"
 main.c(245): warning:  #223-D: function "sprintf" declared implicitly
 main.c(250): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
 main.c(269): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(280): warning:  #127-D: expected a statement
-main.c(285): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(291): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(298): warning:  #111-D: statement is unreachable
-main.c(299): warning:  #1-D: last line of file ends without a newline
-main.c(239): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(242): warning:  #177-D: variable "i" was declared but never referenced
-main.c(244): warning:  #177-D: variable "current_state" was declared but never referenced
+main.c(279): error:  #268: declaration may not appear after executable statement in block
+main.c(279): error:  #20: identifier "new_" is undefined
+main.c(280): error:  #20: identifier "new_event" is undefined
+main.c(281): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(305): warning:  #111-D: statement is unreachable
+main.c(306): warning:  #1-D: last line of file ends without a newline
+main.c(238): warning:  #177-D: variable "aDCStat" was declared but never referenced
+main.c(241): warning:  #177-D: variable "i" was declared but never referenced
+main.c(243): warning:  #177-D: variable "mask" was declared but never referenced
 assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4786 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
+Target not created
 Rebuild target 'LPC1768Flash'
 compiling GLCD_SPI_LPC1700.c...
 compiling system_LPC17xx.c...
 compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
 main.c(245): warning:  #223-D: function "sprintf" declared implicitly
 main.c(250): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
 main.c(269): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(280): warning:  #127-D: expected a statement
-main.c(285): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(291): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(298): warning:  #111-D: statement is unreachable
-main.c(299): warning:  #1-D: last line of file ends without a newline
-main.c(239): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(242): warning:  #177-D: variable "i" was declared but never referenced
-main.c(244): warning:  #177-D: variable "current_state" was declared but never referenced
+main.c(279): error:  #268: declaration may not appear after executable statement in block
+main.c(279): error:  #20: identifier "new_" is undefined
+main.c(280): error:  #20: identifier "new_event" is undefined
+main.c(281): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(305): warning:  #111-D: statement is unreachable
+main.c(306): warning:  #1-D: last line of file ends without a newline
+main.c(238): warning:  #177-D: variable "aDCStat" was declared but never referenced
+main.c(241): warning:  #177-D: variable "i" was declared but never referenced
+main.c(243): warning:  #177-D: variable "mask" was declared but never referenced
 assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4786 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
+Target not created
 Rebuild target 'LPC1768Flash'
 compiling GLCD_SPI_LPC1700.c...
 compiling system_LPC17xx.c...
 compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(245): warning:  #223-D: function "sprintf" declared implicitly
+main.c(250): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(269): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(279): error:  #20: identifier "new_event" is undefined
+main.c(281): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(305): warning:  #111-D: statement is unreachable
+main.c(306): warning:  #1-D: last line of file ends without a newline
+main.c(238): warning:  #177-D: variable "aDCStat" was declared but never referenced
+main.c(241): warning:  #177-D: variable "i" was declared but never referenced
+main.c(243): warning:  #177-D: variable "mask" was declared but never referenced
+assembling startup_LPC17xx.s...
+Target not created
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
 main.c(246): warning:  #223-D: function "sprintf" declared implicitly
 main.c(251): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
 main.c(270): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(281): warning:  #127-D: expected a statement
-main.c(286): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(292): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(299): warning:  #111-D: statement is unreachable
-main.c(300): warning:  #1-D: last line of file ends without a newline
-main.c(240): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(243): warning:  #177-D: variable "i" was declared but never referenced
-main.c(245): warning:  #177-D: variable "current_state" was declared but never referenced
-assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4798 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(248): warning:  #223-D: function "sprintf" declared implicitly
-main.c(253): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(272): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(283): warning:  #127-D: expected a statement
-main.c(288): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(294): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(301): warning:  #111-D: statement is unreachable
-main.c(302): warning:  #1-D: last line of file ends without a newline
-main.c(242): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(245): warning:  #177-D: variable "i" was declared but never referenced
-main.c(247): warning:  #177-D: variable "current_state" was declared but never referenced
-assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4802 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(244): warning:  #223-D: function "sprintf" declared implicitly
-main.c(249): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(268): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(279): warning:  #127-D: expected a statement
-main.c(284): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(290): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(297): warning:  #111-D: statement is unreachable
-main.c(298): warning:  #1-D: last line of file ends without a newline
+main.c(282): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(306): warning:  #111-D: statement is unreachable
+main.c(307): warning:  #1-D: last line of file ends without a newline
 main.c(238): warning:  #177-D: variable "aDCStat" was declared but never referenced
 main.c(241): warning:  #177-D: variable "i" was declared but never referenced
-main.c(243): warning:  #177-D: variable "current_state" was declared but never referenced
+main.c(244): warning:  #177-D: variable "mask" was declared but never referenced
 assembling startup_LPC17xx.s...
 linking...
-Program Size: Code=4782 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
-Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
-Erase Done.
-Programming Done.
-Verify OK.
-Rebuild target 'LPC1768Flash'
-compiling GLCD_SPI_LPC1700.c...
-compiling system_LPC17xx.c...
-compiling main.c...
-main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
-main.c(242): warning:  #223-D: function "sprintf" declared implicitly
-main.c(247): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(266): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(277): warning:  #127-D: expected a statement
-main.c(282): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(288): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-main.c(295): warning:  #111-D: statement is unreachable
-main.c(296): warning:  #1-D: last line of file ends without a newline
-main.c(236): warning:  #177-D: variable "aDCStat" was declared but never referenced
-main.c(239): warning:  #177-D: variable "i" was declared but never referenced
-main.c(241): warning:  #177-D: variable "current_state" was declared but never referenced
-assembling startup_LPC17xx.s...
-linking...
-Program Size: Code=4770 RO-data=6586 RW-data=164 ZI-data=612  
-"lab1.axf" - 0 Error(s), 12 Warning(s).
+Program Size: Code=4546 RO-data=6630 RW-data=32 ZI-data=608  
+"lab1.axf" - 0 Error(s), 10 Warning(s).
 Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
 Erase Done.
 Programming Done.

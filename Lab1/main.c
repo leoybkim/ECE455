@@ -18,32 +18,40 @@ int timer;
 
 /* STATE MACHINE */
 enum states { STATE_OFF, STATE_INTER, STATE_ON, STATE_ERR, MAX_STATES } current_state;
-enum events { HEAT_REQUEST, HEAT, COOL, TIME_OUT, MAX_EVENTS } new_events;
+enum events { HEAT_REQUEST, HEAT, COOL, TIME_OUT, REPEAT, MAX_EVENTS } new_events;
 
 void action_s1_e1 (void);
 void action_s1_e2 (void);
 void action_s1_e3 (void);
 void action_s1_e4 (void);
+void action_s1_e5 (void);
+
 void action_s2_e1 (void);
 void action_s2_e2 (void);
 void action_s2_e3 (void);
 void action_s2_e4 (void);
+void action_s2_e5 (void);
+
 void action_s3_e1 (void);
 void action_s3_e2 (void);
 void action_s3_e3 (void);
 void action_s3_e4 (void);
+void action_s3_e5 (void);
+
 void action_s4_e1 (void);
 void action_s4_e2 (void);
 void action_s4_e3 (void);
 void action_s4_e4 (void);
-enum events get_new_events (void);
+void action_s4_e5 (void);
+
+enum events get_new_events (int desired_temp, int measured_temp);
 
 void (*const state_transitions [MAX_STATES][MAX_EVENTS]) (void) = {
-    { action_s1_e1, action_s1_e2, action_s1_e3, action_s1_e4 },
-    { action_s2_e1, action_s2_e2, action_s2_e3, action_s2_e4 },
-    { action_s3_e1, action_s3_e2, action_s3_e3, action_s3_e4 },
-    { action_s4_e1, action_s4_e2, action_s4_e3, action_s4_e4 },
-}
+    { action_s1_e1, action_s1_e2, action_s1_e3, action_s1_e4, action_s1_e5 },
+    { action_s2_e1, action_s2_e2, action_s2_e3, action_s2_e4, action_s2_e5 },
+    { action_s3_e1, action_s3_e2, action_s3_e3, action_s3_e4, action_s3_e5 },
+    { action_s4_e1, action_s4_e2, action_s4_e3, action_s4_e4, action_s4_e5 }
+};
 
 void input_init(void) 
 {
@@ -60,8 +68,7 @@ void joystick_init(void)
 
     // set the I/O direction
     // There are five LPC_GPIOx, where x=0,1,2,3,4 
-    // To set pin as input, set the corre
-    sponding bit in FIODIR to 0, for output, set FIODIR to 1
+    // To set pin as input, set the corresponding bit in FIODIR to 0, for output, set FIODIR to 1
     // By default all I/Os are input
     LPC_GPIO1->FIODIR &= ~((1<<20) | (1<<23) | (1<<24) | (1<<25) | (1<<26));     /* P1.20, P1.23..26 is input */
 }
@@ -179,17 +186,16 @@ void TIMER1_IRQHandler(void)
 enum events get_new_events(int desired_temp, int measured_temp) 
 {
     if (desired_temp > measured_temp + 2) {
-        event = HEAT;
+        return HEAT;
     } else if (desired_temp < measured_temp - 2) {
-        event = COOL;
-    } 
-
-    return event;
+        return COOL;
+    } else {
+        return REPEAT;
+    }
 }
 
 
 // ACTIONS
-
 void action_s1_e1 (void)
 {
     /* PREV STATE: OFF
@@ -201,18 +207,22 @@ void action_s1_e1 (void)
 void action_s1_e2 (void) {/* */}
 void action_s1_e3 (void) {/* */}
 void action_s1_e4 (void) {/* */}
+void action_s1_e5 (void) {/* */}
 void action_s2_e1 (void) {/* */}
 void action_s2_e2 (void) {/* */}
 void action_s2_e3 (void) {/* */}
 void action_s2_e4 (void) {/* */}
+void action_s2_e5 (void) {/* */}
 void action_s3_e1 (void) {/* */}
 void action_s3_e2 (void) {/* */}
 void action_s3_e3 (void) {/* */}
 void action_s3_e4 (void) {/* */}
+void action_s3_e5 (void) {/* */}
 void action_s4_e1 (void) {/* */}
 void action_s4_e2 (void) {/* */}
 void action_s4_e3 (void) {/* */}
 void action_s4_e4 (void) {/* */}
+void action_s4_e5 (void) {/* */}
 
 
 // make a generic state machine
@@ -229,6 +239,7 @@ int main(void)
     char str_temperature[10];    
     char str_potentiometer[10];
     int i; // for sleep counter
+    int new_event;
 
     int mask = 1 << led_pos[led];
 
@@ -266,7 +277,7 @@ int main(void)
         }
 
         // determine what event happened
-        new_ event = get_new_events(int_temperature, ADC_Value);
+        new_event = get_new_events(int_temperature, ADC_Value);
         if (((new_event >= 0) && (new_event < MAX_EVENTS))
         && ((current_state >= 0) && (current_state < MAX_STATES))) {
             /* call the action procedure */
