@@ -8,7 +8,6 @@ typedef int bool;
 // Global variable
 const led_pos[8] = { 28, 29, 31, 2, 3, 4, 5, 6 };
 int led = 7;
-bool init;
 bool wait;
 bool to;
 int mask;
@@ -17,6 +16,8 @@ int mask;
 const int measured_temp;
 const int desired_temp;
 int timer;
+int wait_t;
+int to_t;
 
 /* STATE MACHINE */
 enum states { STATE_OFF, STATE_INTER, STATE_ON, STATE_ERR, MAX_STATES } current_state;
@@ -139,6 +140,8 @@ void timer1_init(void)
     LPC_TIM1->MCR |= 0x03;        // on match, generate interrupt and reset
     NVIC_EnableIRQ(TIMER1_IRQn);  // allow interrupts from the timer
     timer = 0;
+    wait_t = 0;
+    to_t = 0;
     wait = FALSE;
     to = FALSE;
 }
@@ -156,19 +159,35 @@ void TIMER1_IRQHandler(void)
     if((LPC_TIM1->IR & 0x01) == 0x01) // if MR0 interrupt
     {
         LPC_TIM1->IR |= 1 << 0; 
-        timer += 1;
+        
+        if (wait) { wait_t += 1; }
+        if (((LPC_GPIO2->FIOSET >> led_pos[led]) & 0x01) == 0x01) {to_t += 1; }
+        //timer += 1;
     }
     
-    if(!to && timer >= 10) {
-        to = TRUE;
-        wait = TRUE;
-        timer = 0;
+    if (((LPC_GPIO2->FIOSET >> led_pos[led]) & 0x01) == 0x01) {
+        GLCD_DisplayString(9, 0, 1, "on ");
+        
+        if(!to && to_t >= 10) {
+            to = TRUE;
+            wait = TRUE;
+            to_t = 0;
+        }
+        
+    } else {
+        to = FALSE;
+        to_t = 0;
+        GLCD_DisplayString(9, 0, 1, "off");
     }
     
-    if(wait && timer >= 5) {
+    
+    if(wait && wait_t >= 5) {
         wait = FALSE;
-        timer = 0;
+        wait_t = 0;
     }
+    
+    
+   
 }
 
 enum events get_new_events(int desired_temp, int measured_temp) 
@@ -235,17 +254,16 @@ int main(void)
     unsigned int aDCStat;
     char str_temperature[10];    
     char str_potentiometer[10];
-    char str_debug[10];
-    char str_timer[10];
-    char str_status[10];
+    char str_debug[12];
+    char str_timer[12];
+    char str_status[12];
     int i; // for sleep counter
     int new_event;
     mask = 1 << led_pos[led];
     
     current_state = 1;
-    init = TRUE;
-    wait = FALSE;
-    to = FALSE;
+    wait = FALSE; // wait for furnace
+    to = FALSE;   // furnace timeout
     
     
     sprintf(str_temperature, "desired temp: %d", int_temperature);
@@ -290,7 +308,7 @@ int main(void)
             /* call the action procedure */
             state_transitions [current_state][new_event] (); 
             sprintf(str_debug, "state:%2d event:%2d", current_state+1, new_event+1);
-            sprintf(str_timer, "time: %2d", timer);
+            sprintf(str_timer, "wait:%d to:%d", wait_t, to_t);
             sprintf(str_status, "wait:%d to:%d", wait, to);
             GLCD_DisplayString(4, 0, 1, str_debug);
             GLCD_DisplayString(5, 0, 1, str_timer);
