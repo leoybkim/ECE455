@@ -4,74 +4,45 @@
 typedef int bool;
 #define TRUE 1
 #define FALSE 0
-/* Thermostat */
 
 // Global variable
 const led_pos[8] = { 28, 29, 31, 2, 3, 4, 5, 6 };
 int led = 7;
+bool init = TRUE;
 bool off = TRUE;
 
 // thermo inputs
 const int measured_temp;
 const int desired_temp;
-const int timer;
+int timer;
 
-// thermo states
-const int STATE_OFF = 1;
-const int STATE_INTER = 2;
-const int STATE_ON = 3;
-const int STATE_ERR = 4;
+/* STATE MACHINE */
+enum states { STATE_OFF, STATE_INTER, STATE_ON, STATE_ERR, MAX_STATES } current_state;
+enum events { HEAT_REQUEST, HEAT, COOL, TIME_OUT, MAX_EVENTS } new_events;
 
-// thermo events
-const int HEAT_REQUEST = 11;
-const int HEAT = 22;
-const int COOL = 33;
-const int TIME_OUT = 44;
+void action_s1_e1 (void);
+void action_s1_e2 (void);
+void action_s1_e3 (void);
+void action_s1_e4 (void);
+void action_s2_e1 (void);
+void action_s2_e2 (void);
+void action_s2_e3 (void);
+void action_s2_e4 (void);
+void action_s3_e1 (void);
+void action_s3_e2 (void);
+void action_s3_e3 (void);
+void action_s3_e4 (void);
+void action_s4_e1 (void);
+void action_s4_e2 (void);
+void action_s4_e3 (void);
+void action_s4_e4 (void);
+enum events get_new_events (void);
 
-
-// states
-
-int state_table[][3] = {
- // { CURRENT_STATE, INPUTS, NEXT_STATE }
-    { STATE_OFF  , HEAT_REQUEST, STATE_INTER },
-    { STATE_OFF  , HEAT        , STATE_ON    },
-    { STATE_OFF  , COOL        , STATE_OFF   },
-    { STATE_OFF  , TIME_OUT    , STATE_ERR   },
-    { STATE_INTER, HEAT_REQUEST, STATE_INTER },
-    { STATE_INTER, HEAT        , STATE_ON    },
-    { STATE_INTER, COOL        , STATE_OFF   },
-    { STATE_INTER, TIME_OUT    , STATE_ERR   },
-    { STATE_ON   , HEAT_REQUEST, STATE_ERR   },
-    { STATE_ON   , HEAT        , STATE_ON    },
-    { STATE_ON   , COOL        , STATE_OFF   },    
-    { STATE_ON   , TIME_OUT    , STATE_OFF   }
-};
-
-void state_flow(int current_sate, int event, int next_state)
-{
-    switch (event) {
-        case HEAT_REQUEST:
-            // start timer
-            GLCD_DisplayString(2, 0, 1, "Event: request heating");
-            break;
-        case HEAT:
-            GLCD_DisplayString(2, 0, 1, "Event: Heating");
-            break;
-        case COOL:
-            GLCD_DisplayString(2, 0, 1, "Event: Cooling");
-            break;
-    }
-    
-    switch (next_state) {
-        case STATE_OFF: 
-            GLCD_DisplayString(3, 0, 1, "State: OFF");
-        case STATE_ON:
-            GLCD_DisplayString(3, 0, 1, "State: ON");
-        case STATE_INTER:
-            GLCD_DisplayString(3, 0, 1, "State: INTER");
-        case STATE_ERR:
-            GLCD_DisplayString(3, 0, 1, "State: ERR");
-    }
+void (*const state_transitions [MAX_STATES][MAX_EVENTS]) (void) = {
+    { action_s1_e1, action_s1_e2, action_s1_e3, action_s1_e4 },
+    { action_s2_e1, action_s2_e2, action_s2_e3, action_s2_e4 },
+    { action_s3_e1, action_s3_e2, action_s3_e3, action_s3_e4 },
+    { action_s4_e1, action_s4_e2, action_s4_e3, action_s4_e4 },
 }
 
 void input_init(void) 
@@ -79,16 +50,6 @@ void input_init(void)
     // cofig INT0 button for input
     LPC_PINCON->PINSEL4 &= ~(3<<20); // P2.10 is GPIO
     LPC_GPIO2->FIODIR &= ~(1<<10);   // P2.10 is input
-    
-    // 0000 0000 0000 0000 0000 0011
-    // 3 << 20
-    // 1100 0000 0000 0000 0000 0000
-    // ~ bitwise NOT operator
-    // 0011 1111 1111 1111 1111 1111
-    // &= bitwise AND operator
-    // enables INT0 button to be used for input by setting bit 21 and 20 of the PINSEL4 register to zero
-    // enables GIPO2 I/O direction register to zero 
-    // in theory you can omit these two lines since zero is the default value fot both of these registers
 }
 
 void joystick_init(void)
@@ -99,7 +60,8 @@ void joystick_init(void)
 
     // set the I/O direction
     // There are five LPC_GPIOx, where x=0,1,2,3,4 
-    // To set pin as input, set the corresponding bit in FIODIR to 0, for output, set FIODIR to 1
+    // To set pin as input, set the corre
+    sponding bit in FIODIR to 0, for output, set FIODIR to 1
     // By default all I/Os are input
     LPC_GPIO1->FIODIR &= ~((1<<20) | (1<<23) | (1<<24) | (1<<25) | (1<<26));     /* P1.20, P1.23..26 is input */
 }
@@ -149,7 +111,6 @@ void potentiometer_init(void)
     
     //NVIC_EnableIRQ(ADC_IRQn);      // register interrupt
 }
-
 
 // timer to wake up from sleep
 void timer0_init(void)
@@ -210,17 +171,48 @@ void TIMER1_IRQHandler(void)
     {
         LPC_TIM1->IR |= 1 << 0; 
         
+        // Time out (max furnace time)
         LPC_GPIO2->FIOCLR = mask;
-        // Furnace timeout
-
     }
 }
 
-int define_event(int desired_temp, int measured_temp) 
+enum events get_new_events(int desired_temp, int measured_temp) 
 {
-    //if (desired_temp > measured_temp + 2) && (
-    return 0;
+    if (desired_temp > measured_temp + 2) {
+        event = HEAT;
+    } else if (desired_temp < measured_temp - 2) {
+        event = COOL;
+    } 
+
+    return event;
 }
+
+
+// ACTIONS
+
+void action_s1_e1 (void)
+{
+    /* PREV STATE: OFF
+       EVENT     : REQUEST HEAT */
+
+    current_state = STATE_ON; 
+}
+
+void action_s1_e2 (void) {/* */}
+void action_s1_e3 (void) {/* */}
+void action_s1_e4 (void) {/* */}
+void action_s2_e1 (void) {/* */}
+void action_s2_e2 (void) {/* */}
+void action_s2_e3 (void) {/* */}
+void action_s2_e4 (void) {/* */}
+void action_s3_e1 (void) {/* */}
+void action_s3_e2 (void) {/* */}
+void action_s3_e3 (void) {/* */}
+void action_s3_e4 (void) {/* */}
+void action_s4_e1 (void) {/* */}
+void action_s4_e2 (void) {/* */}
+void action_s4_e3 (void) {/* */}
+void action_s4_e4 (void) {/* */}
 
 
 // make a generic state machine
@@ -237,8 +229,9 @@ int main(void)
     char str_temperature[10];    
     char str_potentiometer[10];
     int i; // for sleep counter
-    int event;
-    int current_state = STATE_OFF;
+
+    int mask = 1 << led_pos[led];
+
     sprintf(str_temperature, "desired temp: %d", int_temperature);
 
     SystemInit();   
@@ -265,29 +258,36 @@ int main(void)
         sprintf(str_potentiometer, "measured temp: %4d", ADC_Value);
         GLCD_DisplayString(1, 0, 1, str_potentiometer);
         
-        event = define_event(joystick_val, ADC_Value);
-        
-        switch(event) {
-            case(HEAT_REQUEST) :
-                break;
-            case(HEAT):
-                break;
-            case(COOL):
-                
-        }
-            
+        // read joystick 
         if (joystick_val == 0x08) {
             int_temperature += 1;
-            sprintf(str_temperature, "desired temp: %d", int_temperature);
-            GLCD_DisplayString(0, 0, 1, str_temperature);
-            check_furnace(int_temperature, ADC_Value, led);
-            
         } else if (joystick_val == 0x20) {
             int_temperature -= 1;
-            sprintf(str_temperature, "desired temp: %d", int_temperature);
-            GLCD_DisplayString(0, 0, 1, str_temperature);
-            check_furnace(int_temperature, ADC_Value, led);
-        } 
+        }
+
+        // determine what event happened
+        new_ event = get_new_events(int_temperature, ADC_Value);
+        if (((new_event >= 0) && (new_event < MAX_EVENTS))
+        && ((current_state >= 0) && (current_state < MAX_STATES))) {
+            /* call the action procedure */
+            state_transitions [current_state][new_event] (); 
+        } else {
+            /* invalid event/state - handle appropriately */
+        }
+
+
+        // if (joystick_val == 0x08) {
+        //     int_temperature += 1;
+        //     sprintf(str_temperature, "desired temp: %d", int_temperature);
+        //     GLCD_DisplayString(0, 0, 1, str_temperature);
+        //     check_furnace(int_temperature, ADC_Value, led);
+            
+        // } else if (joystick_val == 0x20) {
+        //     int_temperature -= 1;
+        //     sprintf(str_temperature, "desired temp: %d", int_temperature);
+        //     GLCD_DisplayString(0, 0, 1, str_temperature);
+        //     check_furnace(int_temperature, ADC_Value, led);
+        // } 
         
         //for (i=0; i < 1000000; i++) {}  // counter that acts like sleep()
         __WFI();                          // low power mode until interrupt occurs
