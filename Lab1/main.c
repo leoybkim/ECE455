@@ -148,14 +148,14 @@ void check_furnace(int desired_temp, int current_temp, int led)
     if (led < 3) {
         if (desired_temp > current_temp + 2) {
             LPC_GPIO1->FIOSET = mask;
-            timer1_init();
+            //timer1_init();
         } else if (desired_temp < current_temp - 2) {
             LPC_GPIO1->FIOCLR = mask;
         }
     } else {
         if (desired_temp > current_temp + 2) {
             LPC_GPIO2->FIOSET = mask;
-            timer1_init();
+            //timer1_init();
         } else if (desired_temp < current_temp - 2) {
             LPC_GPIO2->FIOCLR = mask;
         }
@@ -201,19 +201,22 @@ void action_s1_e1 (void)
     /* PREV STATE: OFF
        EVENT     : REQUEST HEAT */
 
+    int mask = 1 << led_pos[led];
     current_state = STATE_ON; 
+    LPC_GPIO2->FIOSET = mask;
+    GLCD_DisplayString(6, 0, 1, "CALLED FUNCTION action_s1_e1");
 }
 
-void action_s1_e2 (void) {/* */}
-void action_s1_e3 (void) {/* */}
-void action_s1_e4 (void) {/* */}
-void action_s1_e5 (void) {/* */}
-void action_s2_e1 (void) {/* */}
-void action_s2_e2 (void) {/* */}
-void action_s2_e3 (void) {/* */}
-void action_s2_e4 (void) {/* */}
-void action_s2_e5 (void) {/* */}
-void action_s3_e1 (void) {/* */}
+void action_s1_e2 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s1_e2");}
+void action_s1_e3 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s1_e3");}
+void action_s1_e4 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s1_e4");}
+void action_s1_e5 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s1_e5");}
+void action_s2_e1 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e1");}
+void action_s2_e2 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e2");}
+void action_s2_e3 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e3");}
+void action_s2_e4 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e4");}
+void action_s2_e5 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s2_e5");}
+void action_s3_e1 (void) {/* */ GLCD_DisplayString(6, 0, 1, "CALLED action_s3_e1");}
 void action_s3_e2 (void) {/* */}
 void action_s3_e3 (void) {/* */}
 void action_s3_e4 (void) {/* */}
@@ -238,10 +241,12 @@ int main(void)
     unsigned int aDCStat;
     char str_temperature[10];    
     char str_potentiometer[10];
+    char str_debug[10];
     int i; // for sleep counter
     int new_event;
-
     int mask = 1 << led_pos[led];
+    
+    current_state = 1;
 
     sprintf(str_temperature, "desired temp: %d", int_temperature);
 
@@ -272,35 +277,26 @@ int main(void)
         // read joystick 
         if (joystick_val == 0x08) {
             int_temperature += 1;
+            sprintf(str_temperature, "desired temp: %d", int_temperature);
+            GLCD_DisplayString(0, 0, 1, str_temperature);
         } else if (joystick_val == 0x20) {
             int_temperature -= 1;
+            sprintf(str_temperature, "desired temp: %d", int_temperature);
+            GLCD_DisplayString(0, 0, 1, str_temperature);
         }
 
         // determine what event happened
         new_event = get_new_events(int_temperature, ADC_Value);
-        if (((new_event >= 0) && (new_event < MAX_EVENTS))
-        && ((current_state >= 0) && (current_state < MAX_STATES))) {
+        if (((new_event >= 0) && (new_event < MAX_EVENTS)) && ((current_state >= 0) && (current_state < MAX_STATES))) {
             /* call the action procedure */
-            state_transitions [current_state][new_event] (); 
+            state_transitions [current_state-1][new_event-1] (); 
+            sprintf(str_debug, "event:%2d state:%2d", new_event, current_state);
+            GLCD_DisplayString(4, 0, 1, str_debug);
+            
         } else {
             /* invalid event/state - handle appropriately */
         }
-
-
-        // if (joystick_val == 0x08) {
-        //     int_temperature += 1;
-        //     sprintf(str_temperature, "desired temp: %d", int_temperature);
-        //     GLCD_DisplayString(0, 0, 1, str_temperature);
-        //     check_furnace(int_temperature, ADC_Value, led);
-            
-        // } else if (joystick_val == 0x20) {
-        //     int_temperature -= 1;
-        //     sprintf(str_temperature, "desired temp: %d", int_temperature);
-        //     GLCD_DisplayString(0, 0, 1, str_temperature);
-        //     check_furnace(int_temperature, ADC_Value, led);
-        // } 
         
-        //for (i=0; i < 1000000; i++) {}  // counter that acts like sleep()
         __WFI();                          // low power mode until interrupt occurs
     }
     return 0;
