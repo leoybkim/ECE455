@@ -411,6 +411,16 @@
               <FileType>2</FileType>
               <FilePath>.\startup_LPC17xx.s</FilePath>
             </File>
+            <File>
+              <FileName>fsm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\fsm.c</FilePath>
+            </File>
+            <File>
+              <FileName>fsm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\fsm.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

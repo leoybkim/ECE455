@@ -243,15 +243,15 @@
       <tvExp>0</tvExp>
       <Focus>0</Focus>
 <<<<<<< HEAD
-      <ColumnNumber>14</ColumnNumber>
+      <ColumnNumber>8</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>40</TopLine>
-      <CurrentLine>59</CurrentLine>
+      <TopLine>41</TopLine>
+      <CurrentLine>60</CurrentLine>
 =======
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>31</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>3</CurrentLine>
+      <TopLine>122</TopLine>
+      <CurrentLine>141</CurrentLine>
 >>>>>>> 60ba57a5635b0d0831b0584c3e971683bce41af9
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
