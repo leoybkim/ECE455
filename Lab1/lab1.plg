@@ -3312,3 +3312,509 @@ Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.A
 Erase Done.
 Programming Done.
 Verify OK.
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(264): warning:  #188-D: enumerated type mixed with another type
+main.c(269): warning:  #223-D: function "sprintf" declared implicitly
+main.c(274): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(291): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(298): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(302): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(307): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(313): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(314): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(315): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(323): warning:  #111-D: statement is unreachable
+main.c(324): warning:  #1-D: last line of file ends without a newline
+main.c(254): warning:  #177-D: variable "aDCStat" was declared but never referenced
+main.c(260): warning:  #177-D: variable "i" was declared but never referenced
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=6098 RO-data=6646 RW-data=44 ZI-data=612  
+"lab1.axf" - 0 Error(s), 15 Warning(s).
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(266): warning:  #188-D: enumerated type mixed with another type
+main.c(271): warning:  #223-D: function "sprintf" declared implicitly
+main.c(276): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(293): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(300): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(309): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(315): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(316): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(317): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(325): warning:  #111-D: statement is unreachable
+main.c(326): warning:  #1-D: last line of file ends without a newline
+main.c(254): warning:  #177-D: variable "aDCStat" was declared but never referenced
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=6098 RO-data=6646 RW-data=44 ZI-data=612  
+"lab1.axf" - 0 Error(s), 14 Warning(s).
+Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(261): warning:  #188-D: enumerated type mixed with another type
+main.c(266): warning:  #223-D: function "sprintf" declared implicitly
+main.c(271): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(288): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(295): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(299): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(310): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(311): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(320): warning:  #111-D: statement is unreachable
+main.c(321): warning:  #1-D: last line of file ends without a newline
+main.c(249): warning:  #177-D: variable "aDCStat" was declared but never referenced
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=6094 RO-data=6646 RW-data=44 ZI-data=612  
+"lab1.axf" - 0 Error(s), 14 Warning(s).
+Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(261): warning:  #188-D: enumerated type mixed with another type
+main.c(266): warning:  #223-D: function "sprintf" declared implicitly
+main.c(271): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(288): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(295): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(299): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(308): error:  #20: identifier "to_t" is undefined
+main.c(309): error:  #20: identifier "to" is undefined
+main.c(310): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(311): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(320): warning:  #111-D: statement is unreachable
+main.c(321): warning:  #1-D: last line of file ends without a newline
+main.c(249): warning:  #177-D: variable "aDCStat" was declared but never referenced
+assembling startup_LPC17xx.s...
+Target not created
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(261): warning:  #188-D: enumerated type mixed with another type
+main.c(266): warning:  #223-D: function "sprintf" declared implicitly
+main.c(271): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(288): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(295): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(299): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(309): error:  #20: identifier "timout" is undefined
+main.c(310): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(311): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(320): warning:  #111-D: statement is unreachable
+main.c(321): warning:  #1-D: last line of file ends without a newline
+main.c(249): warning:  #177-D: variable "aDCStat" was declared but never referenced
+assembling startup_LPC17xx.s...
+Target not created
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(261): warning:  #188-D: enumerated type mixed with another type
+main.c(266): warning:  #223-D: function "sprintf" declared implicitly
+main.c(271): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(288): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(295): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(299): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(310): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(311): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(320): warning:  #111-D: statement is unreachable
+main.c(321): warning:  #1-D: last line of file ends without a newline
+main.c(249): warning:  #177-D: variable "aDCStat" was declared but never referenced
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=6094 RO-data=6646 RW-data=44 ZI-data=612  
+"lab1.axf" - 0 Error(s), 14 Warning(s).
+Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(261): warning:  #188-D: enumerated type mixed with another type
+main.c(266): warning:  #223-D: function "sprintf" declared implicitly
+main.c(271): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(288): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(295): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(299): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(310): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(311): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(320): warning:  #111-D: statement is unreachable
+main.c(321): warning:  #1-D: last line of file ends without a newline
+main.c(249): warning:  #177-D: variable "aDCStat" was declared but never referenced
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=6094 RO-data=6646 RW-data=44 ZI-data=612  
+"lab1.axf" - 0 Error(s), 14 Warning(s).
+Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(261): warning:  #188-D: enumerated type mixed with another type
+main.c(266): warning:  #223-D: function "sprintf" declared implicitly
+main.c(271): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(288): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(295): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(299): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(310): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(311): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(320): warning:  #111-D: statement is unreachable
+main.c(321): warning:  #1-D: last line of file ends without a newline
+main.c(249): warning:  #177-D: variable "aDCStat" was declared but never referenced
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=6094 RO-data=6646 RW-data=44 ZI-data=612  
+"lab1.axf" - 0 Error(s), 14 Warning(s).
+Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(261): warning:  #188-D: enumerated type mixed with another type
+main.c(266): warning:  #223-D: function "sprintf" declared implicitly
+main.c(271): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(288): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(295): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(299): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(310): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(311): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(320): warning:  #111-D: statement is unreachable
+main.c(321): warning:  #1-D: last line of file ends without a newline
+main.c(249): warning:  #177-D: variable "aDCStat" was declared but never referenced
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=6094 RO-data=6646 RW-data=44 ZI-data=612  
+"lab1.axf" - 0 Error(s), 14 Warning(s).
+Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(261): warning:  #188-D: enumerated type mixed with another type
+main.c(266): warning:  #223-D: function "sprintf" declared implicitly
+main.c(271): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(288): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(295): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(299): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(310): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(311): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(320): warning:  #111-D: statement is unreachable
+main.c(321): warning:  #1-D: last line of file ends without a newline
+main.c(249): warning:  #177-D: variable "aDCStat" was declared but never referenced
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=5270 RO-data=6646 RW-data=40 ZI-data=608  
+"lab1.axf" - 0 Error(s), 14 Warning(s).
+Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(260): warning:  #188-D: enumerated type mixed with another type
+main.c(261): error:  #137: expression must be a modifiable lvalue
+main.c(266): warning:  #223-D: function "sprintf" declared implicitly
+main.c(271): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(288): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(293): error:  #137: expression must be a modifiable lvalue
+main.c(295): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(297): error:  #137: expression must be a modifiable lvalue
+main.c(299): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(310): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(311): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(320): warning:  #111-D: statement is unreachable
+main.c(321): warning:  #1-D: last line of file ends without a newline
+main.c(248): warning:  #177-D: variable "aDCStat" was declared but never referenced
+assembling startup_LPC17xx.s...
+Target not created
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(260): warning:  #188-D: enumerated type mixed with another type
+main.c(266): warning:  #223-D: function "sprintf" declared implicitly
+main.c(271): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(288): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(295): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(299): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(310): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(311): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(320): warning:  #111-D: statement is unreachable
+main.c(321): warning:  #1-D: last line of file ends without a newline
+main.c(244): warning:  #177-D: variable "measured_temp" was declared but never referenced
+main.c(248): warning:  #177-D: variable "aDCStat" was declared but never referenced
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=5270 RO-data=6638 RW-data=40 ZI-data=608  
+"lab1.axf" - 0 Error(s), 15 Warning(s).
+Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(258): warning:  #188-D: enumerated type mixed with another type
+main.c(264): warning:  #223-D: function "sprintf" declared implicitly
+main.c(269): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(286): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(293): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(297): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(302): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(308): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(309): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(310): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(318): warning:  #111-D: statement is unreachable
+main.c(319): warning:  #1-D: last line of file ends without a newline
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=5266 RO-data=6638 RW-data=40 ZI-data=608  
+"lab1.axf" - 0 Error(s), 13 Warning(s).
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(19): error:  #77-D: this declaration has no storage class or type specifier
+main.c(19): error:  #28: expression must have a constant value
+main.c(259): warning:  #188-D: enumerated type mixed with another type
+main.c(265): warning:  #223-D: function "sprintf" declared implicitly
+main.c(270): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(287): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(294): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(298): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(303): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(309): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(310): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(311): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(319): warning:  #111-D: statement is unreachable
+main.c(320): warning:  #1-D: last line of file ends without a newline
+assembling startup_LPC17xx.s...
+Target not created
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(258): warning:  #188-D: enumerated type mixed with another type
+main.c(266): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(283): warning:  #223-D: function "sprintf" declared implicitly
+main.c(284): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(291): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(295): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(300): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(306): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(307): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(308): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(316): warning:  #111-D: statement is unreachable
+main.c(317): warning:  #1-D: last line of file ends without a newline
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=5254 RO-data=6638 RW-data=40 ZI-data=608  
+"lab1.axf" - 0 Error(s), 13 Warning(s).
+Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(257): warning:  #188-D: enumerated type mixed with another type
+main.c(264): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(271): warning:  #223-D: function "sprintf" declared implicitly
+main.c(291): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(293): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(296): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(302): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(303): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #111-D: statement is unreachable
+main.c(313): warning:  #1-D: last line of file ends without a newline
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=5242 RO-data=6638 RW-data=40 ZI-data=608  
+"lab1.axf" - 0 Error(s), 12 Warning(s).
+Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(257): warning:  #188-D: enumerated type mixed with another type
+main.c(264): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(271): warning:  #223-D: function "sprintf" declared implicitly
+main.c(291): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(293): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(296): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(302): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(303): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #111-D: statement is unreachable
+main.c(313): warning:  #1-D: last line of file ends without a newline
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=5242 RO-data=6638 RW-data=40 ZI-data=608  
+"lab1.axf" - 0 Error(s), 12 Warning(s).
+Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(257): warning:  #188-D: enumerated type mixed with another type
+main.c(264): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(271): warning:  #223-D: function "sprintf" declared implicitly
+main.c(291): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(293): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(296): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(302): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(303): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #111-D: statement is unreachable
+main.c(313): warning:  #1-D: last line of file ends without a newline
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=5242 RO-data=6638 RW-data=40 ZI-data=608  
+"lab1.axf" - 0 Error(s), 12 Warning(s).
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(257): warning:  #188-D: enumerated type mixed with another type
+main.c(264): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(271): warning:  #223-D: function "sprintf" declared implicitly
+main.c(291): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(293): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(296): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(302): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(303): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #111-D: statement is unreachable
+main.c(313): warning:  #1-D: last line of file ends without a newline
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=5242 RO-data=6638 RW-data=40 ZI-data=608  
+"lab1.axf" - 0 Error(s), 12 Warning(s).
+Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(257): warning:  #188-D: enumerated type mixed with another type
+main.c(264): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(271): warning:  #223-D: function "sprintf" declared implicitly
+main.c(291): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(293): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(296): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(302): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(303): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(304): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #111-D: statement is unreachable
+main.c(313): warning:  #1-D: last line of file ends without a newline
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=5246 RO-data=6638 RW-data=40 ZI-data=608  
+"lab1.axf" - 0 Error(s), 12 Warning(s).
+Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'LPC1768Flash'
+compiling GLCD_SPI_LPC1700.c...
+compiling system_LPC17xx.c...
+compiling main.c...
+main.c(9): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(255): warning:  #188-D: enumerated type mixed with another type
+main.c(262): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(269): warning:  #223-D: function "sprintf" declared implicitly
+main.c(289): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(291): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(294): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(300): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(301): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(302): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(305): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(312): warning:  #111-D: statement is unreachable
+main.c(313): warning:  #1-D: last line of file ends without a newline
+assembling startup_LPC17xx.s...
+linking...
+Program Size: Code=5266 RO-data=6638 RW-data=40 ZI-data=608  
+"lab1.axf" - 0 Error(s), 13 Warning(s).
+Load "C:\\Users\\yb4kim\\OneDrive - University of Waterloo\\ECE455\\Lab1\\lab1.AXF" 
+Erase Done.
+Programming Done.
+Verify OK.
