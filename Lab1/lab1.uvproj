@@ -412,14 +412,14 @@
               <FilePath>.\startup_LPC17xx.s</FilePath>
             </File>
             <File>
-              <FileName>fsm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\fsm.c</FilePath>
+              <FileName>inputs.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\inputs.h</FilePath>
             </File>
             <File>
-              <FileName>fsm.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\fsm.h</FilePath>
+              <FileName>inputs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\inputs.c</FilePath>
             </File>
           </Files>
         </Group>
