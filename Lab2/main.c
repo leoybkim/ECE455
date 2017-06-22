@@ -7,6 +7,7 @@
 // global variables
 int mode;
 int joystick_val;     // determine direction (up or down)
+int test_val[] = {1, 100, 10000, 99999999, 123456789, 6477019364};
 
 // timer to wake up from sleep
 void timer0_init(void)
@@ -38,8 +39,7 @@ void init_setup()
     led_init();
     timer0_init();
     
-    mode = 0;
-    joystick_val = 0;
+    mode = 1;
 }
 
 
@@ -48,23 +48,45 @@ void init_setup()
 int main(void)
 {
     // debug tags
-    char str_mode[10];       
+    char str_mode[10];   
+    char str_faulty_int[10];
+    char str_original_int[10];
+    char str_error[10];
+    int faulty_int_var;
     
-    
+    // initialize
     init_setup();
    
+    // start program
     for(;;) {
         
         // poll joystick
         joystick_val = debounce();
-        if (joystick_val == 0x08 && mode > 0) {
+        if (joystick_val == 0x08 && mode > 1) 
+        {
             mode -= 1;
-        } else if (joystick_val == 0x20 && mode < 4) {
+        } 
+        else if (joystick_val == 0x20 && mode < 4) 
+        {
             mode += 1;
         }
         
+        // faulty test??
+        faulty_int_var = faulty_int(test_val[5], RANDOM_FAULT);
+        if (faulty_int_var != test_val[5]) 
+        {
+            // TODO: wait for an interrupt to continue
+            sprintf(str_error, "ERROR OCCCURED: %d", faulty_int_var);
+            GLCD_DisplayString(5, 0, 1, str_error);
+        }
+        
+        // display
         sprintf(str_mode, "Test mode: %d", mode);
         GLCD_DisplayString(0, 0, 1, str_mode);
+        sprintf(str_original_int, "Original int: %d", test_val[5]);
+        GLCD_DisplayString(1, 0, 1, str_original_int);
+        sprintf(str_faulty_int, "Faulty int: %d", faulty_int_var);
+        GLCD_DisplayString(2, 0, 1, str_faulty_int);
         
         
         __WFI();  // stay in low power mode until interrupt occurs
