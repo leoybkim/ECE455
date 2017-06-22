@@ -45,13 +45,13 @@ void init_setup()
 
 
 
-int main(void)
+int main()
 {
     // debug tags
-    char str_mode[10];   
-    char str_faulty_int[10];
-    char str_original_int[10];
-    char str_error[10];
+    char str_mode[12];   
+    char str_faulty_int[12];
+    char str_original_int[12];
+    char str_error[12];
     int faulty_int_var;
     
     // initialize
@@ -76,16 +76,16 @@ int main(void)
         if (faulty_int_var != test_val[5]) 
         {
             // TODO: wait for an interrupt to continue
-            sprintf(str_error, "ERROR OCCCURED: %d", faulty_int_var);
+            sprintf(str_error, "ERR: %d", faulty_int_var);
             GLCD_DisplayString(5, 0, 1, str_error);
         }
         
         // display
-        sprintf(str_mode, "Test mode: %d", mode);
+        sprintf(str_mode, "Mode: %d", mode);
         GLCD_DisplayString(0, 0, 1, str_mode);
-        sprintf(str_original_int, "Original int: %d", test_val[5]);
+        sprintf(str_original_int, "Org: %d", test_val[5]);
         GLCD_DisplayString(1, 0, 1, str_original_int);
-        sprintf(str_faulty_int, "Faulty int: %d", faulty_int_var);
+        sprintf(str_faulty_int, "Calc: %d", faulty_int_var);
         GLCD_DisplayString(2, 0, 1, str_faulty_int);
         
         

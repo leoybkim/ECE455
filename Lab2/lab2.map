@@ -350,25 +350,25 @@ Image Symbol Table
     wr_dat_only                              0x00000eab   Thumb Code    18  glcd_spi_lpc1700.o(.text)
     wr_reg                                   0x00000ebd   Thumb Code    20  glcd_spi_lpc1700.o(.text)
     .text                                    0x00000ee8   Section        0  main.o(.text)
-    .text                                    0x00001074   Section       38  llshl.o(.text)
-    .text                                    0x0000109c   Section        0  noretval__2sprintf.o(.text)
-    .text                                    0x000010c4   Section        0  __printf.o(.text)
-    .text                                    0x00001130   Section        0  _printf_dec.o(.text)
-    .text                                    0x000011a8   Section        0  rand.o(.text)
-    .text                                    0x000011e4   Section        0  _printf_intcommon.o(.text)
-    .text                                    0x0000129c   Section        0  _printf_char_common.o(.text)
-    _printf_input_char                       0x0000129d   Thumb Code    10  _printf_char_common.o(.text)
-    .text                                    0x000012cc   Section       74  sys_stackheap_outer.o(.text)
-    .text                                    0x00001318   Section        8  libspace.o(.text)
-    .text                                    0x00001320   Section        2  use_no_semi.o(.text)
-    .text                                    0x00001322   Section        0  indicate_semi.o(.text)
-    .text                                    0x00001324   Section        0  sys_exit.o(.text)
-    x$fpl$dcmpinf                            0x00001330   Section       24  dcmpi.o(x$fpl$dcmpinf)
-    x$fpl$dflt                               0x00001348   Section       46  dflt_clz.o(x$fpl$dflt)
-    x$fpl$dleqf                              0x00001378   Section      120  dleqf.o(x$fpl$dleqf)
-    x$fpl$dnaninf                            0x000013f0   Section      156  dnaninf.o(x$fpl$dnaninf)
-    .constdata                               0x0000148c   Section     6272  glcd_spi_lpc1700.o(.constdata)
-    x$fpl$usenofp                            0x0000148c   Section        0  usenofp.o(x$fpl$usenofp)
+    .text                                    0x00001054   Section       38  llshl.o(.text)
+    .text                                    0x0000107c   Section        0  noretval__2sprintf.o(.text)
+    .text                                    0x000010a4   Section        0  __printf.o(.text)
+    .text                                    0x00001110   Section        0  _printf_dec.o(.text)
+    .text                                    0x00001188   Section        0  rand.o(.text)
+    .text                                    0x000011c4   Section        0  _printf_intcommon.o(.text)
+    .text                                    0x0000127c   Section        0  _printf_char_common.o(.text)
+    _printf_input_char                       0x0000127d   Thumb Code    10  _printf_char_common.o(.text)
+    .text                                    0x000012ac   Section       74  sys_stackheap_outer.o(.text)
+    .text                                    0x000012f8   Section        8  libspace.o(.text)
+    .text                                    0x00001300   Section        2  use_no_semi.o(.text)
+    .text                                    0x00001302   Section        0  indicate_semi.o(.text)
+    .text                                    0x00001304   Section        0  sys_exit.o(.text)
+    x$fpl$dcmpinf                            0x00001310   Section       24  dcmpi.o(x$fpl$dcmpinf)
+    x$fpl$dflt                               0x00001328   Section       46  dflt_clz.o(x$fpl$dflt)
+    x$fpl$dleqf                              0x00001358   Section      120  dleqf.o(x$fpl$dleqf)
+    x$fpl$dnaninf                            0x000013d0   Section      156  dnaninf.o(x$fpl$dnaninf)
+    .constdata                               0x0000146c   Section     6272  glcd_spi_lpc1700.o(.constdata)
+    x$fpl$usenofp                            0x0000146c   Section        0  usenofp.o(x$fpl$usenofp)
     .data                                    0x10000000   Section       28  fault_injection.o(.data)
     .data                                    0x1000001c   Section        4  system_lpc17xx.o(.data)
     .data                                    0x10000020   Section        6  glcd_spi_lpc1700.o(.data)
@@ -552,35 +552,35 @@ Image Symbol Table
     TIMER0_IRQHandler                        0x00000f1b   Thumb Code    30  main.o(.text)
     init_setup                               0x00000f39   Thumb Code    42  main.o(.text)
     main                                     0x00000f63   Thumb Code   186  main.o(.text)
-    __aeabi_llsl                             0x00001075   Thumb Code     0  llshl.o(.text)
-    _ll_shift_l                              0x00001075   Thumb Code    38  llshl.o(.text)
-    __2sprintf                               0x0000109d   Thumb Code    34  noretval__2sprintf.o(.text)
-    __printf                                 0x000010c5   Thumb Code   106  __printf.o(.text)
-    _printf_int_dec                          0x00001131   Thumb Code   102  _printf_dec.o(.text)
-    srand                                    0x000011a9   Thumb Code    42  rand.o(.text)
-    _rand_init                               0x000011d3   Thumb Code     4  rand.o(.text)
-    _printf_int_common                       0x000011e5   Thumb Code   184  _printf_intcommon.o(.text)
-    _printf_char_common                      0x000012a7   Thumb Code    32  _printf_char_common.o(.text)
-    __user_setup_stackheap                   0x000012cd   Thumb Code    74  sys_stackheap_outer.o(.text)
-    __user_libspace                          0x00001319   Thumb Code     8  libspace.o(.text)
-    __user_perproc_libspace                  0x00001319   Thumb Code     0  libspace.o(.text)
-    __user_perthread_libspace                0x00001319   Thumb Code     0  libspace.o(.text)
-    __I$use$semihosting                      0x00001321   Thumb Code     0  use_no_semi.o(.text)
-    __use_no_semihosting_swi                 0x00001321   Thumb Code     2  use_no_semi.o(.text)
-    __semihosting_library_function           0x00001323   Thumb Code     0  indicate_semi.o(.text)
-    _sys_exit                                0x00001325   Thumb Code     8  sys_exit.o(.text)
-    __fpl_dcmp_Inf                           0x00001331   Thumb Code    24  dcmpi.o(x$fpl$dcmpinf)
-    __aeabi_i2d                              0x00001349   Thumb Code     0  dflt_clz.o(x$fpl$dflt)
-    _dflt                                    0x00001349   Thumb Code    46  dflt_clz.o(x$fpl$dflt)
-    __aeabi_cdcmple                          0x00001379   Thumb Code     0  dleqf.o(x$fpl$dleqf)
-    _dcmple                                  0x00001379   Thumb Code   120  dleqf.o(x$fpl$dleqf)
-    __fpl_dcmple_InfNaN                      0x000013db   Thumb Code     0  dleqf.o(x$fpl$dleqf)
-    __fpl_dnaninf                            0x000013f1   Thumb Code   156  dnaninf.o(x$fpl$dnaninf)
-    Font_6x8_h                               0x0000148c   Data         896  glcd_spi_lpc1700.o(.constdata)
-    __I$use$fp                               0x0000148c   Number         0  usenofp.o(x$fpl$usenofp)
-    Font_16x24_h                             0x0000180c   Data        5376  glcd_spi_lpc1700.o(.constdata)
-    Region$$Table$$Base                      0x00002d0c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00002d2c   Number         0  anon$$obj.o(Region$$Table)
+    __aeabi_llsl                             0x00001055   Thumb Code     0  llshl.o(.text)
+    _ll_shift_l                              0x00001055   Thumb Code    38  llshl.o(.text)
+    __2sprintf                               0x0000107d   Thumb Code    34  noretval__2sprintf.o(.text)
+    __printf                                 0x000010a5   Thumb Code   106  __printf.o(.text)
+    _printf_int_dec                          0x00001111   Thumb Code   102  _printf_dec.o(.text)
+    srand                                    0x00001189   Thumb Code    42  rand.o(.text)
+    _rand_init                               0x000011b3   Thumb Code     4  rand.o(.text)
+    _printf_int_common                       0x000011c5   Thumb Code   184  _printf_intcommon.o(.text)
+    _printf_char_common                      0x00001287   Thumb Code    32  _printf_char_common.o(.text)
+    __user_setup_stackheap                   0x000012ad   Thumb Code    74  sys_stackheap_outer.o(.text)
+    __user_libspace                          0x000012f9   Thumb Code     8  libspace.o(.text)
+    __user_perproc_libspace                  0x000012f9   Thumb Code     0  libspace.o(.text)
+    __user_perthread_libspace                0x000012f9   Thumb Code     0  libspace.o(.text)
+    __I$use$semihosting                      0x00001301   Thumb Code     0  use_no_semi.o(.text)
+    __use_no_semihosting_swi                 0x00001301   Thumb Code     2  use_no_semi.o(.text)
+    __semihosting_library_function           0x00001303   Thumb Code     0  indicate_semi.o(.text)
+    _sys_exit                                0x00001305   Thumb Code     8  sys_exit.o(.text)
+    __fpl_dcmp_Inf                           0x00001311   Thumb Code    24  dcmpi.o(x$fpl$dcmpinf)
+    __aeabi_i2d                              0x00001329   Thumb Code     0  dflt_clz.o(x$fpl$dflt)
+    _dflt                                    0x00001329   Thumb Code    46  dflt_clz.o(x$fpl$dflt)
+    __aeabi_cdcmple                          0x00001359   Thumb Code     0  dleqf.o(x$fpl$dleqf)
+    _dcmple                                  0x00001359   Thumb Code   120  dleqf.o(x$fpl$dleqf)
+    __fpl_dcmple_InfNaN                      0x000013bb   Thumb Code     0  dleqf.o(x$fpl$dleqf)
+    __fpl_dnaninf                            0x000013d1   Thumb Code   156  dnaninf.o(x$fpl$dnaninf)
+    Font_6x8_h                               0x0000146c   Data         896  glcd_spi_lpc1700.o(.constdata)
+    __I$use$fp                               0x0000146c   Number         0  usenofp.o(x$fpl$usenofp)
+    Font_16x24_h                             0x000017ec   Data        5376  glcd_spi_lpc1700.o(.constdata)
+    Region$$Table$$Base                      0x00002cec   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00002d0c   Number         0  anon$$obj.o(Region$$Table)
     random_fault_injected                    0x10000000   Data           4  fault_injection.o(.data)
     stuck_at_fault_int_injected              0x10000004   Data           4  fault_injection.o(.data)
     stuck_at_fault_double_injected           0x10000008   Data           4  fault_injection.o(.data)
@@ -604,9 +604,9 @@ Memory Map of the image
 
   Image Entry point : 0x000000cd
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00002d74, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00002d54, Max: 0x00080000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00002d2c, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00002d0c, Max: 0x00080000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -669,31 +669,31 @@ Memory Map of the image
     0x00000300   0x000001d0   Code   RO           13    .text               fault_injection.o
     0x000004d0   0x0000021c   Code   RO           43    .text               system_lpc17xx.o
     0x000006ec   0x000007fc   Code   RO           83    .text               glcd_spi_lpc1700.o
-    0x00000ee8   0x0000018c   Code   RO          146    .text               main.o
-    0x00001074   0x00000026   Code   RO          180    .text               c_w.l(llshl.o)
-    0x0000109a   0x00000002   PAD
-    0x0000109c   0x00000028   Code   RO          184    .text               c_w.l(noretval__2sprintf.o)
-    0x000010c4   0x0000006a   Code   RO          186    .text               c_w.l(__printf.o)
-    0x0000112e   0x00000002   PAD
-    0x00001130   0x00000078   Code   RO          188    .text               c_w.l(_printf_dec.o)
-    0x000011a8   0x0000003c   Code   RO          213    .text               c_w.l(rand.o)
-    0x000011e4   0x000000b8   Code   RO          230    .text               c_w.l(_printf_intcommon.o)
-    0x0000129c   0x00000030   Code   RO          232    .text               c_w.l(_printf_char_common.o)
-    0x000012cc   0x0000004a   Code   RO          306    .text               c_w.l(sys_stackheap_outer.o)
-    0x00001316   0x00000002   PAD
-    0x00001318   0x00000008   Code   RO          322    .text               c_w.l(libspace.o)
-    0x00001320   0x00000002   Code   RO          333    .text               c_w.l(use_no_semi.o)
-    0x00001322   0x00000000   Code   RO          335    .text               c_w.l(indicate_semi.o)
-    0x00001322   0x00000002   PAD
-    0x00001324   0x0000000c   Code   RO          349    .text               c_w.l(sys_exit.o)
-    0x00001330   0x00000018   Code   RO          280    x$fpl$dcmpinf       fz_ws.l(dcmpi.o)
-    0x00001348   0x0000002e   Code   RO          222    x$fpl$dflt          fz_ws.l(dflt_clz.o)
-    0x00001376   0x00000002   PAD
-    0x00001378   0x00000078   Code   RO          227    x$fpl$dleqf         fz_ws.l(dleqf.o)
-    0x000013f0   0x0000009c   Code   RO          282    x$fpl$dnaninf       fz_ws.l(dnaninf.o)
-    0x0000148c   0x00000000   Code   RO          284    x$fpl$usenofp       fz_ws.l(usenofp.o)
-    0x0000148c   0x00001880   Data   RO           84    .constdata          glcd_spi_lpc1700.o
-    0x00002d0c   0x00000020   Data   RO          393    Region$$Table       anon$$obj.o
+    0x00000ee8   0x0000016c   Code   RO          146    .text               main.o
+    0x00001054   0x00000026   Code   RO          180    .text               c_w.l(llshl.o)
+    0x0000107a   0x00000002   PAD
+    0x0000107c   0x00000028   Code   RO          184    .text               c_w.l(noretval__2sprintf.o)
+    0x000010a4   0x0000006a   Code   RO          186    .text               c_w.l(__printf.o)
+    0x0000110e   0x00000002   PAD
+    0x00001110   0x00000078   Code   RO          188    .text               c_w.l(_printf_dec.o)
+    0x00001188   0x0000003c   Code   RO          213    .text               c_w.l(rand.o)
+    0x000011c4   0x000000b8   Code   RO          230    .text               c_w.l(_printf_intcommon.o)
+    0x0000127c   0x00000030   Code   RO          232    .text               c_w.l(_printf_char_common.o)
+    0x000012ac   0x0000004a   Code   RO          306    .text               c_w.l(sys_stackheap_outer.o)
+    0x000012f6   0x00000002   PAD
+    0x000012f8   0x00000008   Code   RO          322    .text               c_w.l(libspace.o)
+    0x00001300   0x00000002   Code   RO          333    .text               c_w.l(use_no_semi.o)
+    0x00001302   0x00000000   Code   RO          335    .text               c_w.l(indicate_semi.o)
+    0x00001302   0x00000002   PAD
+    0x00001304   0x0000000c   Code   RO          349    .text               c_w.l(sys_exit.o)
+    0x00001310   0x00000018   Code   RO          280    x$fpl$dcmpinf       fz_ws.l(dcmpi.o)
+    0x00001328   0x0000002e   Code   RO          222    x$fpl$dflt          fz_ws.l(dflt_clz.o)
+    0x00001356   0x00000002   PAD
+    0x00001358   0x00000078   Code   RO          227    x$fpl$dleqf         fz_ws.l(dleqf.o)
+    0x000013d0   0x0000009c   Code   RO          282    x$fpl$dnaninf       fz_ws.l(dnaninf.o)
+    0x0000146c   0x00000000   Code   RO          284    x$fpl$usenofp       fz_ws.l(usenofp.o)
+    0x0000146c   0x00001880   Data   RO           84    .constdata          glcd_spi_lpc1700.o
+    0x00002cec   0x00000020   Data   RO          393    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x10000000, Size: 0x00000390, Max: 0x00008000, ABSOLUTE)
@@ -722,12 +722,12 @@ Image component sizes
        464         28          0         28          0       7406   fault_injection.o
       2044         58       6272          6          0      24612   glcd_spi_lpc1700.o
        252         28          0          0          0       1166   inputs.o
-       396         88          0         32          0      25428   main.o
+       364         56          0         32          0      25428   main.o
         64         26        204          0        512        936   startup_lpc17xx.o
        540         64          0          4          0        719   system_lpc17xx.o
 
     ----------------------------------------------------------------------
-      3760        292       6508         72        512      60267   Object Totals
+      3728        260       6508         72        512      60267   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          0          0          0          2          0          0   (incl. Padding)
 
@@ -793,15 +793,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      5056        364       6508         72        840      60499   Grand Totals
-      5056        364       6508         72        840      60499   ELF Image Totals
-      5056        364       6508         72          0          0   ROM Totals
+      5024        332       6508         72        840      60499   Grand Totals
+      5024        332       6508         72        840      60499   ELF Image Totals
+      5024        332       6508         72          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                11564 (  11.29kB)
+    Total RO  Size (Code + RO Data)                11532 (  11.26kB)
     Total RW  Size (RW Data + ZI Data)               912 (   0.89kB)
-    Total ROM Size (Code + RO Data + RW Data)      11636 (  11.36kB)
+    Total ROM Size (Code + RO Data + RW Data)      11604 (  11.33kB)
 
 ==============================================================================
 
