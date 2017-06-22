@@ -5,8 +5,10 @@
 ### List of Objects: adding '"fault_injection.o"'
 ### List of Objects: adding '"system_lpc17xx.o"'
 ### List of Objects: adding '"glcd_spi_lpc1700.o"'
+### List of Objects: adding '"inputs.o"'
+### List of Objects: adding '"main.o"'
 ### ADS-LD Command completed:
---cpu Cortex-M3 "startup_lpc17xx.o" "fault_injection.o" "system_lpc17xx.o" "glcd_spi_lpc1700.o" 
+--cpu Cortex-M3 "startup_lpc17xx.o" "fault_injection.o" "system_lpc17xx.o" "glcd_spi_lpc1700.o" "inputs.o" "main.o" 
 --strict --scatter "lab2.sct" 
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
 --info sizes --info totals --info unused --info veneers 
@@ -14,7 +16,7 @@
 ### ADS-LD Output File: 'lab2.axf'
 ### ADS-LD Command File: 'lab2.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile 'lab2.lnp', Handle=0x00000AC0
+### Creating CmdFile 'lab2.lnp', Handle=0x00000624
 ### Writing '.lnp' file
 ### ADS-LD Command file 'lab2.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

@@ -91,7 +91,7 @@ static int faulty_int_stuck_at (int original_value)
 static double faulty_double_stuck_at (double original_value)
 {
     uint64_t fault_mask;
-	uint64_t * p_int;
+    uint64_t * p_int;
 
     if (! stuck_at_fault_double_injected)
     {
@@ -140,10 +140,4 @@ double faulty_double (double original_value, int fault_type)
     }
 
     return original_value;
-}
-
-
-int main() {
-
-    return 0;
 }
