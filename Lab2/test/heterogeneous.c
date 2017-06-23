@@ -14,14 +14,38 @@
 // three values disagree, inform client code that a fault occurred (to this end, you could use a mechanism
 // similar to the one described in item 1).
 
+// result #1
 double c_sqrt(double data) {
     return sqrt(data);
 }
 
-double binary_search() {
+// result #2 included in voting.h
 
-    // TODO: complete function
-    return 0;
+
+// result #3 
+double binary_search(double data) {
+    // start = 1, mid = data/2 ,end = data
+    // if mid*mid > end, choose bottom half
+    // else choose top half
+    // repeat until start > end
+
+    double root = 0.0;
+    double mid;
+    double start = 0.0;
+    double end = data;
+
+    while(start <= end) {
+        mid = (start + end) /2;
+        root = mid;
+        if (fabs((mid * mid) - data) <= EPSILON) {
+            break;
+        } else if ((mid * mid) < data) {
+            start = mid;
+        } else {
+            end = mid;
+        }
+    }
+    return root;
 }
 
 double heterogeneous (double a) {
@@ -29,16 +53,19 @@ double heterogeneous (double a) {
     double result_2;
     double result_3;
 
-    result_1 = fault_injection(c_sqrt(a), RANDOM_FAULT);
-    result_2 = fault_injection(newton_raphson(a), RANDOM_FAULT);
-    result_3 = fault_injection(binary_search(a), RANDOM_FAULT);
+    result_1 = faulty_double(c_sqrt(a), RANDOM_FAULT);
+    fault_injection_reset();
+    result_2 = faulty_double(newton_raphson(a), RANDOM_FAULT);
+    fault_injection_reset();
+    result_3 = faulty_double(binary_search(a), RANDOM_FAULT);
+    fault_injection_reset();
 
     if ( fabs(result_1 - result_2) < EPSILON || fabs(result_1 - result_3) < EPSILON) {
         return result_1;
     } else if (fabs(result_2 - result_3) < EPSILON) {
         return result_2;
     } else {
-        printf("ERROR \n");
-        return -1;
+        printf("%f, %f, %f \n", result_1, result_2, result_3);
+        return -1.0;
     }
 }

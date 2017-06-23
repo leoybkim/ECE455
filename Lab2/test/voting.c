@@ -44,7 +44,6 @@ int voting_system(double a) {
     // trial_3 = newton_raphson(a);
     // fault_injection_reset();
 
-
     if (!( (fabs(trial_1 - trial_2) < EPSILON) || (fabs(trial_2 - trial_3) < EPSILON)
      || (fabs(trial_1 - trial_3) < EPSILON) )){
         printf("%f, %f, %f\n", trial_1, trial_2, trial_3);

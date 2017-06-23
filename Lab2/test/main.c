@@ -5,6 +5,7 @@
 #include "heterogeneous.h"
 #include "redundancy.h"
 #include "voting.h"
+#include "verification.h"
 
 
 // global variables
@@ -20,12 +21,15 @@ int main() {
     char str_error[12];
     int faulty_int_var;
 
-    int mode = 2;
+    int mode = 4;
     int type = 1;
 
     double first;
     double second;
     double third;
+
+
+    double answer;
 
     // LEFT and RIGHT joystick for switching mode
     // UP and DOwn joystick for switching fault typedef
@@ -72,8 +76,19 @@ int main() {
                 }
                 break;
             case 3:
+                answer = heterogeneous(100.00);
+                if (answer == -1.0) {
+                    printf("ERROR \n");
+                } else {
+                    printf("FINE %f \n", answer);
+                }
                 break;
             case 4:
+                if (inverse(10000.00)) {
+                    printf("ERROR \n");
+                } else {
+                    printf("FINE \n");
+                }
                 break;
             default:
                 break;
