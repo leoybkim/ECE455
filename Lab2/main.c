@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <lpc17xx.h>
+#include <string.h>
 #include <stdlib.h>
+#include <math.h>
 #include "glcd.h"
 #include "inputs.h"
 #include "fault_injection.h"
@@ -29,7 +31,7 @@ double answer;
 int joystick_val;     
 
 // custom test sets
-//int test_val[] = {1, 100, 10000, 99999999, 123456789, 6477019364};
+
 double d_test_val;
 int i_test_val;
 
@@ -88,6 +90,11 @@ int main()
 {
     // debug tags
     char str_mode[12];   
+	char str_data_type[12];
+	
+	char str_joystick[12];
+	
+	
     char str_faulty_int[12];
     char str_original_int[12];
     //char str_error[12];
@@ -99,6 +106,10 @@ int main()
     // start program
     while(1) {
 		
+		// poll pot
+		d_test_val = 1000.00;
+		i_test_val = (int) d_test_val;
+		
         // poll joystick to read user input changes
         joystick_val = debounce();
         if (joystick_val == 0x08 && mode > 1) 
@@ -109,22 +120,24 @@ int main()
         {
             mode += 1;
         }       
-		else if (joystick_val == 0x10) 
+		else if (joystick_val == 0x64) 
 		{
+			GLCD_DisplayString(4, 0, 1, "ARAREWWFWE");
 			fault_type = RANDOM_FAULT;
 		} 
-		else if (joystick_val == 0x40)
+		else if (joystick_val == 0x16)
 		{
 			fault_type = STUCK_AT_FAULT;
 		}
 		else if (joystick_val == 0x01) 
 		{
-			data_type = ~data_type;
-			d_test_val = poll_potentiometer();
-			i_test_val = (int) d_test_val;
+			data_type = !data_type;
 		}
 						
-		switch(mode){
+		
+		
+		/*switch(mode)
+		{
             case REDUNDANCY:
 				if (data_type == INTEGER) 
 				{
@@ -186,19 +199,48 @@ int main()
                 break;
             default:
                 break;
-        }
+        }*/
         
         // display
-        sprintf(str_mode, "Mode: %d", mode);
-        GLCD_DisplayString(0, 0, 1, str_mode);
-        sprintf(str_original_int, "Org: %d", d_test_val);
-        GLCD_DisplayString(1, 0, 1, str_original_int);
+		switch(mode)
+		{
+			case REDUNDANCY:
+				strcpy(str_mode, "TEST 1.REDUNDANCY    ");
+				break;
+			case VOTING:
+				strcpy(str_mode, "TEST 2.VOTING        ");
+				break;
+			case HETEROGENEOUS:
+				strcpy(str_mode, "TEST 3.HETEROGENEOUS ");
+				break;
+			case VERIFICATION:
+				strcpy(str_mode, "TEST 4.VERIFICATION  ");
+				break;
+			default:
+				break;
+		}
+        GLCD_DisplayString(0, 0, 1, (unsigned char*) str_mode);
+		
+		if (data_type == INTEGER)
+		{
+			strcpy(str_data_type, "DATA TYPE: INTEGER");
+		}
+		else 
+		{
+			strcpy(str_data_type, "DATA TYPE: DOUBLE ");
+		}
+		GLCD_DisplayString(1, 0, 1, (unsigned char*) str_data_type);
+		
+        sprintf(str_original_int, "Org: %f", d_test_val);
+        GLCD_DisplayString(5, 0, 1, (unsigned char*) str_original_int);
         sprintf(str_faulty_int, "Calc: %d", faulty_int_var);
-        GLCD_DisplayString(2, 0, 1, str_faulty_int);
+        GLCD_DisplayString(6, 0, 1, (unsigned char*)str_faulty_int);
         
-        
+        sprintf(str_joystick, "%d", joystick_val);
+		GLCD_DisplayString(7, 0, 1, (unsigned char*) str_joystick);
+		
         __WFI();  // stay in low power mode until interrupt occurs
     }
     
-    return 1;	// not going to reach here but just in case
+    //return 1;	
 }

@@ -6,7 +6,9 @@ main.o: c:\Software\Keil\ARM\ARMCC\bin\..\include\stdint.h
 main.o: c:\Software\Keil\ARM\CMSIS\Include\core_cmInstr.h
 main.o: c:\Software\Keil\ARM\CMSIS\Include\core_cmFunc.h
 main.o: c:\Software\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+main.o: c:\Software\Keil\ARM\ARMCC\bin\..\include\string.h
 main.o: c:\Software\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+main.o: c:\Software\Keil\ARM\ARMCC\bin\..\include\math.h
 main.o: glcd.h
 main.o: inputs.h
 main.o: fault_injection.h
