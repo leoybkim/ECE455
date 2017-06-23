@@ -1,11 +1,11 @@
 Dependencies for Project 'lab2', Target 'Lab2': (DO NOT MODIFY !)
 F (.\startup_LPC17xx.s)(0x4F58EC96)(--cpu Cortex-M3 -g --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx --list "startup_LPC17xx.lst" --xref -o "startup_LPC17xx.o" --depend "startup_LPC17xx.d")
 F (.\fault_injection.c)(0x594BE469)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "fault_injection.o" --omf_browse "fault_injection.crf" --depend "fault_injection.d")
-I (fault_injection.h)(0x5931EABD)
+I (fault_injection.h)(0x594D47FE)
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\stdlib.h)(0x4EB17B44)
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\inttypes.h)(0x4EB17B44)
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB17B44)
-F (.\fault_injection.h)(0x5931EABD)()
+F (.\fault_injection.h)(0x594D47FE)()
 F (.\system_LPC17xx.c)(0x4C816738)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "system_lpc17xx.o" --omf_browse "system_lpc17xx.crf" --depend "system_lpc17xx.d")
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB17B44)
 I (c:\Software\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.h)(0x4FF5A98C)
@@ -31,7 +31,7 @@ I (c:\Software\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x505A054C)
 I (c:\Software\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDB3D1C)
 I (c:\Software\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F58EE42)
 I (inputs.h)(0x5928D87A)
-F (.\main.c)(0x594D432A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "main.o" --omf_browse "main.crf" --depend "main.d")
+F (.\main.c)(0x594D56CB)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "main.o" --omf_browse "main.crf" --depend "main.d")
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB17B46)
 I (c:\Software\Keil\ARM\Inc\NXP\LPC17xx\lpc17xx.h)(0x4FF5A98C)
 I (c:\Software\Keil\ARM\CMSIS\Include\core_cm3.h)(0x5006D242)
@@ -42,30 +42,35 @@ I (c:\Software\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F58EE42)
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\stdlib.h)(0x4EB17B44)
 I (glcd.h)(0x4CA4F00E)
 I (inputs.h)(0x5928D87A)
-I (fault_injection.h)(0x5931EABD)
-I (redundancy.h)(0x594D37E1)
-I (voting.h)(0x594D37E1)
-I (heterogeneous.h)(0x594D37E1)
-I (verification.h)(0x594D37E1)
-F (.\heterogeneous.c)(0x594D37E1)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "heterogeneous.o" --omf_browse "heterogeneous.crf" --depend "heterogeneous.d")
-I (heterogeneous.h)(0x594D37E1)
-I (voting.h)(0x594D37E1)
-I (fault_injection.h)(0x5931EABD)
+I (fault_injection.h)(0x594D47FE)
+I (redundancy.h)(0x594D5311)
+I (voting.h)(0x594D5739)
+I (heterogeneous.h)(0x594D552D)
+I (verification.h)(0x594D5542)
+F (.\heterogeneous.c)(0x594D55C6)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "heterogeneous.o" --omf_browse "heterogeneous.crf" --depend "heterogeneous.d")
+I (heterogeneous.h)(0x594D552D)
+I (voting.h)(0x594D5739)
+I (fault_injection.h)(0x594D47FE)
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB17B46)
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\math.h)(0x4EB17B48)
-F (.\redundancy.c)(0x594D3FEE)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "redundancy.o" --omf_browse "redundancy.crf" --depend "redundancy.d")
+F (.\redundancy.c)(0x594D55B2)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "redundancy.o" --omf_browse "redundancy.crf" --depend "redundancy.d")
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB17B44)
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB17B46)
-I (redundancy.h)(0x594D37E1)
-I (fault_injection.h)(0x5931EABD)
-F (.\verification.c)(0x594D37E1)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "verification.o" --omf_browse "verification.crf" --depend "verification.d")
-I (verification.h)(0x594D37E1)
-I (voting.h)(0x594D37E1)
-I (fault_injection.h)(0x5931EABD)
+I (redundancy.h)(0x594D5311)
+I (fault_injection.h)(0x594D47FE)
+F (.\verification.c)(0x594D5709)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "verification.o" --omf_browse "verification.crf" --depend "verification.d")
+I (verification.h)(0x594D5542)
+I (voting.h)(0x594D5739)
+I (fault_injection.h)(0x594D47FE)
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB17B46)
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\math.h)(0x4EB17B48)
-F (.\voting.c)(0x594D3A61)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "voting.o" --omf_browse "voting.crf" --depend "voting.d")
-I (voting.h)(0x594D37E1)
-I (fault_injection.h)(0x5931EABD)
+F (.\voting.c)(0x594D5727)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "voting.o" --omf_browse "voting.crf" --depend "voting.d")
+I (voting.h)(0x594D5739)
+I (fault_injection.h)(0x594D47FE)
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\math.h)(0x4EB17B48)
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB17B46)
+F (.\heterogeneous.h)(0x594D552D)()
+F (.\inputs.h)(0x5928D87A)()
+F (.\redundancy.h)(0x594D5311)()
+F (.\verification.h)(0x594D5542)()
+F (.\voting.h)(0x594D5739)()

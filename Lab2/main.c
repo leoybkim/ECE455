@@ -11,27 +11,33 @@
 
 
 // global variables
-int mode;
-int type;
+int mode; 
+int fault_type; 
+int data_type;  
+
 double first;
 double second;
 double third;
 double answer;
 
-// input
-// LEFT and RIGHT --> change mode from 1 to 4
-// UP and DOWN --> RANDOM_FAULT vs STUCK_AT_FAULT
-// PRESS CENTER --> toggle between INT vs DOUBLE
+
+/* Joystick Manual
+   LEFT/RIGHT --> change mode from 1 to 4
+   UP         --> RANDOM_FAULT 
+   DOWN       --> STUCK_AT_FAULT
+   SELECT     --> toggle between INTEGER and DOUBLE */
 int joystick_val;     
 
-// test numbers
-int test_val[] = {1, 100, 10000, 99999999, 123456789, 6477019364};
+// custom test sets
+//int test_val[] = {1, 100, 10000, 99999999, 123456789, 6477019364};
+double d_test_val;
+int i_test_val;
 
 // custom data types
 integer_data original_int;
 double_data original_double;
 
-// timer to wake up from sleep in main while loop
+// timer to wake up from sleep in the main while loop
 void timer0_init(void)
 {
     LPC_TIM0->TCR = 0x02;         // reset time
@@ -50,7 +56,6 @@ void TIMER0_IRQHandler(void)
     }
 }
 
-
 // initial board setup
 void init_setup() 
 {
@@ -62,10 +67,23 @@ void init_setup()
     led_init();
     timer0_init();
     
+	// default mode/data_type/fault_type
     mode = 1;
-		type = RANDOM_FAULT;
+	fault_type = RANDOM_FAULT;
+	data_type = INTEGER; 
 }
 
+double poll_potentiometer() 
+{
+	// poll potentiometer
+	double test_val;
+	LPC_ADC->ADCR |= ( 1 << 24 );                     // read the converted value
+	while (LPC_ADC->ADGDR & 0x8000 == 0);             // wait for conversion
+	test_val = ((LPC_ADC->ADGDR>>4) & 0xFFF);    // conversion to celcius range
+	return test_val;
+}
+
+// main program
 int main()
 {
     // debug tags
@@ -80,8 +98,8 @@ int main()
    
     // start program
     while(1) {
-        
-        // poll joystick to read mode changes
+		
+        // poll joystick to read user input changes
         joystick_val = debounce();
         if (joystick_val == 0x08 && mode > 1) 
         {
@@ -90,67 +108,90 @@ int main()
         else if (joystick_val == 0x20 && mode < 4) 
         {
             mode += 1;
-        }
-        
-        // faulty test??
-        /*faulty_int_var = faulty_int(test_val[5], RANDOM_FAULT);
-        if (faulty_int_var != test_val[5]) 
-        {
-            // TODO: wait for an interrupt to continue
-            sprintf(str_error, "ERR: %d", faulty_int_var);
-            GLCD_DisplayString(5, 0, 1, str_error);
-        }*/
-				
-		/*switch(mode){
-            case 1:
-                write_integer(test_val[3], &original_int);
-                if (read_integer(&original_int)){
-					//printf("error occured \n");
-                   fault_injection_reset();
-                } else {
-                    //printf("fine\n");
-                }
-
-                // TODO: fix!!
-                write_double(100.00, &original_double);
-                if (read_double(&original_double)){
-                   //printf("error occured \n");
-                   fault_injection_reset();
-                } else {
-                   //printf("fine\n");
-                }
-
+        }       
+		else if (joystick_val == 0x10) 
+		{
+			fault_type = RANDOM_FAULT;
+		} 
+		else if (joystick_val == 0x40)
+		{
+			fault_type = STUCK_AT_FAULT;
+		}
+		else if (joystick_val == 0x01) 
+		{
+			data_type = ~data_type;
+			d_test_val = poll_potentiometer();
+			i_test_val = (int) d_test_val;
+		}
+						
+		switch(mode){
+            case REDUNDANCY:
+				if (data_type == INTEGER) 
+				{
+					write_integer(i_test_val, &original_int, fault_type);
+					if (read_integer(&original_int, fault_type))
+					{
+						//printf("error occured \n");
+					   fault_injection_reset();
+					} 
+					else 
+					{
+						//printf("fine\n");
+					}
+				}
+                else if (data_type == DOUBLE)
+				{
+					write_double(d_test_val, &original_double, fault_type);
+					if (read_double(&original_double, fault_type))
+					{
+					   //printf("error occured \n");
+					   fault_injection_reset();
+					} 
+					else 
+					{
+					   //printf("fine\n");
+					}
+				}
                 break;
-            case 2:
-                if (voting_system(100.00)) {
+            case VOTING:
+                if (voting_system(d_test_val, fault_type))
+				{
                    // printf("ERROR \n");
-                } else {
+                }
+				else
+				{
                     //printf("FINE\n");
                 }
                 break;
-            case 3:
-                answer = heterogeneous(100.00);
-                if (answer == -1.0) {
+            case HETEROGENEOUS:
+                answer = heterogeneous(d_test_val, fault_type);
+                if (answer == -1.0) 
+				{
                     //printf("ERROR \n");
-                } else {
+                } 
+				else
+				{
                     //printf("FINE %f \n", answer);
                 }
                 break;
-            case 4:
-                if (inverse(10000.00)) {
+            case VERIFICATION:
+                if (inverse(d_test_val, fault_type)) 
+				{
                     //printf("ERROR \n");
-                } else {
+                } 
+				else
+				{
                     //printf("FINE \n");
                 }
                 break;
             default:
                 break;
-        }*/
+        }
         
         // display
         sprintf(str_mode, "Mode: %d", mode);
         GLCD_DisplayString(0, 0, 1, str_mode);
-        sprintf(str_original_int, "Org: %d", test_val[5]);
+        sprintf(str_original_int, "Org: %d", d_test_val);
         GLCD_DisplayString(1, 0, 1, str_original_int);
         sprintf(str_faulty_int, "Calc: %d", faulty_int_var);
         GLCD_DisplayString(2, 0, 1, str_faulty_int);
