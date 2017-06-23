@@ -2,7 +2,11 @@
 #include "fault_injection.h"
 #include <math.h>
 #include <stdio.h>
+#include "glcd.h"
 
+char str_error21[20];
+char str_error22[20];
+char str_error23[20];
 double newton_raphson(double a) 
 {
     double value = 1;
@@ -30,13 +34,14 @@ int voting_system(double a, int fault_type)
     if (!( (fabs(trial_1 - trial_2) < EPSILON) || (fabs(trial_2 - trial_3) < EPSILON)
      || (fabs(trial_1 - trial_3) < EPSILON) ))
 	{
-        printf("%f, %f, %f\n", trial_1, trial_2, trial_3);
+		sprintf(str_error21, "t1:%.3f", trial_1);
+		sprintf(str_error22, "t2:%.3f", trial_2);
+		sprintf(str_error23, "t3:%.3f", trial_3);
+		GLCD_DisplayString(7, 0, 1, (unsigned char*) str_error21);
+		GLCD_DisplayString(8, 0, 1, (unsigned char*) str_error22);
+		GLCD_DisplayString(9, 0, 1, (unsigned char*) str_error23);
         return 1;
     }
-	else 
-	{
-        printf("%f, %f, %f\n", trial_1, trial_2, trial_3);
-    }
-
+	
     return 0;
 }

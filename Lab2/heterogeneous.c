@@ -3,7 +3,11 @@
 #include "fault_injection.h"
 #include <stdio.h>
 #include <math.h>
+#include "glcd.h"
 
+char str_error31[20];
+char str_error32[20];
+char str_error33[20];
 // standard C sqrt library
 double c_sqrt(double data)
 {
@@ -65,7 +69,13 @@ double heterogeneous (double a, int fault_type)
     } 
 	else
 	{
-        printf("%f, %f, %f \n", result_1, result_2, result_3);
+		sprintf(str_error31, "r1:%.3f", result_1);
+		sprintf(str_error32, "r2:%.3f", result_2);
+		sprintf(str_error33, "r3:%.3f", result_3);
+		GLCD_DisplayString(7, 0, 1, (unsigned char*) str_error31);
+		GLCD_DisplayString(8, 0, 1, (unsigned char*) str_error32);
+		GLCD_DisplayString(9, 0, 1, (unsigned char*) str_error33);
+
         return -1.0;
     }
 }

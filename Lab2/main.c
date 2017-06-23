@@ -16,12 +16,7 @@
 int mode; 
 int fault_type; 
 int data_type;  
-
-double first;
-double second;
-double third;
-double answer;
-
+int flag;
 
 /* Joystick Manual
    LEFT/RIGHT --> change mode from 1 to 4
@@ -69,10 +64,13 @@ void init_setup()
     led_init();
     timer0_init();
     
-	// default mode/data_type/fault_type
-    mode = 1;
+	// SET MODES HERE
+	mode = 4;
 	fault_type = RANDOM_FAULT;
-	data_type = INTEGER; 
+	//fault_type = STUCK_AT_FAULT;
+	//data_type = INTEGER; 
+	data_type = DOUBLE; 
+	flag = 0;
 }
 
 double poll_potentiometer() 
@@ -85,20 +83,17 @@ double poll_potentiometer()
 	return test_val;
 }
 
+// voting system cant check STUCK AT 
+
 // main program
 int main()
 {
     // debug tags
-    char str_mode[12];   
-	char str_data_type[12];
-	
-	char str_joystick[12];
-	
-	
-    char str_faulty_int[12];
-    char str_original_int[12];
-    //char str_error[12];
-    int faulty_int_var;
+    char str_mode[20];   
+	char str_data_type[20];
+	char str_fault_type[20];
+    char str_original_int[20];
+
     
     // initialize
     init_setup();
@@ -106,37 +101,37 @@ int main()
     // start program
     while(1) {
 		
-		// poll pot
-		d_test_val = 1000.00;
+		// SET TEST VALUE HERE
+		//d_test_val = 10.00;
+		d_test_val = 1234.55;
+		//d_test_val = 9999999.00;
+
 		i_test_val = (int) d_test_val;
 		
-        // poll joystick to read user input changes
-        joystick_val = debounce();
-        if (joystick_val == 0x08 && mode > 1) 
-        {
-            mode -= 1;
-        } 
-        else if (joystick_val == 0x20 && mode < 4) 
-        {
-            mode += 1;
-        }       
-		else if (joystick_val == 0x64) 
+		// poll joystick to read user input changes
+		/*joystick_val = debounce();
+		if (joystick_val == 0x08 && mode > 1) 
 		{
-			GLCD_DisplayString(4, 0, 1, "ARAREWWFWE");
+			mode -= 1;
+		} 
+		else if (joystick_val == 0x20 && mode < 4) 
+		{
+			mode += 1;
+		}       
+		else if (joystick_val == 0x10) 
+		{
 			fault_type = RANDOM_FAULT;
 		} 
-		else if (joystick_val == 0x16)
+		else if (joystick_val == 0x40)
 		{
 			fault_type = STUCK_AT_FAULT;
 		}
 		else if (joystick_val == 0x01) 
 		{
 			data_type = !data_type;
-		}
+		}*/
 						
-		
-		
-		/*switch(mode)
+		switch(mode)
 		{
             case REDUNDANCY:
 				if (data_type == INTEGER) 
@@ -144,103 +139,97 @@ int main()
 					write_integer(i_test_val, &original_int, fault_type);
 					if (read_integer(&original_int, fault_type))
 					{
-						//printf("error occured \n");
-					   fault_injection_reset();
+						flag = 1;
 					} 
-					else 
-					{
-						//printf("fine\n");
-					}
 				}
                 else if (data_type == DOUBLE)
 				{
 					write_double(d_test_val, &original_double, fault_type);
 					if (read_double(&original_double, fault_type))
 					{
-					   //printf("error occured \n");
-					   fault_injection_reset();
+						flag = 1;
 					} 
-					else 
-					{
-					   //printf("fine\n");
-					}
 				}
                 break;
             case VOTING:
                 if (voting_system(d_test_val, fault_type))
 				{
-                   // printf("ERROR \n");
+					flag = 1;
                 }
-				else
-				{
-                    //printf("FINE\n");
-                }
+	
                 break;
             case HETEROGENEOUS:
-                answer = heterogeneous(d_test_val, fault_type);
-                if (answer == -1.0) 
+                if (heterogeneous(d_test_val, fault_type) == -1.0) 
 				{
-                    //printf("ERROR \n");
+					flag = 1;
                 } 
-				else
-				{
-                    //printf("FINE %f \n", answer);
-                }
                 break;
             case VERIFICATION:
                 if (inverse(d_test_val, fault_type)) 
 				{
-                    //printf("ERROR \n");
+					flag = 1;
                 } 
-				else
-				{
-                    //printf("FINE \n");
-                }
                 break;
             default:
                 break;
-        }*/
+        }
         
         // display
 		switch(mode)
 		{
 			case REDUNDANCY:
-				strcpy(str_mode, "TEST 1.REDUNDANCY    ");
+				strcpy(str_mode, "REDUNDANCY   ");
 				break;
 			case VOTING:
-				strcpy(str_mode, "TEST 2.VOTING        ");
+				strcpy(str_mode, "VOTING       ");
 				break;
 			case HETEROGENEOUS:
-				strcpy(str_mode, "TEST 3.HETEROGENEOUS ");
+				strcpy(str_mode, "HETEROGENEOUS");
 				break;
 			case VERIFICATION:
-				strcpy(str_mode, "TEST 4.VERIFICATION  ");
+				strcpy(str_mode, "VERIFICATION ");
 				break;
 			default:
 				break;
 		}
+		
+
         GLCD_DisplayString(0, 0, 1, (unsigned char*) str_mode);
 		
 		if (data_type == INTEGER)
 		{
-			strcpy(str_data_type, "DATA TYPE: INTEGER");
+			strcpy(str_data_type, "INTEGER");
+			sprintf(str_original_int, "i:%d", i_test_val);
 		}
 		else 
 		{
-			strcpy(str_data_type, "DATA TYPE: DOUBLE ");
+			strcpy(str_data_type, "DOUBLE ");
+			sprintf(str_original_int, "i:%.3f", d_test_val);
 		}
+		
 		GLCD_DisplayString(1, 0, 1, (unsigned char*) str_data_type);
 		
-        sprintf(str_original_int, "Org: %f", d_test_val);
-        GLCD_DisplayString(5, 0, 1, (unsigned char*) str_original_int);
-        sprintf(str_faulty_int, "Calc: %d", faulty_int_var);
-        GLCD_DisplayString(6, 0, 1, (unsigned char*)str_faulty_int);
-        
-        sprintf(str_joystick, "%d", joystick_val);
-		GLCD_DisplayString(7, 0, 1, (unsigned char*) str_joystick);
+		if (fault_type == RANDOM_FAULT)
+		{
+			strcpy(str_fault_type, "RANDOM");
+		}
+		else 
+		{
+			strcpy(str_fault_type, "STUCK ");
+		}
+		GLCD_DisplayString(2, 0, 1, (unsigned char*) str_fault_type);
+        GLCD_DisplayString(4, 0, 1, (unsigned char*) str_original_int);
 		
+		// if error found
+		if (flag) 
+		{
+			break;
+		}
+		
+
         __WFI();  // stay in low power mode until interrupt occurs
     }
-    
-    //return 1;	
+	
+    //GLCD_DisplayString(3, 0, 1, "FAULTY FOUND");
+    return 0;		
 }

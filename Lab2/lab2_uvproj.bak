@@ -416,6 +416,16 @@
               <FileType>1</FileType>
               <FilePath>.\GLCD_SPI_LPC1700.c</FilePath>
             </File>
+            <File>
+              <FileName>inputs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\inputs.c</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\main.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

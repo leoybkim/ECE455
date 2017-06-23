@@ -426,6 +426,51 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
+            <File>
+              <FileName>heterogeneous.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\heterogeneous.c</FilePath>
+            </File>
+            <File>
+              <FileName>redundancy.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\redundancy.c</FilePath>
+            </File>
+            <File>
+              <FileName>verification.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\verification.c</FilePath>
+            </File>
+            <File>
+              <FileName>voting.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\voting.c</FilePath>
+            </File>
+            <File>
+              <FileName>heterogeneous.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\heterogeneous.h</FilePath>
+            </File>
+            <File>
+              <FileName>inputs.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\inputs.h</FilePath>
+            </File>
+            <File>
+              <FileName>redundancy.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\redundancy.h</FilePath>
+            </File>
+            <File>
+              <FileName>verification.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\verification.h</FilePath>
+            </File>
+            <File>
+              <FileName>voting.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\voting.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
