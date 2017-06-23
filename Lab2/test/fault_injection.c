@@ -49,12 +49,12 @@ static double faulty_double_random (double original_value)
         if (rand() < (RAND_MAX * PROBABILITY_OF_RANDOM_FAULT))
         {
                 // Inject single-bit fault at a randomly chosen bit
-                // (notice that the resulting faulty value could end 
+                // (notice that the resulting faulty value could end
                 // up being special values like infinity, NaN, etc.)
             const int faulty_bit = rand() % (8 * sizeof(double));
             const uint64_t fault_mask = (((uint64_t)1) << faulty_bit);
             uint64_t * const p_int = (uint64_t *)&original_value;
-            *p_int ^= fault_mask;   // we're modifying original_value, which is 
+            *p_int ^= fault_mask;   // we're modifying original_value, which is
                                     // our local copy of client code's value
             random_fault_injected = 1;
             return original_value;
@@ -62,7 +62,7 @@ static double faulty_double_random (double original_value)
     }
 
         // No fault to inject
-    return original_value;    
+    return original_value;
 }
 
 static int faulty_int_stuck_at (int original_value)
