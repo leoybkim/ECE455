@@ -12,11 +12,12 @@
 // and x2 means that | x1 − x2 | < 10−6
 // )
 
-double newton_raphson(double a, int iter) {
-    for (int i = 1; i < iter; i++) {
-        //printf("a: %f, i: %d\n", a, i);
-        a = (double)(0.5)*(i + faulty_double(a, RANDOM_FAULT)/i);
-    }
 
-    return a;
+double newton_raphson(double a, int iter) {
+    double value = 1;
+    for (int i = 0; i < iter; i++) {
+        value = (0.5)*(value + a/value);
+    }
+    //return faulty_double(value, RANDOM_FAULT);
+    return faulty_double(value, RANDOM_FAULT);
 }

@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include "fault_injection.h"
+#include "heterogeneous.h"
 #include "redundancy.h"
 #include "voting.h"
 
@@ -35,7 +37,7 @@ int main() {
 //  262244: 000000001000000000001100100
 
 
-    int mode = 2;
+    int mode = 1;
     double first;
     double second;
     double third;
@@ -56,7 +58,7 @@ int main() {
                 // }
 
                 // TODO: fix!!
-                write_double(100, &original_double);
+                write_double(100.00, &original_double);
                 if (read_double(&original_double)){
                    printf("error occured \n");
                    fault_injection_reset();
@@ -66,15 +68,17 @@ int main() {
 
                 break;
             case 2:
-                first = newton_raphson(1.99, 10);
-                second = newton_raphson(1.99, 10);
-                third = newton_raphson(1.99, 10);
+                first = faulty_double(newton_raphson(100.00, 50), RANDOM_FAULT);
+                second = faulty_double(newton_raphson(100.00, 50), RANDOM_FAULT);
+                third = faulty_double(newton_raphson(100.00, 50), RANDOM_FAULT);
 
-                if (!( (first == second) || (second == third) || (first == third) )){
+                // TODO: less then epsilon
+                // TODO: iter should be a constant
+                if (!( (abs(first - second) < 1e-6) || (abs(second - third) < 1e-6) || (abs(first - third) < 1e-6) )){
                     printf("%f, %f, %f\n", first, second, third);
-                } else {
-                    printf("fine\n");
+                    //fault_injection_reset();
                 }
+                printf("%f, %f, %f\n", first, second, third);
                 break;
             case 3:
                 break;
