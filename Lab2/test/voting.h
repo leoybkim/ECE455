@@ -1,6 +1,10 @@
 #ifndef VOTING_H
 #define VOTING_H
 
-double newton_raphson(double a, int iter);
+#define EPSILON 1e-6
+#define ITERATION 100
+
+double newton_raphson(double a);
+int voting_system(double a);
 
 #endif
