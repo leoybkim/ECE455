@@ -14,6 +14,7 @@
 
 // global variables
 int mode; 
+int item;
 int fault_type; 
 int data_type;  
 int flag;
@@ -27,6 +28,8 @@ int joystick_val;
 
 // custom test sets
 
+
+double d_test_val_arr[] = {1.23, 10.00, 1234.56, 999999.99, 202020.20};
 double d_test_val;
 int i_test_val;
 
@@ -65,9 +68,9 @@ void init_setup()
     timer0_init();
     
 	// SET MODES HERE
-	mode = 4;
-	fault_type = RANDOM_FAULT;
-	//fault_type = STUCK_AT_FAULT;
+	mode = 1;
+	//fault_type = RANDOM_FAULT;
+	fault_type = STUCK_AT_FAULT;
 	//data_type = INTEGER; 
 	data_type = DOUBLE; 
 	flag = 0;
@@ -94,7 +97,6 @@ int main()
 	char str_fault_type[20];
     char str_original_int[20];
 
-    
     // initialize
     init_setup();
    
@@ -102,10 +104,13 @@ int main()
     while(1) {
 		
 		// SET TEST VALUE HERE
+		//d_test_val = 1.23;
 		//d_test_val = 10.00;
-		d_test_val = 1234.55;
-		//d_test_val = 9999999.00;
+		//d_test_val = 1234.56;
+		//d_test_val = 9999999.99;
+		//d_test_val = 202020.20;
 
+		
 		i_test_val = (int) d_test_val;
 		
 		// poll joystick to read user input changes
@@ -130,7 +135,20 @@ int main()
 		{
 			data_type = !data_type;
 		}*/
-						
+		
+		
+		joystick_val = debounce();
+		if (joystick_val == 0x08 && item > 0) 
+		{
+			item -= 1;
+		} 
+		else if (joystick_val == 0x20 && item < 5) 
+		{
+			item += 1;
+		}       
+		
+		d_test_val = d_test_val_arr[item];
+			
 		switch(mode)
 		{
             case REDUNDANCY:
@@ -152,23 +170,55 @@ int main()
 				}
                 break;
             case VOTING:
-                if (voting_system(d_test_val, fault_type))
+                /*if (voting_system1(d_test_val, fault_type))
+				{
+					flag = 1;
+                }*/
+				if (fault_type == RANDOM_FAULT)
+				{
+					if (voting_system1(d_test_val, fault_type))
+					{
+						flag = 1;
+					}
+				} 
+				else if (fault_type == STUCK_AT_FAULT)
+				{
+					if (voting_system2(d_test_val, fault_type))
+					{
+						flag = 1;
+					}
+				}
+				
+                break;
+            case HETEROGENEOUS:
+                /*if (heterogeneous1(d_test_val, fault_type) == -1.0) 
+				{
+					flag = 1;
+                }*/ 
+				if (fault_type == RANDOM_FAULT)
+				{
+					if ((heterogeneous1(d_test_val, fault_type) == -1.0))
+					{
+						flag = 1;
+					}
+				} 
+				else if (fault_type == STUCK_AT_FAULT)
+				{
+					if ((heterogeneous2(d_test_val, fault_type) == -1.0))
+					{
+						flag = 1;
+					}
+				}
+                break;
+            case VERIFICATION:
+                /*if (inverse(d_test_val, fault_type)) 
+				{
+					flag = 1;
+                } */
+				if (inverse2(d_test_val, fault_type)) 
 				{
 					flag = 1;
                 }
-	
-                break;
-            case HETEROGENEOUS:
-                if (heterogeneous(d_test_val, fault_type) == -1.0) 
-				{
-					flag = 1;
-                } 
-                break;
-            case VERIFICATION:
-                if (inverse(d_test_val, fault_type)) 
-				{
-					flag = 1;
-                } 
                 break;
             default:
                 break;
@@ -199,12 +249,12 @@ int main()
 		if (data_type == INTEGER)
 		{
 			strcpy(str_data_type, "INTEGER");
-			sprintf(str_original_int, "i:%d", i_test_val);
+			sprintf(str_original_int, "i:%d        ", i_test_val);
 		}
-		else 
+		else if (data_type == DOUBLE)
 		{
 			strcpy(str_data_type, "DOUBLE ");
-			sprintf(str_original_int, "i:%.3f", d_test_val);
+			sprintf(str_original_int, "i:%.3f      ", d_test_val);
 		}
 		
 		GLCD_DisplayString(1, 0, 1, (unsigned char*) str_data_type);
@@ -213,7 +263,7 @@ int main()
 		{
 			strcpy(str_fault_type, "RANDOM");
 		}
-		else 
+		else if (fault_type == STUCK_AT_FAULT)
 		{
 			strcpy(str_fault_type, "STUCK ");
 		}

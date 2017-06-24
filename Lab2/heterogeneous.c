@@ -1,8 +1,8 @@
+#include <stdio.h>
+#include <math.h>
 #include "heterogeneous.h"
 #include "voting.h"
 #include "fault_injection.h"
-#include <stdio.h>
-#include <math.h>
 #include "glcd.h"
 
 char str_error31[20];
@@ -46,7 +46,9 @@ double binary_search(double data)
     return root;
 }
 
-double heterogeneous (double a, int fault_type) 
+
+
+double heterogeneous1 (double a, int fault_type) 
 {
     double result_1;
     double result_2;
@@ -69,12 +71,44 @@ double heterogeneous (double a, int fault_type)
     } 
 	else
 	{
-		sprintf(str_error31, "r1:%.3f", result_1);
-		sprintf(str_error32, "r2:%.3f", result_2);
-		sprintf(str_error33, "r3:%.3f", result_3);
+		sprintf(str_error31, "r1:%.7f", result_1);
+		sprintf(str_error32, "r2:%.7f", result_2);
+		sprintf(str_error33, "r3:%.7f", result_3);
 		GLCD_DisplayString(7, 0, 1, (unsigned char*) str_error31);
 		GLCD_DisplayString(8, 0, 1, (unsigned char*) str_error32);
 		GLCD_DisplayString(9, 0, 1, (unsigned char*) str_error33);
+
+        return -1.0;
+    }
+}
+
+double heterogeneous2 (double a, int fault_type) 
+{
+    double result_1;
+    double result_2;
+    double result_3;
+
+    result_1 = faulty_double(c_sqrt(a), fault_type);
+    result_2 = faulty_double(newton_raphson(a), fault_type);
+    result_3 = faulty_double(binary_search(a), fault_type);
+    fault_injection_reset();
+
+    if ( fabs(result_1 - result_2) < EPSILON || fabs(result_1 - result_3) < EPSILON) 
+	{
+        return result_1;
+    }
+	else if (fabs(result_2 - result_3) < EPSILON) 
+	{
+        return result_2;
+    } 
+	else
+	{
+		sprintf(str_error31, "r1:%.7f", result_1);
+		sprintf(str_error32, "r2:%.7f", result_2);
+		sprintf(str_error33, "r3:%.7f", result_3);
+		GLCD_DisplayString(6, 0, 1, (unsigned char*) str_error31);
+		GLCD_DisplayString(7, 0, 1, (unsigned char*) str_error32);
+		GLCD_DisplayString(8, 0, 1, (unsigned char*) str_error33);
 
         return -1.0;
     }
