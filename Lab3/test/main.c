@@ -28,22 +28,22 @@ bool F_SPEED_R2 = FALSE;
 double tmp_minimum;
 double tmp_expected;
 
-bool collision = FALSE:
+bool collision = FALSE;
 
-void find_faulty()
+void find_faulty(int iter)
 {
     printf("\n");
 
-    for (int i=1; i<NUM_POLL; i++)
+    if (iter > 0)
     {
         // ACCEL Left
-        tmp_minimum = fmin(ACCELERATION_L1[i], ACCELERATION_L2[i]);
+        tmp_minimum = fmin(ACCELERATION_L1[iter], ACCELERATION_L2[iter]);
         //printf("tmp_min: %f  diff: %f \n", tmp_minimum * X, fabs(ACCELERATION_L1[i] - ACCELERATION_L2[i]));
 
-        if (fabs(ACCELERATION_L1[i] - ACCELERATION_L2[i]) >= tmp_minimum * X)
+        if (fabs(ACCELERATION_L1[iter] - ACCELERATION_L2[iter]) >= tmp_minimum * X)
         {
-            tmp_expected = (SPEED_L1[i-1] - SPEED_L2[i]) / T;
-            if (fabs(ACCELERATION_L1[i] - tmp_expected) > fabs(ACCELERATION_L2[i] - tmp_expected))
+            tmp_expected = (SPEED_L1[iter-1] - SPEED_L2[iter]) / T;
+            if (fabs(ACCELERATION_L1[iter] - tmp_expected) > fabs(ACCELERATION_L2[iter] - tmp_expected))
             {
                 F_ACCELERATION_L1 = TRUE;
             }
@@ -53,10 +53,10 @@ void find_faulty()
             }
         }
         // ACCEL Right
-        tmp_minimum = fmin(ACCELERATION_R1[i], ACCELERATION_R2[i]);
-        if (fabs(ACCELERATION_R1[i] - ACCELERATION_R2[i]) >= tmp_minimum * X) {
-            tmp_expected = (SPEED_R1[i-1] - SPEED_R2[i]) / T;
-            if (fabs(ACCELERATION_R1[i] - tmp_expected) > fabs(ACCELERATION_R2[i] - tmp_expected))
+        tmp_minimum = fmin(ACCELERATION_R1[iter], ACCELERATION_R2[iter]);
+        if (fabs(ACCELERATION_R1[iter] - ACCELERATION_R2[iter]) >= tmp_minimum * X) {
+            tmp_expected = (SPEED_R1[iter-1] - SPEED_R2[iter]) / T;
+            if (fabs(ACCELERATION_R1[iter] - tmp_expected) > fabs(ACCELERATION_R2[iter] - tmp_expected))
             {
                 F_ACCELERATION_R1 = TRUE;
             }
@@ -66,11 +66,11 @@ void find_faulty()
             }
         }
         // SPEED Left       // Assume the first value is never wrong since it is not possible to check with acceleration value without 2 time stamp.
-        tmp_minimum = fmin(SPEED_L1[i], SPEED_L2[i]);
-        if (fabs(SPEED_L1[i] - SPEED_L2[i]) >= tmp_minimum * X)
+        tmp_minimum = fmin(SPEED_L1[iter], SPEED_L2[iter]);
+        if (fabs(SPEED_L1[iter] - SPEED_L2[iter]) >= tmp_minimum * X)
         {
-            tmp_expected = ACCELERATION_L1[i];
-            if ((fabs(SPEED_L1[i-1] - SPEED_L1[i]) / T) > (tmp_expected + tmp_expected * X) || (fabs(SPEED_L1[i-1] - SPEED_L1[i]) / T) < (tmp_expected + tmp_expected * X))
+            tmp_expected = ACCELERATION_L1[iter];
+            if ((fabs(SPEED_L1[iter-1] - SPEED_L1[iter]) / T) > (tmp_expected + tmp_expected * X) || (fabs(SPEED_L1[iter-1] - SPEED_L1[iter]) / T) < (tmp_expected + tmp_expected * X))
             {
                 F_SPEED_L1 = TRUE;
             } else
@@ -79,11 +79,11 @@ void find_faulty()
             }
         }
         // SPEED Right
-        tmp_minimum = fmin(SPEED_R1[i], SPEED_R2[i]);
-        if (fabs(SPEED_R1[i] - SPEED_R2[i]) >= tmp_minimum * X)
+        tmp_minimum = fmin(SPEED_R1[iter], SPEED_R2[iter]);
+        if (fabs(SPEED_R1[iter] - SPEED_R2[iter]) >= tmp_minimum * X)
         {
-            tmp_expected = ACCELERATION_R1[i];
-            if ((fabs(SPEED_R1[i-1] - SPEED_R1[i]) / T) > (tmp_expected + tmp_expected * X) || (fabs(SPEED_R1[i-1] - SPEED_R1[i]) / T) < (tmp_expected + tmp_expected * X))
+            tmp_expected = ACCELERATION_R1[iter];
+            if ((fabs(SPEED_R1[iter-1] - SPEED_R1[iter]) / T) > (tmp_expected + tmp_expected * X) || (fabs(SPEED_R1[iter-1] - SPEED_R1[iter]) / T) < (tmp_expected + tmp_expected * X))
             {
                 F_SPEED_R1 = TRUE;
             }
@@ -98,15 +98,15 @@ void find_faulty()
 bool detect_collision(int iter)
 {
     // check SPEED_THRESHOLD on both side
-    // by default, checks the first sensor ex) SPEED_L1, SPEED_R1
+    // by default, check the first sensor ex) SPEED_L1, SPEED_R1
     // if default sensor is faulty, checks redundant sensor ex) SPEED_L2, SPEED_R2
     if (((!F_SPEED_L1 && SPEED_L1[iter] > SPEED_THRESHOLD) || (!F_SPEED_L2 && SPEED_L2[iter] > SPEED_THRESHOLD))
     && (!F_SPEED_R1 && SPEED_R1[iter] > SPEED_THRESHOLD) || (!F_SPEED_R2 && SPEED_R2[iter] > SPEED_THRESHOLD))
     {
 
         // check ACCELERATION_THRESHOLD on both side
-        // if one side fails, check to see if difference between them matches the CORRELATION_THRESHOLD
-        // by default, checks the first sensor ex) ACCELERATION_L1, ACCELERATION_R1
+        // if one side fails threshold check, also check to see if difference between them matches the CORRELATION_THRESHOLD
+        // by default, check the first sensor ex) ACCELERATION_L1, ACCELERATION_R1
         // if defalut sensor is faulty, checks redundant sensor ex) ACCELERATION_L2, ACCELERATION_R2
         if(!F_ACCELERATION_L1)
         {
@@ -114,7 +114,7 @@ bool detect_collision(int iter)
             {
                 if ((ACCELERATION_L1[iter] > ACCELERATION_THRESHOLD && ACCELERATION_R1[iter] > ACCELERATION_THRESHOLD)
                     || (ACCELERATION_L1[iter] > ACCELERATION_THRESHOLD && ACCELERATION_R1[iter] > CORRELATION_THRESHOLD * ACCELERATION_L1[iter])
-                    || (ACCELERATION_R1 > ACCELERATION_THRESHOLD && ACCELERATION_L1[iter] > CORRELATION_THRESHOLD * ACCELERATION_R1[iter]))
+                    || (ACCELERATION_R1[iter] > ACCELERATION_THRESHOLD && ACCELERATION_L1[iter] > CORRELATION_THRESHOLD * ACCELERATION_R1[iter]))
                 {
                     return TRUE;
                 }
@@ -123,7 +123,7 @@ bool detect_collision(int iter)
             {
                 if ((ACCELERATION_L1[iter] > ACCELERATION_THRESHOLD && ACCELERATION_R2[iter] > ACCELERATION_THRESHOLD)
                     || (ACCELERATION_L1[iter] > ACCELERATION_THRESHOLD && ACCELERATION_R2[iter] > CORRELATION_THRESHOLD * ACCELERATION_L1[iter])
-                    || (ACCELERATION_R2 > ACCELERATION_THRESHOLD && ACCELERATION_L1[iter] > CORRELATION_THRESHOLD * ACCELERATION_R2[iter]))
+                    || (ACCELERATION_R2[iter] > ACCELERATION_THRESHOLD && ACCELERATION_L1[iter] > CORRELATION_THRESHOLD * ACCELERATION_R2[iter]))
                 {
                     return TRUE;
                 }
@@ -135,7 +135,7 @@ bool detect_collision(int iter)
             {
                 if ((ACCELERATION_L2[iter] > ACCELERATION_THRESHOLD && ACCELERATION_R1[iter] > ACCELERATION_THRESHOLD)
                     || (ACCELERATION_L2[iter] > ACCELERATION_THRESHOLD && ACCELERATION_R1[iter] > CORRELATION_THRESHOLD * ACCELERATION_L2[iter])
-                    || (ACCELERATION_R1 > ACCELERATION_THRESHOLD && ACCELERATION_L2[iter] > CORRELATION_THRESHOLD * ACCELERATION_R1[iter]))
+                    || (ACCELERATION_R1[iter] > ACCELERATION_THRESHOLD && ACCELERATION_L2[iter] > CORRELATION_THRESHOLD * ACCELERATION_R1[iter]))
                 {
                     return TRUE;
                 }
@@ -144,7 +144,7 @@ bool detect_collision(int iter)
             {
                 if ((ACCELERATION_L2[iter] > ACCELERATION_THRESHOLD && ACCELERATION_R2[iter] > ACCELERATION_THRESHOLD)
                     || (ACCELERATION_L2[iter] > ACCELERATION_THRESHOLD && ACCELERATION_R2[iter] > CORRELATION_THRESHOLD * ACCELERATION_L2[iter])
-                    || (ACCELERATION_R2 > ACCELERATION_THRESHOLD && ACCELERATION_L2[iter] > CORRELATION_THRESHOLD * ACCELERATION_R2[iter]))
+                    || (ACCELERATION_R2[iter] > ACCELERATION_THRESHOLD && ACCELERATION_L2[iter] > CORRELATION_THRESHOLD * ACCELERATION_R2[iter]))
                 {
                     return TRUE;
                 }
@@ -168,22 +168,27 @@ void reset()
 
 int main()
 {
-    while(1) {
-        for (int i=0; i<NUM_POLL; i++)
+    while(1)
+    {
+        if (!collision)
         {
-            find_faulty();
-            // printf("iteration: %d   ", i);
-            // printf("%d", F_ACCELERATION_L1);
-            // printf("%d", F_ACCELERATION_L2);
-            // printf("%d", F_ACCELERATION_R1);
-            // printf("%d", F_ACCELERATION_R2);
-            // printf("%d", F_SPEED_L1);
-            // printf("%d", F_SPEED_L2);
-            // printf("%d", F_SPEED_R1);
-            // printf("%d\n", F_SPEED_R2);
+            for (int i=0; i<NUM_POLL; i++)
+            {
+                find_faulty(i);
+                printf("iteration: %d   ", i);
+                printf("%d", F_ACCELERATION_L1);
+                printf("%d", F_ACCELERATION_L2);
+                printf("%d", F_ACCELERATION_R1);
+                printf("%d", F_ACCELERATION_R2);
+                printf("%d", F_SPEED_L1);
+                printf("%d", F_SPEED_L2);
+                printf("%d", F_SPEED_R1);
+                printf("%d\n", F_SPEED_R2);
 
-            collision = detect_collision(i);
-            reset();
+                collision = detect_collision(i);
+                // reset faulty flags for sensors
+                reset();
+            }
         }
         break;
     }
