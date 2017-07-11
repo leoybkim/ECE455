@@ -37,31 +37,56 @@ typedef int bool;
 // double SPEED_R1[]        = {50.0, 47.5, 46.5, 45.5, 40.0, 32.0, 28.0, 11.0,  9.46,   9.0,  5.0,  2.0};
 // double SPEED_R2[]        = {50.0, 47.5, 46.5, 45.5, 40.0, 32.0, 28.0, 11.0,  9.46,   9.0,  5.0,  2.0};
 
-// TEST 2) Faulty; No collision
-// faulty @ ACCELERATION_L1[3] -- ACCELERATION_L2[4] -- ACCELERATION_R1[5] -- ACCELERATION_R2[6]
-//          SPEED_L1[7]        -- SPEED_L2[8]        -- SPEED_R1[9]        -- SPEED_R2[10]
-// double ACCELERATION_L1[] = { 0.000, -2.500, -1.005, -1.100, -2.500,  2.000, -3.500, -3.500,  1.460,-0.4400,  -3.000,  -1.000};
-// double ACCELERATION_L2[] = { 0.000, -2.500, -1.000, -1.000, -2.400,  2.000, -3.500, -3.500,  1.460,-0.4400,  -3.000,  -1.000};
-// double ACCELERATION_R1[] = { 0.000, -2.500, -1.000, -1.000, -2.500,  2.500, -3.500, -3.500,  1.460,-0.4400,  -3.000,  -1.000};
-// double ACCELERATION_R2[] = { 0.000, -2.500, -1.000, -1.000, -2.500,  2.000, -5.500, -3.500,  1.460,-0.4400,  -3.000,  -1.000};
-// double SPEED_L1[]        = {50.000, 47.500, 46.500, 45.500, 43.000, 45.000, 41.500, 50.000, 39.460, 39.000,  36.000,  35.000};
-// double SPEED_L2[]        = {50.000, 47.504, 46.501, 45.500, 43.000, 45.000, 41.500, 38.000, 30.460, 39.000,  36.000,  35.000};
-// double SPEED_R1[]        = {50.000, 47.500, 46.499, 45.500, 43.000, 45.000, 41.500, 38.000, 39.460, 31.000,  36.000,  35.000};
-// double SPEED_R2[]        = {50.000, 47.532, 46.487, 45.500, 43.000, 45.000, 41.500, 38.000, 39.460, 39.000,  20.000,  35.000};
+// TEST 2) Faulty ACCELERATION_R1; No collision
+// double ACCELERATION_L1[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44, -3.0, -1.0};
+// double ACCELERATION_L2[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44, -3.0, -1.0};
+// double ACCELERATION_R1[] = { 0.1, -2.9, -1.0, -1.0,  2.5,  2.0, -3.5,-12.0,  1.46, -0.10, -3.0, -10.0};
+// double ACCELERATION_R2[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44, -3.0, -1.0};
+// double SPEED_L1[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  36.0,  35.0};
+// double SPEED_L2[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  36.0,  35.0};
+// double SPEED_R1[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  36.0,  35.0};
+// double SPEED_R2[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  36.0,  35.0};
+
+// TEST 3) Faulty ACCELERATION_R1; Frontal collision at index 10
+// double ACCELERATION_L1[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44, -4.2,    0.2};
+// double ACCELERATION_L2[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44, -4.2,    0.2};
+// double ACCELERATION_R1[] = { 0.1, -2.9, -1.0, -1.0,  2.5,  2.0, -3.5,-12.0,  1.46, -0.10, -2.0,  -10.0};
+// double ACCELERATION_R2[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44, -4.2,    0.2};
+// double SPEED_L1[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  34.8,  35.0};
+// double SPEED_L2[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  34.8,  35.0};
+// double SPEED_R1[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  34.8,  35.0};
+// double SPEED_R2[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  34.8,  35.0};
 
 
+// TEST 4) Faulty ACCELERATION_R1; No Collision due to CORRELATION_THRESHOLD at index 10
+// double ACCELERATION_L1[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44,  -4.2,   0.2};
+// double ACCELERATION_L2[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44,  -4.2,   0.2};
+// double ACCELERATION_R1[] = { 0.1, -2.9, -1.0, -1.0,  2.5,  2.0, -3.5,-12.0,  1.46, -0.10,  -2.0, -10.0};
+// double ACCELERATION_R2[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44,  -1.5,  -2.5};
+// double SPEED_L1[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  34.8,  35.0};
+// double SPEED_L2[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  34.8,  35.0};
+// double SPEED_R1[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  37.5,  35.0};
+// double SPEED_R2[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  37.5,  35.0};
 
+// TEST 5) Faulty ACCELERATION_R1; Collision at index 10; Passes CORRELATION_THRESHOLD;
+// double ACCELERATION_L1[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44,  -4.2,   0.2};
+// double ACCELERATION_L2[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44,  -4.2,   0.2};
+// double ACCELERATION_R1[] = { 0.1, -2.9, -1.0, -1.0,  2.5,  2.0, -3.5,-12.0,  1.46, -0.10,  -2.0,  -1.0};
+// double ACCELERATION_R2[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44,  -3.0,  -1.0};
+// double SPEED_L1[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  34.8,  35.0};
+// double SPEED_L2[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  34.8,  35.0};
+// double SPEED_R1[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  36.0,  35.0};
+// double SPEED_R2[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  36.0,  35.0};
 
-// TEST 4) doesn't meet CORRELATION_THRESHOLD at index 5 --> shouldn't be collision
-// double ACCELERATION_L1[] = { 0.000,  -2.501, -1.000, -1.001, -5.498, -8.000, -4.000, -3.000, -1.540, -0.460, -4.000, -3.000};
-// double ACCELERATION_L2[] = { 0.000,  -2.499, -1.000, -1.000, -5.500, -8.000, -4.000, -3.000, -1.540, -0.460, -4.000, -3.000};
-// double ACCELERATION_R1[] = { 0.000,  -2.502, -1.000, -1.002, -5.496, -5.000, -7.000, -3.000, -1.540, -0.460, -4.000, -3.000};
-// double ACCELERATION_R2[] = { 0.000,  -2.500, -1.000, -1.000, -5.500, -8.000, -4.000, -3.000, -1.540, -0.460, -4.000, -3.000};
-// double SPEED_L1[]        = {50.000,  47.501, 46.501, 45.502, 40.000, 32.000, 28.000, 11.000,  9.460,  9.000,  5.000,  2.000};
-// double SPEED_L2[]        = {50.000,  47.499, 46.499, 45.500, 40.000, 32.000, 28.000, 11.000,  9.460,  9.000,  5.000,  2.000};
-// double SPEED_R1[]        = {50.000,  47.502, 46.502, 45.504, 40.000, 35.000, 28.000, 11.000,  9.460,  9.000,  5.000,  2.000};
-// double SPEED_R2[]        = {50.000,  47.500, 46.500, 45.500, 40.000, 32.000, 28.000, 11.000,  9.460,  9.000,  5.000,  2.000};
-
+// TEST 6) NOT Faulty ACCELERATION_R1 because within X%; Collision at index 10; Passes CORRELATION_THRESHOLD;
+double ACCELERATION_L1[] = { 0.0, -2.5 , -1.0, -1.0, -2.5,  2.0, -3.5, -3.5 ,  1.46, -0.44,  -4.2 ,   0.2};
+double ACCELERATION_L2[] = { 0.0, -2.5 , -1.0, -1.0, -2.5,  2.0, -3.5, -3.5 ,  1.46, -0.44,  -4.2 ,   0.2};
+double ACCELERATION_R1[] = { 0.0, -2.51, -1.0, -1.0, -2.5,  2.0, -3.5, -3.53,  1.46, -0.44,  -2.98,  -1.0};
+double ACCELERATION_R2[] = { 0.0, -2.5 , -1.0, -1.0, -2.5,  2.0, -3.5, -3.5 ,  1.46, -0.44,  -3.0 ,  -1.0};
+double SPEED_L1[]        = {50.0, 47.5 , 46.5, 45.5, 43.0, 45.0, 41.5, 38.0 , 39.46,  39.0,  34.8 ,  35.0};
+double SPEED_L2[]        = {50.0, 47.5 , 46.5, 45.5, 43.0, 45.0, 41.5, 38.0 , 39.46,  39.0,  34.8 ,  35.0};
+double SPEED_R1[]        = {50.0, 47.5 , 46.5, 45.5, 43.0, 45.0, 41.5, 38.0 , 39.46,  39.0,  36.0 ,  35.0};
+double SPEED_R2[]        = {50.0, 47.5 , 46.5, 45.5, 43.0, 45.0, 41.5, 38.0 , 39.46,  39.0,  36.0 ,  35.0};
 
 
 bool F_ACCELERATION_L1 = FALSE;
@@ -159,8 +184,8 @@ bool detect_collision(int iter)
             if(!F_ACCELERATION_R1)
             {
                 if ((fabs(ACCELERATION_L1[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_R1[iter]) > ACCELERATION_THRESHOLD)
-                    || (fabs(ACCELERATION_L1[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_R1[iter]) > CORRELATION_THRESHOLD * ACCELERATION_L1[iter])
-                    || (fabs(ACCELERATION_R1[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_L1[iter]) > CORRELATION_THRESHOLD * ACCELERATION_R1[iter]))
+                    || (fabs(ACCELERATION_L1[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_R1[iter]) > CORRELATION_THRESHOLD * fabs(ACCELERATION_L1[iter]))
+                    || (fabs(ACCELERATION_R1[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_L1[iter]) > CORRELATION_THRESHOLD * fabs(ACCELERATION_R1[iter])))
                 {
                     return TRUE;
                 }
@@ -168,8 +193,8 @@ bool detect_collision(int iter)
             else if (!F_ACCELERATION_R2)
             {
                 if ((fabs(ACCELERATION_L1[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_R2[iter]) > ACCELERATION_THRESHOLD)
-                    || (fabs(ACCELERATION_L1[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_R2[iter]) > CORRELATION_THRESHOLD * ACCELERATION_L1[iter])
-                    || (fabs(ACCELERATION_R2[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_L1[iter]) > CORRELATION_THRESHOLD * ACCELERATION_R2[iter]))
+                    || (fabs(ACCELERATION_L1[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_R2[iter]) > CORRELATION_THRESHOLD * fabs(ACCELERATION_L1[iter]))
+                    || (fabs(ACCELERATION_R2[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_L1[iter]) > CORRELATION_THRESHOLD * fabs(ACCELERATION_R2[iter])))
                 {
                     return TRUE;
                 }
@@ -180,8 +205,8 @@ bool detect_collision(int iter)
             if(!F_ACCELERATION_R1)
             {
                 if ((fabs(ACCELERATION_L2[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_R1[iter]) > ACCELERATION_THRESHOLD)
-                    || (fabs(ACCELERATION_L2[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_R1[iter]) > CORRELATION_THRESHOLD * ACCELERATION_L2[iter])
-                    || (fabs(ACCELERATION_R1[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_L2[iter]) > CORRELATION_THRESHOLD * ACCELERATION_R1[iter]))
+                    || (fabs(ACCELERATION_L2[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_R1[iter]) > CORRELATION_THRESHOLD * fabs(ACCELERATION_L2[iter]))
+                    || (fabs(ACCELERATION_R1[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_L2[iter]) > CORRELATION_THRESHOLD * fabs(ACCELERATION_R1[iter])))
                 {
                     return TRUE;
                 }
@@ -189,8 +214,8 @@ bool detect_collision(int iter)
             else if (!F_ACCELERATION_R2)
             {
                 if ((fabs(ACCELERATION_L2[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_R2[iter]) > ACCELERATION_THRESHOLD)
-                    || (fabs(ACCELERATION_L2[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_R2[iter]) > CORRELATION_THRESHOLD * ACCELERATION_L2[iter])
-                    || (fabs(ACCELERATION_R2[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_L2[iter]) > CORRELATION_THRESHOLD * ACCELERATION_R2[iter]))
+                    || (fabs(ACCELERATION_L2[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_R2[iter]) > CORRELATION_THRESHOLD * fabs(ACCELERATION_L2[iter]))
+                    || (fabs(ACCELERATION_R2[iter]) > ACCELERATION_THRESHOLD && fabs(ACCELERATION_L2[iter]) > CORRELATION_THRESHOLD * fabs(ACCELERATION_R2[iter])))
                 {
                     return TRUE;
                 }
