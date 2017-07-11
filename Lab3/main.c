@@ -230,23 +230,29 @@ void reset()
 }
 
 // initial board setup
-void init_setup() 
+void init_setup()
 {
     SystemInit();
-    GLCD_Init();    
-    GLCD_Clear(White);  
+    GLCD_Init();
+    GLCD_Clear(White);
+
+    LPC_TIM0->TCR = 0x02;  // reset
+    LPC_TIM0->TCR = 0x01;  // enable
+    LPC_TIM0->PR = 24;     // 1us
 }
 
 int main()
 {
     // debug tags
     char str_test[20];
-        
+
     int i;
+    int start;
+    int end;
     
     // initialize
     init_setup();
-   
+
     // testing
     strcpy(str_test, "No collisions      ");
     //GLCD_DisplayString(0, 0, 1, (unsigned char*) str_test);
@@ -255,8 +261,10 @@ int main()
     {
         for (i=0; i<NUM_POLL; i++)
         {
+            start = LPC_TIM0->TC;
             if(collision)
             {
+                end = LPC_TIM0->TC;
                 strcpy(str_test, "Collision Detected!    ");
                 //GLCD_DisplayString(0, 0, 1, (unsigned char*) str_test);
                 break;
