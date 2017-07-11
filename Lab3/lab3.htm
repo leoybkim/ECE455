@@ -3,11 +3,11 @@
 <title>Static Call Graph - [N:\ECE455\Lab3\lab3.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image N:\ECE455\Lab3\lab3.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.02 [Build 28]: Last Updated: Tue Jul 11 16:18:22 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.02 [Build 28]: Last Updated: Tue Jul 11 16:44:28 2017
 <BR><P>
-<H3>Maximum Stack Usage =        160 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        112 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; GLCD_DisplayString &rArr; GLCD_DisplayChar &rArr; GLCD_DrawChar_U16 &rArr; GLCD_SetWindow &rArr; wr_reg &rArr; wr_dat
+__rt_entry_main &rArr; main &rArr; find_faulty &rArr; __aeabi_dmul
 <P>
 <H3>
 Functions with no stack information
@@ -189,8 +189,8 @@ Global Symbols
 <P><STRONG><a name="[90]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[3a]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 160 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; GLCD_DisplayString &rArr; GLCD_DisplayChar &rArr; GLCD_DrawChar_U16 &rArr; GLCD_SetWindow &rArr; wr_reg &rArr; wr_dat
+<BR><BR>[Stack]<UL><LI>Max Depth = 112 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; find_faulty &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -502,10 +502,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_setup
 </UL>
 
-<P><STRONG><a name="[52]"></a>GLCD_DrawChar_U8</STRONG> (Thumb, 112 bytes, Stack size 40 bytes, glcd_spi_lpc1700.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = GLCD_DrawChar_U8 &rArr; GLCD_SetWindow &rArr; wr_reg &rArr; wr_dat
-</UL>
-<BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetWindow
+<P><STRONG><a name="[52]"></a>GLCD_DrawChar_U8</STRONG> (Thumb, 112 bytes, Stack size 40 bytes, glcd_spi_lpc1700.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetWindow
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_dat_only
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_dat_stop
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_dat_start
@@ -514,10 +512,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DisplayChar
 </UL>
 
-<P><STRONG><a name="[53]"></a>GLCD_DrawChar_U16</STRONG> (Thumb, 112 bytes, Stack size 40 bytes, glcd_spi_lpc1700.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = GLCD_DrawChar_U16 &rArr; GLCD_SetWindow &rArr; wr_reg &rArr; wr_dat
-</UL>
-<BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetWindow
+<P><STRONG><a name="[53]"></a>GLCD_DrawChar_U16</STRONG> (Thumb, 112 bytes, Stack size 40 bytes, glcd_spi_lpc1700.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetWindow
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_dat_only
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_dat_stop
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_dat_start
@@ -526,23 +522,18 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DisplayChar
 </UL>
 
-<P><STRONG><a name="[54]"></a>GLCD_DisplayChar</STRONG> (Thumb, 84 bytes, Stack size 24 bytes, glcd_spi_lpc1700.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = GLCD_DisplayChar &rArr; GLCD_DrawChar_U16 &rArr; GLCD_SetWindow &rArr; wr_reg &rArr; wr_dat
-</UL>
-<BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawChar_U16
+<P><STRONG><a name="[54]"></a>GLCD_DisplayChar</STRONG> (Thumb, 84 bytes, Stack size 24 bytes, glcd_spi_lpc1700.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawChar_U16
 <LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawChar_U8
 </UL>
 <BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DisplayString
 </UL>
 
-<P><STRONG><a name="[55]"></a>GLCD_DisplayString</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, glcd_spi_lpc1700.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = GLCD_DisplayString &rArr; GLCD_DisplayChar &rArr; GLCD_DrawChar_U16 &rArr; GLCD_SetWindow &rArr; wr_reg &rArr; wr_dat
-</UL>
-<BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DisplayChar
+<P><STRONG><a name="[55]"></a>GLCD_DisplayString</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, glcd_spi_lpc1700.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DisplayChar
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_WindowMax
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_ClearLn
+<BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_ClearLn
 </UL>
 
 <P><STRONG><a name="[56]"></a>GLCD_ClearLn</STRONG> (Thumb, 94 bytes, Stack size 80 bytes, glcd_spi_lpc1700.o(.text), UNUSED)
@@ -616,15 +607,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[3b]"></a>main</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = main &rArr; GLCD_DisplayString &rArr; GLCD_DisplayChar &rArr; GLCD_DrawChar_U16 &rArr; GLCD_SetWindow &rArr; wr_reg &rArr; wr_dat
+<P><STRONG><a name="[3b]"></a>main</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = main &rArr; find_faulty &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_setup
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;detect_collision
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_faulty
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DisplayString
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
