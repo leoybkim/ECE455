@@ -12,14 +12,14 @@ typedef int bool;
 #define fmin(x,y) ((x) <= (y)) ? (x) : (y)
 
 // TEST 0) No faults, No collision
-double ACCELERATION_L1[] = { 0.0, -2.5, -1.0, -1.0, -2.5, 2.0, -3.5, -3.5,  1.46, -0.44, -3.0, -1.0};
+/*double ACCELERATION_L1[] = { 0.0, -2.5, -1.0, -1.0, -2.5, 2.0, -3.5, -3.5,  1.46, -0.44, -3.0, -1.0};
 double ACCELERATION_L2[] = { 0.0, -2.5, -1.0, -1.0, -2.5, 2.0, -3.5, -3.5,  1.46, -0.44, -3.0, -1.0};
 double ACCELERATION_R1[] = { 0.0, -2.5, -1.0, -1.0, -2.5, 2.0, -3.5, -3.5,  1.46, -0.44, -3.0, -1.0};
 double ACCELERATION_R2[] = { 0.0, -2.5, -1.0, -1.0, -2.5, 2.0, -3.5, -3.5,  1.46, -0.44, -3.0, -1.0};
 double SPEED_L1[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46, 39.0,  36.0,  35.0};
 double SPEED_L2[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46, 39.0,  36.0,  35.0};
 double SPEED_R1[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46, 39.0,  36.0,  35.0};
-double SPEED_R2[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46, 39.0,  36.0,  35.0};
+double SPEED_R2[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46, 39.0,  36.0,  35.0};*/
 
 // TEST 1) No faults; Frontal Collision at index 4
 /*double ACCELERATION_L1[] = { 0.0, -2.5, -1.0, -1.0, -5.5, -8.0, -4.0, -3.0, -1.54, -0.46, -4.0, -3.0};
@@ -63,14 +63,14 @@ double SPEED_R1[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.4
 double SPEED_R2[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  37.5,  35.0};*/
 
 // TEST 5) Faulty ACCELERATION_R1; Left side collision at index 10; Passes CORRELATION_THRESHOLD;
-/*double ACCELERATION_L1[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44,  -4.2,   0.2};
+double ACCELERATION_L1[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44,  -4.2,   0.2};
 double ACCELERATION_L2[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44,  -4.2,   0.2};
 double ACCELERATION_R1[] = { 0.1, -2.9, -1.0, -1.0,  2.5,  2.0, -3.5,-12.0,  1.46, -0.10,  -2.0,  -1.0};
 double ACCELERATION_R2[] = { 0.0, -2.5, -1.0, -1.0, -2.5,  2.0, -3.5, -3.5,  1.46, -0.44,  -3.0,  -1.0};
 double SPEED_L1[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  34.8,  35.0};
 double SPEED_L2[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  34.8,  35.0};
 double SPEED_R1[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  36.0,  35.0};
-double SPEED_R2[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  36.0,  35.0};*/
+double SPEED_R2[]        = {50.0, 47.5, 46.5, 45.5, 43.0, 45.0, 41.5, 38.0, 39.46,  39.0,  36.0,  35.0};
 
 // TEST 6) NOT Faulty ACCELERATION_R1 because within X%; Left side collision at index 10; Passes CORRELATION_THRESHOLD;
 /*double ACCELERATION_L1[] = { 0.0, -2.5 , -1.0, -1.0, -2.5,  2.0, -3.5, -3.5 ,  1.46, -0.44,  -4.2 ,   0.2};
@@ -233,40 +233,63 @@ void reset()
 void init_setup()
 {
     SystemInit();
+
     GLCD_Init();
     GLCD_Clear(White);
 
+    //TCR	Timer Control Register
+    //TC	Timer Counter, incremented every PR+1 cycles of PCLK
+    //PR	Prescalar Register
     LPC_TIM0->TCR = 0x02;  // reset
     LPC_TIM0->TCR = 0x01;  // enable
-    LPC_TIM0->PR = 24;     // 1us
+    LPC_TIM0->PR = 100*4;   // set prescalar to 1 us       100 MHz system clock 
+}
+
+void deploy_airbag()
+{
+    int i;
+    for (i=0; i<1000000; i++) 
+    {
+        // dummy function that takes time
+    }
 }
 
 int main()
 {
     // debug tags
     char str_test[20];
+    char str_time1[20];
+    char str_time2[20];
 
     int i;
     int start;
     int end;
+    int end2;
     
-    // initialize
+    // initialize 
     init_setup();
 
     // testing
     strcpy(str_test, "No collisions      ");
-    //GLCD_DisplayString(0, 0, 1, (unsigned char*) str_test);
+    GLCD_DisplayString(0, 0, 1, (unsigned char*) str_test);
 
     while(1)
     {
+        start = LPC_TIM0->TC;
         for (i=0; i<NUM_POLL; i++)
         {
-            start = LPC_TIM0->TC;
             if(collision)
             {
                 end = LPC_TIM0->TC;
-                strcpy(str_test, "Collision Detected!    ");
-                //GLCD_DisplayString(0, 0, 1, (unsigned char*) str_test);
+                deploy_airbag();
+                end2 = LPC_TIM0->TC;
+                
+                strcpy(str_test, "Collision Detected!   ");
+                sprintf(str_time1,"%d us             ", end-start);
+                //sprintf(str_time2,"%d us             ", end2-start);
+                GLCD_DisplayString(0, 0, 1, (unsigned char*) str_test);
+                GLCD_DisplayString(1, 0, 1, (unsigned char*) str_time1);
+                //GLCD_DisplayString(2, 0, 1, (unsigned char*) str_time1);
                 break;
             }
             else
@@ -286,6 +309,10 @@ int main()
                 // reset faulty flags for sensors
                 reset();
             }
+        }
+        if (collision)
+        {
+            break;
         }
     }
 }
