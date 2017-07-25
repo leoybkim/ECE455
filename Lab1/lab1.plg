@@ -1,0 +1,24 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\yb4kim\OneDrive - University of Waterloo\ECE455\Lab1\lab1.uvproj
+Project File Date:  05/26/2017
+
+<h2>Output:</h2>
+compiling main.c...
+main.c(10): warning:  #260-D: explicit type is missing ("int" assumed)
+main.c(194): warning:  #188-D: enumerated type mixed with another type
+main.c(201): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(208): warning:  #223-D: function "sprintf" declared implicitly
+main.c(228): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(230): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(233): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(239): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(240): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(241): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(244): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(251): warning:  #111-D: statement is unreachable
+main.c(252): warning:  #1-D: last line of file ends without a newline
+main.c - 0 Error(s), 13 Warning(s).
