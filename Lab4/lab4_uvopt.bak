@@ -177,11 +177,7 @@
         <aSer4>0</aSer4>
         <StkLoc>0</StkLoc>
         <TrcWin>0</TrcWin>
-<<<<<<< HEAD
-        <newCpu>3</newCpu>
-=======
         <newCpu>0</newCpu>
->>>>>>> 553db7fd37d1a1784264f1a0a3d2d9b6a8f780af
         <uProt>0</uProt>
       </DebugFlag>
       <Tracepoint>
@@ -252,17 +248,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-<<<<<<< HEAD
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
-      <CurrentLine>34</CurrentLine>
-=======
-      <ColumnNumber>9</ColumnNumber>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>84</TopLine>
-      <CurrentLine>115</CurrentLine>
->>>>>>> 553db7fd37d1a1784264f1a0a3d2d9b6a8f780af
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -291,17 +280,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-<<<<<<< HEAD
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>1</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
-=======
-      <ColumnNumber>17</ColumnNumber>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>26</TopLine>
-      <CurrentLine>53</CurrentLine>
->>>>>>> 553db7fd37d1a1784264f1a0a3d2d9b6a8f780af
+      <TopLine>1</TopLine>
+      <CurrentLine>25</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\inputs.c</PathWithFileName>
       <FilenameWithoutPath>inputs.c</FilenameWithoutPath>
