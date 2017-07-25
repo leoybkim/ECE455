@@ -1,4 +1,4 @@
---cpu Cortex-M3 "startup_lpc17xx.o" "glcd_spi_lpc1700.o" "system_lpc17xx.o" "main.o" "inputs.o" 
+--cpu Cortex-M3 "startup_lpc17xx.o" "glcd_spi_lpc1700.o" "system_lpc17xx.o" "main.o" "joystick.o" "potentiometer.o" 
 --strict --scatter "lab4.sct" 
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
 --info sizes --info totals --info unused --info veneers 

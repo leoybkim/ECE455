@@ -17,7 +17,7 @@ I (c:\Software\Keil\ARM\CMSIS\Include\core_cm3.h)(0x5006D242)
 I (c:\Software\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x505A054C)
 I (c:\Software\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDB3D1C)
 I (c:\Software\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F58EE42)
-F (.\main.c)(0x597140B4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "main.o" --omf_browse "main.crf" --depend "main.d")
+F (.\main.c)(0x5977202F)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "main.o" --omf_browse "main.crf" --depend "main.d")
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB17B46)
 I (c:\Software\Keil\ARM\Inc\NXP\LPC17xx\lpc17xx.h)(0x4FF5A98C)
 I (c:\Software\Keil\ARM\CMSIS\Include\core_cm3.h)(0x5006D242)
@@ -28,14 +28,23 @@ I (c:\Software\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F58EE42)
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\math.h)(0x4EB17B48)
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\string.h)(0x4EB17B46)
 I (glcd.h)(0x4CA4F00E)
-I (inputs.h)(0x59655FAF)
+I (joystick.h)(0x59770FF1)
+I (potentiometer.h)(0x59771670)
 F (.\GLCD.h)(0x4CA4F00E)()
-F (.\inputs.c)(0x59655FAF)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "inputs.o" --omf_browse "inputs.crf" --depend "inputs.d")
+F (.\joystick.c)(0x59771260)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "joystick.o" --omf_browse "joystick.crf" --depend "joystick.d")
 I (c:\Software\Keil\ARM\Inc\NXP\LPC17xx\lpc17xx.h)(0x4FF5A98C)
 I (c:\Software\Keil\ARM\CMSIS\Include\core_cm3.h)(0x5006D242)
 I (c:\Software\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB17B44)
 I (c:\Software\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x505A054C)
 I (c:\Software\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDB3D1C)
 I (c:\Software\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F58EE42)
-I (inputs.h)(0x59655FAF)
-F (.\inputs.h)(0x59655FAF)()
+I (joystick.h)(0x59770FF1)
+F (.\joystick.h)(0x59770FF1)()
+F (.\potentiometer.c)(0x59771670)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I c:\Software\Keil\ARM\RV31\INC -I c:\Software\Keil\ARM\CMSIS\Include -I c:\Software\Keil\ARM\Inc\NXP\LPC17xx -o "potentiometer.o" --omf_browse "potentiometer.crf" --depend "potentiometer.d")
+I (c:\Software\Keil\ARM\Inc\NXP\LPC17xx\lpc17xx.h)(0x4FF5A98C)
+I (c:\Software\Keil\ARM\CMSIS\Include\core_cm3.h)(0x5006D242)
+I (c:\Software\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB17B44)
+I (c:\Software\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x505A054C)
+I (c:\Software\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDB3D1C)
+I (c:\Software\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F58EE42)
+I (potentiometer.h)(0x59771670)
