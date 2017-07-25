@@ -185,6 +185,10 @@ int main (void)
                 if (throttle > 100) {
                     throttle = 100;
                 }
+                else if (throttle < 0)
+                {
+                    throttle = 0;
+                }
             }
 
 			sprintf(str_target_speed, "TARGET_V: %d   ", target_speed);
