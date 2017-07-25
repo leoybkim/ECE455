@@ -1,5 +1,0 @@
---cpu Cortex-M3 "startup_lpc17xx.o" "fault_injection.o" "system_lpc17xx.o" "glcd_spi_lpc1700.o" "inputs.o" "main.o" "heterogeneous.o" "redundancy.o" "verification.o" "voting.o" 
---strict --scatter "lab2.sct" 
---summary_stderr --info summarysizes --map --xref --callgraph --symbols 
---info sizes --info totals --info unused --info veneers 
- --list ".\lab2.map" -o lab2.axf
