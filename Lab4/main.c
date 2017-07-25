@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <lpc17xx.h>
 #include <math.h>
 #include <string.h>
@@ -19,12 +20,12 @@ bool brake;
 
 /* car speed km/h */
 //TODO change to floats
-uint32_t target_speed;
-uint32_t measured_speed;
+double target_speed;
+double measured_speed;
 
 /* engine throttle in % */
 //TODO change to floats
-uint32_t throttle;
+double throttle;
 
 // initial board setup
 void init_setup (void)
@@ -103,9 +104,10 @@ for the associated ASIL level*/
 int main (void)
 {
 	 /* Debugging tools */
-    char str_joystick[20];
+    //char str_joystick[20];
 	char str_potentiometer[20];
 	char str_target_speed[20];
+	char str_throttle[20];
 
     /* variables */
     uint32_t joystick_val = 0;
@@ -131,7 +133,7 @@ int main (void)
         	GLCD_DisplayString(0, 0, 1, "JOYSTICK: UP     ");
             if (engaged)
             {
-                target_speed += 5;
+                target_speed += 5.0;
             }
         }
         else if (joystick_val == K_DOWN)
@@ -140,7 +142,7 @@ int main (void)
         	GLCD_DisplayString(0, 0, 1, "JOYSTICK: DOWN   ");
             if (engaged)
             {
-                target_speed -= 5;
+                target_speed -= 5.0;
             }
         }
         else if (joystick_val == K_LEFT)
@@ -172,18 +174,18 @@ int main (void)
             /* when transitioning from disengaged to engaged */
             if (target_speed == 0)
             {
-    			target_speed = potentiometer_val; // set initial target speed as current measured speed
-                throttle = 50;
+    			target_speed = (double) potentiometer_val; // set initial target speed as current measured speed
+                throttle = 50.0;
             }
 
             /* feedback loop */
-            measured_speed = potentiometer_val;
+            measured_speed = (double) potentiometer_val;
             if (abs(target_speed - measured_speed) > 2.5)
             {
                 // change throttle
                 throttle += K * (target_speed - measured_speed);
-                if (throttle > 100) {
-                    throttle = 100;
+                if (throttle > 100.0) {
+                    throttle = 100.0;
                 }
                 else if (throttle < 0)
                 {
@@ -191,30 +193,34 @@ int main (void)
                 }
             }
 
-			sprintf(str_target_speed, "TARGET_V: %d   ", target_speed);
+			sprintf(str_target_speed, "TARGET_V: %.2f   ", target_speed);
+			sprintf(str_throttle, "THROTTLE: %.2f    ", throttle);
 			GLCD_DisplayString(4, 0, 1, "CRUISE CTRL: ON  ");
 			GLCD_DisplayString(5, 0, 1, (unsigned char*) str_target_speed);
+			GLCD_DisplayString(6, 0, 1, (unsigned char*) str_throttle);
 		}
 		else
 		{
             target_speed = 0;
+			throttle = 0;
 			GLCD_DisplayString(4, 0, 1, "CRUISE CTRL: OFF  ");
 			GLCD_DisplayString(5, 0, 1, "TARGET_V:      ");
+			GLCD_DisplayString(6, 0, 1, "THROTTLE:      ");
 		}
 
 		/* Brake display */
 		if (brake == TRUE)
 		{
-			GLCD_DisplayString(6, 0, 1, "BRAKE: ON  ");
+			GLCD_DisplayString(7, 0, 1, "BRAKE: ON  ");
 		}
 		else
 		{
-			GLCD_DisplayString(6, 0, 1, "BRAKE: OFF  ");
+			GLCD_DisplayString(7, 0, 1, "BRAKE: OFF  ");
 		}
 
 
         __WFI(); // stay in low power mode until interrupt occurs
 	}
 
-	return 0;
+	//return 0;
 }
